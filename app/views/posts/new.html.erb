@@ -14,6 +14,11 @@
     <%= f.collection_select(:difficulity_id, Difficulity.all, :id, :name, {}, {class:"judge-correct-select"}) %>
   </div>
 
+  <div class="field">
+    <%= f.label :gif_url %><br />
+      <%= f.text_field :gif_url, class:"gif_url", id:"name" %>
+  </div>
+
   <div class="actions">
     <%= f.submit "投稿" %>
   </div>

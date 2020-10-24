@@ -13,9 +13,10 @@
 ActiveRecord::Schema.define(version: 2020_10_24_054755) do
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "gif_url"
     t.integer "judge_correct_id", null: false
     t.integer "difficulity_id", null: false
-    t.integer "exp", null: false
+    t.integer "exp"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
