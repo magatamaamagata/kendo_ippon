@@ -1,4 +1,4 @@
-class Difficulity < ApplicationRecord
+class Difficulity < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: '練習試合' },

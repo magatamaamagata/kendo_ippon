@@ -1,4 +1,4 @@
-class JudgeCorrect < ApplicationRecord
+class JudgeCorrect < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: '一本' },
