@@ -1,6 +1,6 @@
 require '_helper'
 
-class User < ActiveSupport::Case
+class Grade < ActiveSupport::Case
   #  "the truth" do
   #   assert true
   # end
