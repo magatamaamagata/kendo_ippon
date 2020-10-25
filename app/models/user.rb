@@ -3,7 +3,7 @@ class User < ApplicationRecord
   validates :nickname, :grade_id, presence: true
   has_many :posts
   has_many :judges
-  has_one :level
+  # has_one :level
   # extend ActiveHash::Associations::ActiveRecordExtensions
   # belongs_to_active_hash :grade
   # validates :nickname,:grade, presence: true
