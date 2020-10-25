@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_10_24_054755) do
     t.integer "difficulity_id", null: false
     t.integer "exp"
     t.bigint "user_id", null: false
+    t.text "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"

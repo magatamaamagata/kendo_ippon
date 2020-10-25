@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.integer :difficulity_id,     null: false
       t.integer :exp
       t.references :user,             null: false, foreign_key: true
+      t.text :description, null:false
       t.timestamps
     end
   end
