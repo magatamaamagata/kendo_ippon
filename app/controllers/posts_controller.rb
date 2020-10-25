@@ -21,11 +21,8 @@ class PostsController < ApplicationController
 
 
   def show
-    if @post.judge_correct == @post.judge_id
-      render partial: "shared/correct"
-    else
-      render partial: "shared/incorrect"
-    end
+
+  end
 
   def edit
   end
