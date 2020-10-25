@@ -1,0 +1,53 @@
+<div class="post-show">
+  <div class="post-box">
+    <h2 class="name">
+      <%= "一本判定動画#{@post.id}" %>
+    </h2>
+
+    <% if user_signed_in? && current_user.id == @post.user.id %>
+      <%= link_to '商品の編集', edit_post_path(params[:id]), method: :get, class: "post-red-btn" %>
+      <p class='or-text'>or</p>
+      <%= link_to '削除', post_path(params[:id]), method: :delete, class:'post-destroy' %>
+    <% end %>
+
+    <%= form_with model: @post, local: true do |f| %>
+      <%= f.check_box_tag(:pet_dog) %>
+      <%= f.label_tag(:pet_dog, "I own a dog") %>
+      <%= f.check_box_tag(:pet_cat) %>
+      <%= f.label_tag(:pet_cat, "I own a cat") %>
+    <% end %>
+
+    <div class="post-explain-box">
+      <span><%= @post.description %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-post">投稿者</th>
+          <td class="detail-value"><%= @post.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-post">カテゴリー</th>
+          <td class="detail-value"><%= @post.description %></td>
+        </tr>
+        <tr>
+          <th class="detail-post">商品の状態</th>
+          <td class="detail-value"><%= @post.status.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-post">配送料の負担</th>
+          <td class="detail-value"><%= @post.shipment_fee.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-post">発送元の地域</th>
+          <td class="detail-value"><%= @post.prefecture.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-post">発送日の目安</th>
+          <td class="detail-value"><%= @post.day_to_ship.name %></td>
+        </tr>
+      </tbody>
+    </table>
+
+  <a href="#" class='another-post'><%= "タグ？" %>をもっと見る</a>
+</div>
