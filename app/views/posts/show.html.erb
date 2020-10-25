@@ -1,36 +1,34 @@
 <div class="post-show">
-  <div class="post-box">
     <h2 class="name">
       <%= "一本判定動画#{@post.id}" %>
     </h2>
 
-    <% if user_signed_in? && current_user.id == @post.user.id %>
-      <%= link_to '商品の編集', edit_post_path(params[:id]), method: :get, class: "post-red-btn" %>
+    <%# <% if user_signed_in? && current_user.id == @post.user.id 条件分岐はあとで%> %>
+      <%= link_to '編集', edit_post_path(params[:id]), method: :get, class: "post-red-btn" %>
       <p class='or-text'>or</p>
       <%= link_to '削除', post_path(params[:id]), method: :delete, class:'post-destroy' %>
-    <% end %>
+    <%# <% end 条件分岐はあとで%> %>
 
-    <%= form_with model: @post, local: true do |f| %>
-      <%= f.check_box_tag(:pet_dog) %>
-      <%= f.label_tag(:pet_dog, "I own a dog") %>
-      <%= f.check_box_tag(:pet_cat) %>
-      <%= f.label_tag(:pet_cat, "I own a cat") %>
-    <% end %>
+    <%# <% unless user_signed_in? || current_user.id != @post.user.id 条件分岐はあとで%> %>
+      <%= form_with(model: [@post, @judge] , local: true) do |f| %>
+        <div class="post-explain-box">
+          <span><%= @post.description %></span>
+        </div>
+        <div class="field">
+          <%= f.label :judge_correct_id %><br />
+          <%= f.collection_select(:judge_correct_id, JudgeCorrect.all, :id, :name, {}, {class:"judge-correct-select"}) %>
+        </div>
+        <div class="actions">
+        
+        <div class="field">
+      <%= f.label :comment %><br />
+      <%= f.text_area :comment, class:"comment", id:"name", placeholder:"例) 四段" %>
+  </div>
+          <%= f.submit "正解を見る" %>
+        </div>
+      <% end %>
+    <%# <% end条件分岐はあとで %> %>
 
-    <div class="post-explain-box">
-      <span><%= @post.description %></span>
-    </div>
-    <table class="detail-table">
-      <tbody>
-        <tr>
-          <th class="detail-post">投稿者</th>
-          <td class="detail-value"><%= @post.user.nickname %></td>
-        </tr>
-        <tr>
-          <th class="detail-post">カテゴリー</th>
-          <td class="detail-value"><%= @post.description %></td>
-        </tr>
-        <tr>
-      </tbody>
-    </table>
+
+
 </div>
