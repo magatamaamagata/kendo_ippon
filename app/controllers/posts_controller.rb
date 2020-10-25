@@ -12,7 +12,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    binding.pry
     if @post.save
       redirect_to root_path
     else
@@ -22,7 +21,11 @@ class PostsController < ApplicationController
 
 
   def show
-  end
+    if @post.judge_correct == @post.judge_id
+      render partial: "shared/correct"
+    else
+      render partial: "shared/incorrect"
+    end
 
   def edit
   end
@@ -52,7 +55,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:judge_correct_id, :difficulity_id,:gif_url,:movie).merge(user_id: current_user.id)
+    params.require(:post).permit(:judge_correct_id, :difficulity_id, :gif_url, :movie, :description).merge(user_id: current_user.id)
   end
 
 end
