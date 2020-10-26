@@ -1,6 +1,6 @@
 <div class="post-show">
     <h2 class="name">
-      <%= "一本判定動画#{@post.id}" %>
+      <%= image_tag "#{@post.gif_url}/raw", alt: "一本判定動画#{@post.id}" %>
     </h2>
 
     <%# <% if user_signed_in? && current_user.id == @post.user.id 条件分岐はあとで%> %>
