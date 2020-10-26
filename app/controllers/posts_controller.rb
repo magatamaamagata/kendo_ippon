@@ -21,7 +21,6 @@ class PostsController < ApplicationController
 
 
   def show
-    @post = Post.find(params[:id])
     @judge = Judge.new
 
   end

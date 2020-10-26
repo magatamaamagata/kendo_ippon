@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_one_attached :video
 
   belongs_to :user
-  has_many :judges
+  has_many :judges, dependent: :destroy
   
   validates :judge_correct, :difficulity, presence: true
   validates :judge_correct_id, :difficulity_id, numericality: { other_than: 1 } 
