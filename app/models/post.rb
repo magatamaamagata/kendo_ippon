@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :judge_correct 
   belongs_to_active_hash :difficulity
+  has_one_attached :video
 
   belongs_to :user
   has_many :judges

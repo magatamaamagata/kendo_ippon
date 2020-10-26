@@ -11,6 +11,7 @@
           <div class='post-info'>
             <h3 class='post-gif'>
               <%# <%= image_tag "#{post.gif_url}/raw", alt: "一本判定動画#{post.id}" %>
+                    <%# <%= image_tag post.preview(resize: "100x100>") %> %>
             </h3>
             <div class='post-price'>
               <%= post.difficulity.name %>

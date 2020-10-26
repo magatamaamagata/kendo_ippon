@@ -2,6 +2,11 @@
     <h2 class="name">
       <%= image_tag "#{@post.gif_url}/raw", alt: "一本判定動画#{@post.id}" %>
     </h2>
+<% if @post.video.attached? %>
+  <%# <%= video_tag rails_blob_path(@post.video) %> %>
+    <video src="<%= rails_blob_path(@post.video) %>" type="video/mp4" controls></video>
+
+<% end %>
 
     <%# <% if user_signed_in? && current_user.id == @post.user.id 条件分岐はあとで%> %>
       <%= link_to '編集', edit_post_path(params[:id]), method: :get, class: "post-red-btn" %>
