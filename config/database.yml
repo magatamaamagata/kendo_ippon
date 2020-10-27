@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: kendo_ippon_production
-  username: kendo_ippon
-  password: <%= ENV['KENDO_IPPON_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
