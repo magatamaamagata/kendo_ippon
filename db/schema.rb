@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_053925) do
+ActiveRecord::Schema.define(version: 2020_10_29_133200) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_10_26_053925) do
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "gif_url"
+    t.string "url"
     t.integer "judge_correct_id", null: false
     t.integer "difficulity_id", null: false
     t.integer "exp"
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 2020_10_26_053925) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "skill", null: false
+    t.bigint "user_id", null: false
+    t.text "description", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_skills_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -74,4 +83,5 @@ ActiveRecord::Schema.define(version: 2020_10_26_053925) do
   add_foreign_key "judges", "posts"
   add_foreign_key "judges", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "skills", "users"
 end
