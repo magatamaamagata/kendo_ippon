@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :posts do
     resources :judges, only: [:create,:index]
   end
+  resources :skills
+  resources :compares, only: [:create,:index] do
+    resources :comments
+  end
 end
