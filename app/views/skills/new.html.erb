@@ -1,0 +1,20 @@
+<%= render "shared/header" %>
+
+<h2>新規投稿</h2>
+
+<%= form_with model: @skill, local: true do |f| %>
+
+  <div class="field">
+    <%= f.label :video %><br />
+      <%= f.file_field :video, class:"video", id:"name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :skill %><br />
+      <%= f.text_field :skill, class:"skill", id:"name" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "見比べる" %>
+  </div>
+<% end %>
