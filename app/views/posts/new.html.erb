@@ -6,13 +6,11 @@
 
   <div class="field">
     <%= f.label :judge_correct_id %><br />
-      <%# <%= f.text_area :judge_correct_id, class:"grade-select", id:"name" %> %>
     <%= f.collection_select(:judge_correct_id, JudgeCorrect.all, :id, :name, {}, {class:"judge-correct-select"}) %>
   </div>
 
   <div class="field">
     <%= f.label :difficulity_id %><br />
-      <%# <%= f.text_area :difficulity_id, class:"difficulity-select", id:"name" %> %>
     <%= f.collection_select(:difficulity_id, Difficulity.all, :id, :name, {}, {class:"judge-correct-select"}) %>
   </div>
 
