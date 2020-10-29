@@ -57,9 +57,8 @@ ActiveRecord::Schema.define(version: 2020_10_29_133200) do
   end
 
   create_table "skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "skill", null: false
+    t.string "technique", null: false
     t.bigint "user_id", null: false
-    t.text "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_skills_on_user_id"
