@@ -4,7 +4,7 @@ class SkillsController < ApplicationController
   # before_action :move_to_index, only: [:edit, :update, :delete]
 
   def index
-    @skills = Post.includes(:user).order('created_at DESC')
+    @skills = Skill.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -21,7 +21,8 @@ class SkillsController < ApplicationController
   end
 
   def show
-    # @compare = Compare.new
+    @compare = Compare.new
+    @skill = Skill.find(params[:id])
   end
 
   def edit

@@ -53,9 +53,8 @@
       <%# <%= image_tag "#{@post.gif_url}/raw", alt: "一本判定動画#{@post.id}" %> %>
     </h2>
 <%# <% if @post.video.attached? %> %>
-  <%# <%= video_tag rails_blob_path(@post.video) %> %>
+  <%= video_tag rails_blob_path(@post.video) %>
     <%# <video width="480" height="270" src="<%= rails_blob_path(@post.video)" type="video/mp4" controls></video> %> %>
-<div id="player"></div>
 
 <%# <% end %> %>
 <%# <iframe width="480" height="270" src="https://www.youtube.com/embed/zPfkzbiukqw?start=20&end=30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> %>

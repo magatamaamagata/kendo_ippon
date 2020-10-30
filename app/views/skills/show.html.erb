@@ -17,7 +17,8 @@
     <%# <% end 条件分岐はあとで%> %>
 
     <%# <% unless user_signed_in? || current_user.id != @skill.user.id 条件分岐はあとで%> %>
-      <%= form_with(model: @skill , local: true) do |f| %>
+      <%= form_with(model: [@skill, @compare] , local: true) do |f| %>
+      <h2>上手い人との差</h2>
         <div class="field">
           <%= f.label "充実した気勢" %><br />
             <%= f.text_field :sprits, class:"sprits", id:"name" %>
@@ -48,13 +49,15 @@
             <%= f.text_field :zanshin, class:"zanshin", id:"name" %>
         </div>
 
+        <h2>改善すること</h2>
+
         <div class="field">
-          <%= f.label "足りないこと" %><br />
+          <%= f.label "充実した気勢" %><br />
             <%= f.text_field :sprits2, class:"sprits2", id:"name" %>
         </div>
 
         <div class="field">
-          <%= f.label "足りないこと" %><br />
+          <%= f.label "適正な姿勢" %><br />
             <%= f.text_field :posture2, class:"posture2", id:"name" %>
         </div>
 
@@ -74,7 +77,7 @@
         </div>
 
         <div class="field">
-          <%= f.label "斬新" %><br />
+          <%= f.label "残心" %><br />
             <%= f.text_field :zanshin2, class:"zanshin2", id:"name" %>
         </div>
 

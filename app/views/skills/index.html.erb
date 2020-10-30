@@ -10,12 +10,8 @@
         <li class='list'>
           <%= link_to "詳細",skill_path(skill.id)  %>
           <div class='skill-info'>
-            <h3 class='skill-gif'>
-              <%# <%= image_tag "#{skill.gif_url}/raw", alt: "一本判定動画#{skill.id}" %>
-                    <%# <%= image_tag skill.preview(resize: "100x100>") %> %>
-            </h3>
             <div class='skill-price'>
-              <%= skill.difficulity.name %>
+              <%= skill.technique %>
             </div>
           </div>
         </li>

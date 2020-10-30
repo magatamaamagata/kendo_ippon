@@ -1,0 +1,20 @@
+記録　日付
+動画と自分のコメントを見られる
+<%= link_to '編集', edit_skill_path(params[:skill_id]), method: :get, class: "skill-red-btn" %>
+<%= link_to '削除', skill_path(params[:skill_id]), method: :delete, class:'skill-destroy' %>
+  <%= video_tag rails_blob_path(@skill.video) %>
+  <%=@skill.technique %>
+  <%=@skill.compare.sprits %>
+  <%=@skill.compare.sprits2%>
+  <%=@skill.compare.sword %>
+  <%=@skill.compare.sword2 %>
+  <%=@skill.compare.position %>
+  <%=@skill.compare.position2 %>
+  <%=@skill.compare.zanshin%>
+  <%=@skill.compare.zanshin2%>
+  <%=@skill.compare.notice%>
+
+<%= link_to "トップへ", root_path,  class: "top" %>
+
+他人のコメントもある。
+
