@@ -1,0 +1,27 @@
+<%= render "shared/header" %>
+<h1>唯心一刀</h1>
+
+<li><%= link_to "技を比較する", new_skill_path,  class: "skill" %></li>
+
+  <div class='skill-contents'>
+    <h2 class='title'>投稿一覧</h2>
+    <ul class='skill-lists'>
+      <% @skills.each do |skill| %>
+        <li class='list'>
+          <%= link_to "詳細",skill_path(skill.id)  %>
+          <div class='skill-info'>
+            <h3 class='skill-gif'>
+              <%# <%= image_tag "#{skill.gif_url}/raw", alt: "一本判定動画#{skill.id}" %>
+                    <%# <%= image_tag skill.preview(resize: "100x100>") %> %>
+            </h3>
+            <div class='skill-price'>
+              <%= skill.difficulity.name %>
+            </div>
+          </div>
+        </li>
+      <%end%>
+    </ul>
+  </div>
+  <li><%= link_to "クイズはこちら", posts_path,  class: "post" %></li>
+
+<%= render "shared/footer" %>
