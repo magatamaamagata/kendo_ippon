@@ -6,6 +6,7 @@ class ComparesController < ApplicationController
     def index
       @compare = Compare.find(params[:skill_id])
       @skill = Skill.find(params[:skill_id])
+      comments = Comments.
     end
   
     def create
