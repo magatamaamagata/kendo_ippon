@@ -6,9 +6,15 @@
   <div class='skill-contents'>
     <h2 class='title'>投稿一覧</h2>
     <ul class='skill-lists'>
+
       <% @skills.each do |skill| %>
         <li class='list'>
+        <% if user_signed_in? && skill.user.id == current_user.id %>
           <%= link_to "詳細",skill_path(skill.id)  %>
+        <% else %>
+          <%= link_to "詳細",skill_compares_path(skill.id)  %>
+        <% end %>
+
           <div class='skill-info'>
             <div class='skill-price'>
               <%= skill.technique %>

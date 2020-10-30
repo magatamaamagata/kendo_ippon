@@ -13,6 +13,23 @@
   <%=@skill.compare.zanshin%>
   <%=@skill.compare.zanshin2%>
   <%=@skill.compare.notice%>
+<div id="list">
+</div>
+<% @comments.each do |comment| %>
+  <div class="comment" data-id = <%= comment.id %> data-check=<%= comment.checked %>>
+    <div class="comment-date">
+      投稿日時：<%= comment.created_at %>
+    </div>
+    <div class="comment-content">
+      <%= comment.content %>
+    </div>
+  </div>
+<% end %>
+
+<%= form_with url: "/comments", method: :comment,id: "form" do |form| %>
+  <%= form.text_field :content  , id: "content"%>
+  <%= form.submit '投稿する' , id: "submit" %>
+<% end %>
 
 <%= link_to "トップへ", root_path,  class: "top" %>
 
