@@ -14,15 +14,14 @@ class SkillsController < ApplicationController
   def create
     @skill = Skill.new(skill_params)
     if @skill.save
-      redirect_to root_path
+      redirect_to skill_path(@skill.id)
     else
       render :new
     end
   end
 
-
   def show
-    @compare = Compare.new
+    # @compare = Compare.new
   end
 
   def edit
@@ -45,7 +44,7 @@ class SkillsController < ApplicationController
   def set_skill
     @skill = Skill.find(params[:id])
   end
-  
+
   def move_to_index
     unless user_signed_in? && (current_user.id == @skill.user_id)
       redirect_to root_path 
@@ -53,7 +52,7 @@ class SkillsController < ApplicationController
   end
 
   def skill_params
-    params.permit(:technique, :video).merge(user_id: current_user.id)
+    params.require(:skill).permit(:technique, :video).merge(user_id: current_user.id)
   end
 
 end
