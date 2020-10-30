@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_133200) do
+ActiveRecord::Schema.define(version: 2020_10_30_023301) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,27 @@ ActiveRecord::Schema.define(version: 2020_10_29_133200) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "compares", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "sprits"
+    t.text "posture"
+    t.text "bamboo"
+    t.text "position"
+    t.text "sword"
+    t.text "zanshin"
+    t.text "sprits2"
+    t.text "posture2"
+    t.text "bamboo2"
+    t.text "position2"
+    t.text "sword2"
+    t.text "zanshin2"
+    t.text "notice"
+    t.string "public", null: false
+    t.bigint "skill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["skill_id"], name: "index_compares_on_skill_id"
   end
 
   create_table "judges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -79,6 +100,7 @@ ActiveRecord::Schema.define(version: 2020_10_29_133200) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "compares", "skills"
   add_foreign_key "judges", "posts"
   add_foreign_key "judges", "users"
   add_foreign_key "posts", "users"
