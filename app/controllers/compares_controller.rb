@@ -6,7 +6,8 @@ class ComparesController < ApplicationController
     def index
       @compare = Compare.find(params[:skill_id])
       @skill = Skill.find(params[:skill_id])
-      comments = Comments.
+      @comment = Comment.new
+      @comments = Comment.includes(:user,:skill,:compare).order('created_at DESC')
     end
   
     def create
@@ -31,7 +32,7 @@ class ComparesController < ApplicationController
   
     def compare_params
       @skill = Skill.find(params[:skill_id])
-      params.require(:compare).permit(:sprits, :posture,:bamboo,:position,:sword,:zanshin,:sprits2,:posture2,:bamboo2,:position2,:sword2,:zanshin2,:notice,:public).merge(skill_id: @skill.id)
+      params.require(:compare).permit(:sprits, :posture,:bamboo,:position,:sword,:zanshin,:sprits2,:posture2,:bamboo2,:position2,:sword2,:zanshin2,:notice,:public).merge(skill_id: @skill.id, compare_id:@skill.id)
     end
   
 end

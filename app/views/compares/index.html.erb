@@ -15,6 +15,14 @@
   <%=@skill.compare.notice%>
 <div id="list">
 </div>
+<%= form_with model: [@comment,@skill,@compare],url:"/skills/#{@skill.id}/compares/#{@skill.id}/comments", method: :post, id: "form" do |f| %>
+  <%= f.text_field :comment  , id: "comment"%>
+  <%= f.submit '投稿する' , id: "submit" %>
+<% end %>
+
+<div id="list">
+</div>
+
 <% @comments.each do |comment| %>
   <div class="comment" data-id = <%= comment.id %> data-check=<%= comment.checked %>>
     <div class="comment-date">
@@ -24,11 +32,6 @@
       <%= comment.content %>
     </div>
   </div>
-<% end %>
-
-<%= form_with url: "/comments", method: :comment,id: "form" do |form| %>
-  <%= form.text_field :content  , id: "content"%>
-  <%= form.submit '投稿する' , id: "submit" %>
 <% end %>
 
 <%= link_to "トップへ", root_path,  class: "top" %>

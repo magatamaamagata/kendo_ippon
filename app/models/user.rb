@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :judges, dependent: :destroy
   has_many :skills, dependent: :destroy
+  has_many :comments, dependent: :destroy
   # has_one :level
   # extend ActiveHash::Associations::ActiveRecordExtensions
   # belongs_to_active_hash :grade
