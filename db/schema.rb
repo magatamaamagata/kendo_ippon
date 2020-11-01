@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 2020_10_30_121703) do
     t.text "sword2", null: false
     t.text "zanshin2", null: false
     t.text "notice", null: false
-    t.string "public", null: false
     t.bigint "skill_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

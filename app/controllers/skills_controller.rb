@@ -13,16 +13,18 @@ class SkillsController < ApplicationController
 
   def create
     @skill = Skill.new(skill_params)
-    if @skill.save
-      redirect_to skill_path(@skill.id)
-    else
-      render :new
+    unless @skill.valid?
+      render :new and return
     end
+   session["skill.movie_data"] = {skill: @skill.attributes}
+  #  session["skill.movie_data"][:skill]["video"]  = params[:skill][:video]
+   @compare = @skill.build_compare
+   render :new_compare
   end
 
   def show
-    @compare = Compare.new
     @skill = Skill.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit
@@ -41,7 +43,22 @@ class SkillsController < ApplicationController
     redirect_to root_path
   end
 
+  def create_compare
+    @skill = Skill.new(session["skill.movie_data"]["skill"])
+    @compare = Compare.new(compare_params)
+    # unless @compare.valid?
+    #   render :new_compare and return
+    # end
+    # @skill.build_compare(@compare.attributes)
+    @skill.save
+    @compare.save
+    binding.pry
+    session["skill.movie_data"]["skill"].clear
+    redirect_to root_path
+  end
+ 
   private
+ 
   def set_skill
     @skill = Skill.find(params[:id])
   end
@@ -54,6 +71,12 @@ class SkillsController < ApplicationController
 
   def skill_params
     params.require(:skill).permit(:technique, :video).merge(user_id: current_user.id)
+  end
+
+  def compare_params
+    # unless @compare.nil?
+    params.permit(:sprits, :posture,:bamboo,:position,:sword,:zanshin,:sprits2,:posture2,:bamboo2,:position2,:sword2,:zanshin2,:notice).merge(skill_id: params[:skill_id])
+    # end
   end
 
 end

@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :skills  do
       resources :comments,only: [:create]
   end
-
+  get 'compares', to: 'skills#new_compare'
+  post 'compares', to: 'skills#create_compare'
 end

@@ -1,15 +1,10 @@
-
-
-
-
-
-
-
-
-  記録　日付
+  記録日付
 動画と自分のコメントを見られる
+    <%# <% if user_signed_in? && current_user.id == @skill.user.id 条件分岐はあとで%> %>
 <%= link_to '編集', edit_skill_path(params[:skill_id]), method: :get, class: "skill-red-btn" %>
 <%= link_to '削除', skill_path(params[:skill_id]), method: :delete, class:'skill-destroy' %>
+    <%# <% end 条件分岐はあとで%> %>
+
   <%= video_tag rails_blob_path(@skill.video) %>
   <%=@skill.technique %>
   <%=@skill.compare.sprits %>
