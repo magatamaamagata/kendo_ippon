@@ -34,31 +34,29 @@ ActiveRecord::Schema.define(version: 2020_10_30_121703) do
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "comment", null: false
+    t.text "text", null: false
     t.bigint "skill_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "compare_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["compare_id"], name: "index_comments_on_compare_id"
     t.index ["skill_id"], name: "index_comments_on_skill_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "compares", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "sprits"
-    t.text "posture"
-    t.text "bamboo"
-    t.text "position"
-    t.text "sword"
-    t.text "zanshin"
-    t.text "sprits2"
-    t.text "posture2"
-    t.text "bamboo2"
-    t.text "position2"
-    t.text "sword2"
-    t.text "zanshin2"
-    t.text "notice"
+    t.text "sprits", null: false
+    t.text "posture", null: false
+    t.text "bamboo", null: false
+    t.text "position", null: false
+    t.text "sword", null: false
+    t.text "zanshin", null: false
+    t.text "sprits2", null: false
+    t.text "posture2", null: false
+    t.text "bamboo2", null: false
+    t.text "position2", null: false
+    t.text "sword2", null: false
+    t.text "zanshin2", null: false
+    t.text "notice", null: false
     t.string "public", null: false
     t.bigint "skill_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -112,7 +110,6 @@ ActiveRecord::Schema.define(version: 2020_10_30_121703) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "comments", "compares"
   add_foreign_key "comments", "skills"
   add_foreign_key "comments", "users"
   add_foreign_key "compares", "skills"
