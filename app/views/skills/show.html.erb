@@ -7,7 +7,6 @@
 
   <% if @skill.video.attached? %>
   <%= video_tag rails_blob_path(@skill.video) %>
-  <%binding.pry%>
   <% end %>  
   <%# <%=@skill.compare.sprits %> %>
   <%# <%=@skill.compare.sprits2%> %>
@@ -29,7 +28,8 @@
 </div>
   <%if @comments.present?%>%
 <% @comments.each do |comment| %>
-  <div class="comment" data-id = <%= comment.id %> data-check=<%= comment.checked %>>
+  <div class="comment" data-skillid = <%= comment.skill.id %> data-compareid = <%= comment.compare.id %>>
+
     <div class="comment-date">
       投稿日時：<%= comment.created_at %>
     </div>

@@ -12,14 +12,12 @@ class SkillsController < ApplicationController
   end
 
   def create
-    @skill = Skill.new(skill_params)
-    unless @skill.valid?
-      render :new and return
+    @skill = Skill.create(skill_params)
+    if @skill.valid?
+      redirect_to new_skill_compare_path(@skill.id)
+    else
+      render :new
     end
-   session["skill.movie_data"] = {skill: @skill.attributes}
-  #  session["skill.movie_data"][:skill]["video"]  = params[:skill][:video]
-   @compare = @skill.build_compare
-   render :new_compare
   end
 
   def show
@@ -40,20 +38,6 @@ class SkillsController < ApplicationController
 
   def destroy
     @skill.destroy
-    redirect_to root_path
-  end
-
-  def create_compare
-    @skill = Skill.new(session["skill.movie_data"]["skill"])
-    @compare = Compare.new(compare_params)
-    # unless @compare.valid?
-    #   render :new_compare and return
-    # end
-    # @skill.build_compare(@compare.attributes)
-    @skill.save
-    @compare.save
-    binding.pry
-    session["skill.movie_data"]["skill"].clear
     redirect_to root_path
   end
  

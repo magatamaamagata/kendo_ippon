@@ -3,10 +3,15 @@ function comment() {
   submit.addEventListener("click", (e) => {
     const formData = new FormData(document.getElementById("form"));
     const XHR = new XMLHttpRequest();
-    console.log(formData);
-    const params = location.pathname.replace(/[^0-9]/g, '');//skill_idを取得
-    console.log(params);
-    XHR.open("POST", `/skills/${params}/compares/${params}/comments`, true);
+    // const params = location.pathname.replace(/[^0-9]/g, '');//skill_idを取得
+    const post = document.getElementsByClassName("comment");
+    console.log(post)
+    const skillId = post.getAttribute("data-skillid");
+    const compareId = post.getAttribute("data-compareid");
+    console.log(skillId)
+    console.log(compareId)
+    debugger;
+    XHR.open("POST", `/skills/${skillId}/compares/${compareId}/comments`, true);
     XHR.responseType = "json";
     XHR.send(formData);
     XHR.onload = () => {
