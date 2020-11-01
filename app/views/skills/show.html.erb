@@ -1,31 +1,33 @@
   記録日付
 動画と自分のコメントを見られる
     <%# <% if user_signed_in? && current_user.id == @skill.user.id 条件分岐はあとで%> %>
-<%= link_to '編集', edit_skill_path(params[:skill_id]), method: :get, class: "skill-red-btn" %>
-<%= link_to '削除', skill_path(params[:skill_id]), method: :delete, class:'skill-destroy' %>
+<%= link_to '編集', edit_skill_path(params[:id]), method: :get, class: "skill-red-btn" %>
+<%= link_to '削除', skill_path(params[:id]), method: :delete, class:'skill-destroy' %>
     <%# <% end 条件分岐はあとで%> %>
 
+  <% if @skill.video.attached? %>
   <%= video_tag rails_blob_path(@skill.video) %>
-  <%=@skill.technique %>
-  <%=@skill.compare.sprits %>
-  <%=@skill.compare.sprits2%>
-  <%=@skill.compare.sword %>
-  <%=@skill.compare.sword2 %>
-  <%=@skill.compare.position %>
-  <%=@skill.compare.position2 %>
-  <%=@skill.compare.zanshin%>
-  <%=@skill.compare.zanshin2%>
-  <%=@skill.compare.notice%>
+  <%binding.pry%>
+  <% end %>  
+  <%# <%=@skill.compare.sprits %> %>
+  <%# <%=@skill.compare.sprits2%> %>
+  <%# <%=@skill.compare.sword %> %>
+  <%# <%=@skill.compare.sword2 %> %>
+  <%# <%=@skill.compare.position %> %>
+  <%# <%=@skill.compare.position2 %> %>
+  <%# <%=@skill.compare.zanshin%> %>
+  <%# <%=@skill.compare.zanshin2%> %>
+  <%# <%=@skill.compare.notice%> %>
 <div id="list">
 </div>
-<%= form_with model: [@comment,@skill,@compare],url:"/skills/#{@skill.id}/compares/#{@skill.id}/comments", method: :post, id: "form" do |f| %>
+<%= form_with model: [@comment,@skill],url:"/skills/#{@skill.id}/compares", id: "form" do |f| %>
   <%= f.text_field :comment  , id: "comment"%>
   <%= f.submit '投稿する' , id: "submit" %>
 <% end %>
 
 <div id="list">
 </div>
-
+  <%if @comments.present?%>%
 <% @comments.each do |comment| %>
   <div class="comment" data-id = <%= comment.id %> data-check=<%= comment.checked %>>
     <div class="comment-date">
@@ -35,6 +37,7 @@
       <%= comment.content %>
     </div>
   </div>
+<% end %>
 <% end %>
 
 <%= link_to "トップへ", root_path,  class: "top" %>
