@@ -7,7 +7,6 @@
 
   <% if @skill.video.attached? %>
   <%= video_tag rails_blob_path(@skill.video) %>
-  <%binding.pry%>
   <% end %>  
   <%# <%=@skill.compare.sprits %> %>
   <%# <%=@skill.compare.sprits2%> %>
