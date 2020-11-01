@@ -10,7 +10,6 @@ class ComparesController < ApplicationController
 
     if @compare.valid?
       @compare.save
-      binding.pry
       redirect_to skill_path(params[:skill_id])
     else
       render :new
