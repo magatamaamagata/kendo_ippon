@@ -15,7 +15,109 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "見比べる" %>
+    <%= f.submit "比較する" %>
   </div>
+
+<!DOCTYPE html>
+<html>
+<%= render "shared/header" %>
+<div class="skill-show">
+    <h2 class="name">
+    </h2>
+<%# <% if @skill.video.attached? %> %>
+  <%= video_tag rails_blob_path(@skill.video) %>
+  <%= render "technique/men"%>
+
+<%# <% end %> %>
+<%# <iframe width="480" height="270" src="https://www.youtube.com/embed/zPfkzbiukqw?start=20&end=30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> %>
+    <%# <% if user_signed_in? && current_user.id == @skill.user.id 条件分岐はあとで%> %>
+      <%= link_to '編集', edit_skill_path(params[:id]), method: :get, class: "skill-red-btn" %>
+      <p class='or-text'>or</p>
+      <%= link_to '削除', skill_path(params[:id]), method: :delete, class:'skill-destroy' %>
+    <%# <% end 条件分岐はあとで%> %>
+
+    <%# <% unless user_signed_in? || current_user.id != @skill.user.id 条件分岐はあとで%> %>
+      <%= form_with(model: @compare , local: true) do |f| %>
+      <h2>上手い人との差</h2>
+        <div class="field">
+          <%= f.label "充実した気勢" %><br />
+            <%= f.text_field :sprits, class:"sprits", id:"name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "適正な姿勢" %><br />
+            <%= f.text_field :posture, class:"posture", id:"name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "竹刀の打突部" %><br />
+            <%= f.text_field :bamboo, class:"bamboo", id:"name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "打突部位" %><br />
+            <%= f.text_field :position, class:"position", id:"name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "正しい刃筋" %><br />
+            <%= f.text_field :sword, class:"sword", id:"name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "残心" %><br />
+            <%= f.text_field :zanshin, class:"zanshin", id:"name" %>
+        </div>
+
+        <h2>改善すること</h2>
+
+        <div class="field">
+          <%= f.label "充実した気勢" %><br />
+            <%= f.text_field :sprits2, class:"sprits2", id:"name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "適正な姿勢" %><br />
+            <%= f.text_field :posture2, class:"posture2", id:"name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "竹刀の打突部" %><br />
+            <%= f.text_field :bamboo2, class:"bamboo", id:"name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "打突部位" %><br />
+            <%= f.text_field :position2, class:"position", id:"name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "正しい刃筋" %><br />
+            <%= f.text_field :sword2, class:"sword", id:"name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "残心" %><br />
+            <%= f.text_field :zanshin2, class:"zanshin2", id:"name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "気付き" %><br />
+            <%= f.text_area :notice, class:"notice", id:"name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "公開設定" %><br />
+          <%= f.collection_select(:public, JudgeCorrect.all, :id, :name, {}, {class:"public-select"}) %>
+        </div>
+
+      <%= f.submit "投稿する" %>
+    <% end %>
+    <%# <% end条件分岐はあとで %> %>
+</div>
+  </body>
+  </html>
+
+
 
 <% end %>
