@@ -1,9 +1,9 @@
-      <%= form_with url: "compares", local: true do |f| %>
+      <%= form_with model: @compare, local: true do |f| %>
   <%# <%= render "shared/error_messages", resource: @skill %> %>
 
-<%# <% if @skill.video.attached? %> %>
+<%# <% if @skill.video.attached? %>
   <%# <%= video_tag rails_blob_path(@skill.video) %> %>
-<%# <% end %> %>
+<%# <% end %> %> %>
 
 
     <%# <% unless user_signed_in? || current_user.id != @skill.user.id 条件分岐はあとで%> %>
