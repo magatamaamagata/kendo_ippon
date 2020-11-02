@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :skills  do
-    resources :compares do  
-      resources :comments,only: [:create]
-    end
+    resources :compares  
+    resources :comments
   end
 end

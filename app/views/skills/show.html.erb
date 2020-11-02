@@ -17,27 +17,23 @@
   <%# <%=@skill.compare.zanshin%> %>
   <%# <%=@skill.compare.zanshin2%> %>
   <%# <%=@skill.compare.notice%> %>
-<div id="list">
 </div>
-<%= form_with model: [@comment,@skill],url:"/skills/#{@skill.id}/compares", id: "form" do |f| %>
-  <%= f.text_field :comment  , id: "comment"%>
+<%= form_with model: [@skill,@comment], id: "form" do |f| %>
+  <%= f.text_field :text  , id: "comment"%>
   <%= f.submit '投稿する' , id: "submit" %>
 <% end %>
 
-<div id="list">
 </div>
-  <%if @comments.present?%>%
+<div id="list">
 <% @comments.each do |comment| %>
-  <div class="comment" data-skillid = <%= comment.skill.id %> data-compareid = <%= comment.compare.id %>>
-
+  <div id="getid" data-skillid=<%= comment.skill.id %> >
     <div class="comment-date">
       投稿日時：<%= comment.created_at %>
     </div>
     <div class="comment-content">
-      <%= comment.content %>
+      <%= comment.text %>
     </div>
   </div>
-<% end %>
 <% end %>
 
 <%= link_to "トップへ", root_path,  class: "top" %>

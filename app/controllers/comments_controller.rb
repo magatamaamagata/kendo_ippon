@@ -1,14 +1,15 @@
 class CommentsController < ApplicationController
-
+  def new
+    @comment = Comment.new
+    @skill = Skill.find(params[:skill_id])
+  end
   def create
-    @comments = Comment.all
     @comment = Comment.create(comment_params)
-    binding.pry
     render json:{ comment: @comment }
   end
 
   private
   def comment_params
-    params.require(:comment).permit(:text, compare: [:comment]).merge(user_id: current_user.id)
+    params.require(:comment).permit(:text).merge(user_id: current_user.id,skill_id: params[:skill_id])
   end
 end
