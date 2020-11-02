@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_10_30_121703) do
     t.text "sword2", null: false
     t.text "zanshin2", null: false
     t.text "notice", null: false
+    t.integer "public_id", null: false
     t.bigint "skill_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -87,7 +88,7 @@ ActiveRecord::Schema.define(version: 2020_10_30_121703) do
   end
 
   create_table "skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "technique", null: false
+    t.integer "youtube", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
