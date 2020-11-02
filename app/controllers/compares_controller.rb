@@ -18,6 +18,6 @@ class ComparesController < ApplicationController
 
 private
   def compare_params
-    params.require(:compare).permit(:sprits, :posture,:bamboo,:position,:sword,:zanshin,:sprits2,:posture2,:bamboo2,:position2,:sword2,:zanshin2,:notice).merge(skill_id: params[:skill_id])
+    params.require(:compare).permit(:sprits, :posture,:bamboo,:position,:sword,:zanshin,:sprits2,:posture2,:bamboo2,:position2,:sword2,:zanshin2,:notice,:public_id).merge(skill_id: params[:skill_id])
   end
 end

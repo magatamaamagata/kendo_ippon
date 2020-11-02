@@ -56,13 +56,7 @@ class SkillsController < ApplicationController
   end
 
   def skill_params
-    params.require(:skill).permit(:technique, :video).merge(user_id: current_user.id)
-  end
-
-  def compare_params
-    # unless @compare.nil?
-    params.permit(:sprits, :posture,:bamboo,:position,:sword,:zanshin,:sprits2,:posture2,:bamboo2,:position2,:sword2,:zanshin2,:notice).merge(skill_id: params[:skill_id])
-    # end
+    params.require(:skill).permit(:youtube_id, :video).merge(user_id: current_user.id)
   end
 
 end

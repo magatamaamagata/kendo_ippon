@@ -7,3 +7,4 @@ class Youtube < ActiveHash::Base
     { id: 5, name: '突き', url_id: "4"},
   ]
 end
+

@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2020_10_30_121703) do
   end
 
   create_table "skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "youtube", null: false
+    t.integer "youtube_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

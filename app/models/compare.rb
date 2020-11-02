@@ -1,6 +1,6 @@
 class Compare < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :public
+  belongs_to :public
   belongs_to :skill, optional: true
 
   validates :public, presence: true

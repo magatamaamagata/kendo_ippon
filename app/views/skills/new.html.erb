@@ -13,8 +13,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :technique %><br />
-      <%= f.text_field :technique, class:"technique", id:"name" %>
+    <%= f.label :"技名" %><br />
+    <%= f.collection_select(:youtube_id, Youtube.all, :id, :name, {}, {class:"youtube-select"}) %>
   </div>
 
   <div class="actions">
