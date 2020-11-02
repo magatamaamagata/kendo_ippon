@@ -23,6 +23,8 @@ class SkillsController < ApplicationController
   def show
     @skill = Skill.find(params[:id])
     @comment = Comment.new
+    @comments = Comment.includes(:user).order('created_at DESC')
+
   end
 
   def edit
