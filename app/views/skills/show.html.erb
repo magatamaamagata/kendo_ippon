@@ -5,12 +5,11 @@
 <%= link_to '削除', skill_path(params[:id]), method: :delete, class:'skill-destroy' %>
     <%# <% end 条件分岐はあとで%> %>
 
-  <% if @skill.video.attached? %>
-  <%= video_tag rails_blob_path(@skill.video) ,size: "640x360" %>
-  <% end %>  
+  <%# <% if @skill.video.attached? %> %>
+  <%= video_tag rails_blob_path(@skill.video) ,size: "640x360" , controls %>
+  <%# <% end %>   %>
 
   <%# 選択したidによって再生される技に対応する部分テンプレートが表示される。  %>
-  <%= render "technique/men" %>
 
   <h2>気勢に関して</h2>
   <%=@skill.compare.sprits %>
