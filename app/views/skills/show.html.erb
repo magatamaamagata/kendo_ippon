@@ -6,26 +6,26 @@
     <%# <% end 条件分岐はあとで%> %>
 
   <%# <% if @skill.video.attached? %> %>
-  <%= video_tag rails_blob_path(@skill.video) ,size: "640x360" , controls %>
+  <%= video_tag rails_blob_path(@skill.video) ,size: "640x360" , loop: true, autoplay: true, muted: true%>
   <%# <% end %>   %>
 
   <%# 選択したidによって再生される技に対応する部分テンプレートが表示される。  %>
 
   <h2>気勢に関して</h2>
-  <%=@skill.compare.sprits %>
-  <%=@skill.compare.sprits2 %>
+  上級者との差<%=@skill.compare.sprits %>
+  修正点<%=@skill.compare.sprits2 %>
   <h2>刃筋に関して</h2>
-  <%=@skill.compare.sword %>
-  <%=@skill.compare.sword2 %>
+  上級者との差<%=@skill.compare.sword %>
+  修正点<%=@skill.compare.sword2 %>
   <h2>竹刀の打突部に関して</h2>
-  <%=@skill.compare.bamboo %>
-  <%=@skill.compare.bamboo2 %>
+  上級者との差<%=@skill.compare.bamboo %>
+  修正点<%=@skill.compare.bamboo2 %>
   <h2>打突部位に関して</h2>
-  <%=@skill.compare.position %>
-  <%=@skill.compare.position2 %>
+  上級者との差<%=@skill.compare.position %>
+  修正点<%=@skill.compare.position2 %>
   <h2>残心に関して</h2>
-  <%=@skill.compare.zanshin %>
-  <%=@skill.compare.zanshin2 %>
+  上級者との差<%=@skill.compare.zanshin %>
+  修正点<%=@skill.compare.zanshin2 %>
   <h2>気付き</h2>
   <%=@skill.compare.notice %>
 </div>

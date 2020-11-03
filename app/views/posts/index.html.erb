@@ -9,7 +9,7 @@
         <li class='list'>
           <%= link_to "詳細",post_path(post.id)  %>
           <div class='post-info'>
-  <%= video_tag rails_blob_path(@post.video) ,size: "640x360" , controls%>
+  <%= video_tag rails_blob_path(@post.video) ,size: "640x360", loop: true, autoplay: true, muted: true%>
             <div class='post-price'>
               <%= post.difficulity.name %>
             </div>

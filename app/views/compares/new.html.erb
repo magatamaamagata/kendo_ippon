@@ -108,7 +108,9 @@ function hide(name){
     // console.log(e);
     // debugger
   if (result == 1){
+    if (document.getElementById( "sprits" ).value == "なし"){
     document.getElementById( "sprits" ).value = "" ;
+    }
     let a = document.getElementById("sprits")
     a.removeAttribute("type","hidden");
     // if (result ==2){
