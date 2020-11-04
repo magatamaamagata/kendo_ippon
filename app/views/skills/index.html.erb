@@ -13,7 +13,7 @@
           <div class='skill-info'>
             <div class='skill-price'>
               <p>動画</p>
-                <%= video_tag rails_blob_path(skill.video) ,size: "420x300" , loop: true, autoplay: true, muted: true%>
+                <%= link_to (video_tag rails_blob_path(skill.video) ,size: "400x300" , loop: true, autoplay: true, muted: true), skill_path(skill)%>
               <p><%= "技名：#{skill.youtube.name}" %></p>
               <p><%= "投稿者：#{skill.user.nickname}氏" %></p>
             </div>

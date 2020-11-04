@@ -6,8 +6,8 @@ class User < ApplicationRecord
   has_many :skills, dependent: :destroy
   has_many :comments, dependent: :destroy
   # has_one :level
-  # extend ActiveHash::Associations::ActiveRecordExtensions
-  # belongs_to_active_hash :grade
-  # validates :nickname,:grade, presence: true
-  # validates :grade_id, numericality: { other_than: 1 } 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :grade
+  validates :nickname,:grade, presence: true
+  validates :grade_id, numericality: { other_than: 1 } 
 end
