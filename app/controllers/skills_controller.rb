@@ -1,6 +1,6 @@
 class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :destroy ,:update]
-  # before_action :authenticate_user!, only: [:new,:edit,:update]
+  before_action :authenticate_user!, only: [:new,:create,:edit,:update]
   # before_action :move_to_index, only: [:edit, :update, :delete]
 
   def index
