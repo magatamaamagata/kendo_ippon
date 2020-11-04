@@ -1,5 +1,5 @@
 class SkillsController < ApplicationController
-  before_action :set_skill, only: [:show, :edit, :destroy ,:update]
+  before_action :set_skill, only: [:show, :edit, :destroy, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :update, :delete]
 
@@ -24,7 +24,6 @@ class SkillsController < ApplicationController
     # @skill = Skill.find(params[:id])
     @comment = Comment.new
     @comments = Comment.includes(:user).order('created_at DESC')
-
   end
 
   def edit
@@ -34,7 +33,7 @@ class SkillsController < ApplicationController
   def update
     # @skill = Skill.find(params[:id])
     if @skill.update(skill_params)
-      redirect_to edit_skill_compare_path(@skill.id,params[:id])
+      redirect_to edit_skill_compare_path(@skill.id, params[:id])
     else
       render :edit
     end
@@ -44,21 +43,18 @@ class SkillsController < ApplicationController
     @skill.destroy
     redirect_to root_path
   end
- 
+
   private
- 
+
   def set_skill
     @skill = Skill.find(params[:id])
   end
 
   def move_to_index
-    unless user_signed_in? && (current_user.id == @skill.user_id)
-      redirect_to root_path 
-    end
+    redirect_to root_path unless user_signed_in? && (current_user.id == @skill.user_id)
   end
 
   def skill_params
     params.require(:skill).permit(:youtube_id, :video).merge(user_id: current_user.id)
   end
-
 end

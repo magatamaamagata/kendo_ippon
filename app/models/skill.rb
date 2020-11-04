@@ -7,6 +7,5 @@ class Skill < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :youtube, presence: true
-  validates :youtube_id, numericality: { other_than: 1 } 
-
+  validates :youtube_id, numericality: { other_than: 1 }
 end

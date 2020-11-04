@@ -1,7 +1,7 @@
 class ComparesController < ApplicationController
   before_action :set_skill, only: [:new, :edit]
   before_action :set_compare, only: [:edit, :update]
-  before_action :authenticate_user!, only: [:new,:create,:edit,:update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :move_to_index
 
   def new
@@ -34,22 +34,21 @@ class ComparesController < ApplicationController
     end
   end
 
-private
-def set_skill
-  @skill = Skill.find(params[:skill_id])
-end
+  private
 
-def set_compare
-  @compare = Compare.find(params[:id])
-end
-
-def move_to_index
-  unless user_signed_in? && (current_user.id == @skill.user_id)
-    redirect_to root_path 
+  def set_skill
+    @skill = Skill.find(params[:skill_id])
   end
-end
+
+  def set_compare
+    @compare = Compare.find(params[:id])
+  end
+
+  def move_to_index
+    redirect_to root_path unless user_signed_in? && (current_user.id == @skill.user_id)
+  end
 
   def compare_params
-    params.require(:compare).permit(:sprits, :posture,:bamboo,:position,:sword,:zanshin,:sprits2,:posture2,:bamboo2,:position2,:sword2,:zanshin2,:notice,:public_id).merge(skill_id: params[:skill_id])
+    params.require(:compare).permit(:sprits, :posture, :bamboo, :position, :sword, :zanshin, :sprits2, :posture2, :bamboo2, :position2, :sword2, :zanshin2, :notice, :public_id).merge(skill_id: params[:skill_id])
   end
 end
