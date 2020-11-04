@@ -1,9 +1,8 @@
-<%# CSS・・・assets/stylesheets/shared/header.css %>
 <%= link_to 'トップへ', root_path %>
     <%if user_signed_in? %>
        <div class="greeting"> 
         こんにちは、
-        <%= link_to "#{current_user.nickname}さん", class: :greeting__link %>
+        <%= link_to "#{current_user.nickname}さん", user_path(current_user.id),class: :greeting__link %>
        </div> 
     <%end%>      </h2>
 

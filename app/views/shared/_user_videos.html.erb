@@ -1,0 +1,8 @@
+<div class="card">
+  <%= link_to (video_tag rails_blob_path(skill.video) ,size: "640x360" , loop: true, autoplay: true, muted: true), skill_path(skill)%>
+  <div class="card__body">
+    <%# <%= link_to skill.grade.name, skill_path(skill), class: :card__title%> %>
+
+    <%= link_to "by #{skill.user.nickname}", user_path(skill.user.id), class: :card__user %>
+  </div>
+</div>
