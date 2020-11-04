@@ -5,7 +5,7 @@ function comment() {
     const XHR = new XMLHttpRequest();
     const post = document.getElementById("getid");
     console.log(post)
-    const skillId = post.getAttribute("data-id");
+    const skillId = post.getAttribute("data-skillId");
     console.log(skillId)
     XHR.open("POST", `/skills/${skillId}/comments`, true);
     XHR.responseType = "json";
@@ -16,9 +16,7 @@ function comment() {
         return null;
       }
       const item = XHR.response.comment;
-      console.log(item)
-      debugger;
-    
+      console.log(item)    
       const list = document.getElementById("list");
       const formText = document.getElementById("comment");
       const HTML = `
