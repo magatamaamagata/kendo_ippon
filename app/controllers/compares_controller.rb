@@ -16,6 +16,20 @@ class ComparesController < ApplicationController
     end
   end
 
+  def edit
+    @skill = Skill.find(params[:skill_id])
+    @compare = Compare.find(params[:id])
+  end
+
+  def update
+    @compare = Compare.find(params[:id])
+    if @compare.update(compare_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
 private
   def compare_params
     params.require(:compare).permit(:sprits, :posture,:bamboo,:position,:sword,:zanshin,:sprits2,:posture2,:bamboo2,:position2,:sword2,:zanshin2,:notice,:public_id).merge(skill_id: params[:skill_id])

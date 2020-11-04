@@ -28,11 +28,13 @@ class SkillsController < ApplicationController
   end
 
   def edit
+    @skill = Skill.find(params[:id])
   end
 
   def update
+    @skill = Skill.find(params[:id])
     if @skill.update(skill_params)
-      redirect_to root_path
+      redirect_to edit_skill_compare_path(@skill.id,params[:id])
     else
       render :edit
     end
