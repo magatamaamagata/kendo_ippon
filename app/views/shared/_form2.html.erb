@@ -1,0 +1,270 @@
+    <% if @skill.video.attached? %>
+        <%= video_tag rails_blob_path(@skill.video) ,size: "640x360" , loop: true, autoplay: true, muted: true %>
+    <%end%>
+      <%= form_with model:[@skill,@compare], data: {"turbolinks" => false}, local: true do |f| %>
+    <%# <% unless user_signed_in? || current_user.id != @skill.user.id 条件分岐はあとで%> %>
+      <h2>上手い人との差</h2>
+        <input type="radio" name="grp1" value="1" onclick="hide('grp1');">かく
+        <input type="radio" name="grp1" value="2" onclick="hide('grp1');">書かない
+        <div class="field">
+          <%= f.label "充実した気勢" %><br />
+            <%= f.text_field :sprits, class:"sprits", id:"sprits" %>
+        </div>
+        <input type="radio" name="grp2" value="3" onclick="hide('grp2');">かく
+        <input type="radio" name="grp2" value="4" onclick="hide('grp2');">書かない
+        <div class="field">
+          <%= f.label "適正な姿勢" %><br />
+            <%= f.text_field :posture, class:"posture", id:"posture" %>
+        </div>
+
+        <input type="radio" name="grp3" value="5" onclick="hide('grp1');">かく
+        <input type="radio" name="grp3" value="6" onclick="hide('grp1');">書かない
+        <div class="field">
+          <%= f.label "竹刀の打突部" %><br />
+            <%= f.text_field :bamboo, class:"bamboo", id:"bamboo" %>
+        </div>
+
+        <input type="radio" name="grp4" value="7" onclick="hide('grp4');">かく
+        <input type="radio" name="grp4" value="8" onclick="hide('grp4');">書かない
+        <div class="field">
+          <%= f.label "打突部位" %><br />
+            <%= f.text_field :position, class:"position", id:"position" %>
+        </div>
+
+        <input type="radio" name="grp5" value="9" onclick="hide('grp5');">かく
+        <input type="radio" name="grp5" value="10" onclick="hide('grp5');">書かない
+        <div class="field">
+          <%= f.label "正しい刃筋" %><br />
+            <%= f.text_field :sword, class:"sword", id:"sword" %>
+        </div>
+
+        <input type="radio" name="grp6" value="11" onclick="hide('grp6');">かく
+        <input type="radio" name="grp6" value="12" onclick="hide('grp6');">書かない
+        <div class="field">
+          <%= f.label "残心" %><br />
+            <%= f.text_field :zanshin, class:"zanshin", id:"zanshin" %>
+        </div>
+
+        <h2>改善すること</h2>
+
+        <div class="field">
+          <%= f.label "充実した気勢" %><br />
+            <%= f.text_field :sprits2, class:"sprits", id:"sprits" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "適正な姿勢" %><br />
+            <%= f.text_field :posture2, class:"posture", id:"posture" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "竹刀の打突部" %><br />
+            <%= f.text_field :bamboo2, class:"bamboo", id:"bamboo" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "打突部位" %><br />
+            <%= f.text_field :position2, class:"position", id:"position" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "正しい刃筋" %><br />
+            <%= f.text_field :sword2, class:"sword", id:"sword" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "残心" %><br />
+            <%= f.text_field :zanshin2, class:"zanshin", id:"zanshin" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "気付き" %><br />
+            <%= f.text_area :notice, class:"notice", id:"notice" %>
+        </div>
+
+        <div class="field">
+          <%= f.label "公開設定"%><br /> 
+          <%= f.collection_select(:public_id, Public.all, :id, :name, {}, {class:"public-select"}) %>
+        </div>
+
+      <%= f.submit "投稿する" %>
+    <% end %>
+    <%# <% end条件分岐はあとで %> %>
+</div>
+
+
+
+<script>
+function hide(name){
+  //ラジオボタンオブジェクトを取得する
+  var radios = document.getElementsByName(name);
+ 
+  //取得したラジオボタンオブジェクトから選択されたものを探し出す
+  var result;
+  for(var i=0; i<radios.length; i++){
+    if (radios[i].checked) {
+      //選択されたラジオボタンのvalue値を取得する
+      result = radios[i].value;
+      break;
+    }
+  }
+  if (result == 1){
+    if (document.getElementById( "sprits" ).value == "なし"){
+    document.getElementById( "sprits" ).value = "" ;
+    }
+    let a = document.getElementById("sprits")
+    a.removeAttribute("type","hidden");
+
+  } else if(result == 2){
+    let a = document.getElementById("sprits")
+    a.setAttribute("type","hidden");
+    document.getElementById( "sprits" ).value = "なし" ;
+  }
+}
+window.addEventListener("onChange", hide);
+
+function hide1(name){
+  //ラジオボタンオブジェクトを取得する
+  var radios = document.getElementsByName(name);
+ 
+  //取得したラジオボタンオブジェクトから選択されたものを探し出す
+  var result;
+  for(var i=0; i<radios.length; i++){
+    if (radios[i].checked) {
+      //選択されたラジオボタンのvalue値を取得する
+      result = radios[i].value;
+      break;
+    }
+  }
+  if (result == 3){
+    if (document.getElementById( "posture" ).value == "なし"){
+    document.getElementById( "posture" ).value = "" ;
+    }
+    let a = document.getElementById("posture")
+    a.removeAttribute("type","hidden");
+
+  } else if(result == 4){
+    let a = document.getElementById("posture")
+    a.setAttribute("type","hidden");
+    document.getElementById( "posture" ).value = "なし" ;
+  }
+}
+window.addEventListener("onChange", hide1);
+
+function hide2(name){
+  //ラジオボタンオブジェクトを取得する
+  var radios = document.getElementsByName(name);
+ 
+  //取得したラジオボタンオブジェクトから選択されたものを探し出す
+  var result;
+  for(var i=0; i<radios.length; i++){
+    if (radios[i].checked) {
+      //選択されたラジオボタンのvalue値を取得する
+      result = radios[i].value;
+      break;
+    }
+  }
+  if (result == 5){
+    if (document.getElementById( "bamboo" ).value == "なし"){
+    document.getElementById( "bamboo" ).value = "" ;
+    }
+    let a = document.getElementById("bamboo")
+    a.removeAttribute("type","hidden");
+
+  } else if(result == 6){
+    let a = document.getElementById("bamboo")
+    a.setAttribute("type","hidden");
+    document.getElementById( "bamboo" ).value = "なし" ;
+  }
+// })
+}
+window.addEventListener("onChange", hide2);
+
+function hide3(name){
+  //ラジオボタンオブジェクトを取得する
+  var radios = document.getElementsByName(name);
+ 
+  //取得したラジオボタンオブジェクトから選択されたものを探し出す
+  var result;
+  for(var i=0; i<radios.length; i++){
+    if (radios[i].checked) {
+      //選択されたラジオボタンのvalue値を取得する
+      result = radios[i].value;
+      break;
+    }
+  }
+  if (result == 7){
+    if (document.getElementById( "position" ).value == "なし"){
+    document.getElementById( "position" ).value = "" ;
+    }
+    let a = document.getElementById("position")
+    a.removeAttribute("type","hidden");
+
+  } else if(result == 8){
+    let a = document.getElementById("position")
+    a.setAttribute("type","hidden");
+    document.getElementById( "position" ).value = "なし" ;
+  }
+// })
+}
+window.addEventListener("onChange", hide3);
+
+function hide4(name){
+  //ラジオボタンオブジェクトを取得する
+  var radios = document.getElementsByName(name);
+ 
+  //取得したラジオボタンオブジェクトから選択されたものを探し出す
+  var result;
+  for(var i=0; i<radios.length; i++){
+    if (radios[i].checked) {
+      //選択されたラジオボタンのvalue値を取得する
+      result = radios[i].value;
+      break;
+    }
+  }
+  if (result == 9){
+    if (document.getElementById( "sword" ).value == "なし"){
+    document.getElementById( "sword" ).value = "" ;
+    }
+    let a = document.getElementById("sword")
+    a.removeAttribute("type","hidden");
+
+  } else if(result == 10){
+    let a = document.getElementById("sword")
+    a.setAttribute("type","hidden");
+    document.getElementById( "sword" ).value = "なし" ;
+  }
+// })
+}
+window.addEventListener("onChange", hide4);
+
+function hide5(name){
+  //ラジオボタンオブジェクトを取得する
+  var radios = document.getElementsByName(name);
+ 
+  //取得したラジオボタンオブジェクトから選択されたものを探し出す
+  var result;
+  for(var i=0; i<radios.length; i++){
+    if (radios[i].checked) {
+      //選択されたラジオボタンのvalue値を取得する
+      result = radios[i].value;
+      break;
+    }
+  }
+  if (result == 11){
+    if (document.getElementById( "zanshin" ).value == "なし"){
+    document.getElementById( "zanshin" ).value = "" ;
+    }
+    let a = document.getElementById("zanshin")
+    a.removeAttribute("type","hidden");
+
+  } else if(result == 12){
+    let a = document.getElementById("zanshin")
+    a.setAttribute("type","hidden");
+    document.getElementById( "zanshin" ).value = "なし" ;
+  }
+// })
+}
+window.addEventListener("onChange", hide5);
+</script>
+

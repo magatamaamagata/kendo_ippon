@@ -3,6 +3,7 @@
   <body>
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>
+    <div id="get_video_id" skill_id=<%= @skill.youtube.url_id %> >
     <script>
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
@@ -15,20 +16,23 @@
       //    after the API code downloads.
       var player;
       function onYouTubeIframeAPIReady() {
+        const video = document.getElementById("get_video_id");
+        const skillId = video.getAttribute("skill_id");
         player = new YT.Player('player', {
           height: '360',
           width: '640',
-          videoId: 'SlctMcLHP8U',
+          videoId: `${skillId}`,
           startSeconds: 0,
           endSeconds: 5,
           events: {
             'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
+            'onStateChange': onPlayerStateChange,
+            'setLoop': setLoop
+
           }
         });
-        console.log(player);
-        player.setLoop(loopPlaylists:Boolean):Void;
-
+        // console.log(player);
+        
       }
 
       // 4. The API will call this function when the video player is ready.
@@ -45,12 +49,11 @@
           setTimeout(stopVideo, 7000);
           done = true;
         }
-        console.log()
+        // console.log()
       }
-      function stopVideo() {
-        player.stopVideo();
+      function setLoop() {
+          player.setLoop(true);
       }
-      window.
-    </script>
+    window.addEventListener("load", hide);    </script>
   </body>
 </html>
