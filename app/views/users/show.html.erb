@@ -7,14 +7,12 @@
       <table class="table">
         <tbody>
           <tr>
-            <th class="table__col1">名前</th>
+            <th class="table__col1">名前：</th>
             <td class="table__col2"><%= @user.nickname %></td>
           </tr>
           <tr>
-            <th class="table__col1">段位</th>
-            <%# <td class="table__col2"><%= @user.grade.name %></td> %>
-          </tr>
-          <tr>
+            <th class="table__col1">段位：</th>
+            <td class="table__col2"><%= @user.grade.name%></td>
         </tbody>
       </table>
       <h2 class="page-heading">
@@ -22,7 +20,11 @@
       </h2>
       <div class="user__card">
         <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
-        <%= render partial: "shared/user_videos" ,locals: { skill: @skill},collection: @skills %>
+        <% if @skills.present?%>
+          <%= render partial: "shared/user_videos" ,locals: { skill: @skill},collection: @skills %>
+        <%else%>
+          <h2>まだありません</h2>
+        <%end%>
       </div>
     </div>
   </div>

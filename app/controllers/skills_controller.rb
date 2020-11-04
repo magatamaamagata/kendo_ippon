@@ -1,7 +1,7 @@
 class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :destroy ,:update]
-  before_action :authenticate_user!, only: [:new,:create,:edit,:update]
-  # before_action :move_to_index, only: [:edit, :update, :delete]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :update, :delete]
 
   def index
     @skills = Skill.includes(:user).order('created_at DESC')
@@ -21,18 +21,18 @@ class SkillsController < ApplicationController
   end
 
   def show
-    @skill = Skill.find(params[:id])
+    # @skill = Skill.find(params[:id])
     @comment = Comment.new
     @comments = Comment.includes(:user).order('created_at DESC')
 
   end
 
   def edit
-    @skill = Skill.find(params[:id])
+    # @skill = Skill.find(params[:id])
   end
 
   def update
-    @skill = Skill.find(params[:id])
+    # @skill = Skill.find(params[:id])
     if @skill.update(skill_params)
       redirect_to edit_skill_compare_path(@skill.id,params[:id])
     else
