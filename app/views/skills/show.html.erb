@@ -1,13 +1,13 @@
-  記録日付
-動画と自分のコメントを見られる
-    <%# <% if user_signed_in? && current_user.id == @skill.user.id 条件分岐はあとで%> %>
-<%= link_to '編集', edit_skill_path(params[:id]), method: :get, class: "skill-red-btn" %>
-<%= link_to '削除', skill_path(params[:id]), method: :delete, class:'skill-destroy' %>
-    <%# <% end 条件分岐はあとで%> %>
+  記録日<%=@skill.created_at%>
+    <% if user_signed_in? && current_user.id == @skill.user.id %>
+    <%binding.pry%>
+      <%= link_to '編集', edit_skill_path(params[:id]), method: :get, class: "skill-red-btn" %>
+      <%= link_to '削除', skill_path(params[:id]), method: :delete, class:'skill-destroy' %>
+    <% end %>
 
   <% if @skill.video.attached? %>
-  <%= video_tag rails_blob_path(@skill.video) ,size: "640x360" , loop: true, autoplay: true, muted: true%>
-  <% end   %>
+  <%= video_tag rails_blob_path(@skill.video) ,size: "640x360" , loop: true, autoplay: true, muted: true %>
+  <% end %>
 
   <%# 選択したidによって再生される技に対応する部分テンプレートが表示される。  %>
 <%if @skill.compare %>

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/show'
   get 'judges/show'
   root to: 'skills#index'
   devise_for :users
@@ -8,8 +7,8 @@ Rails.application.routes.draw do
   end
 
   resources :skills  do
-    resources :compares  
-    resources :comments
+    resources :compares  , only: [:new,:create,:edit,:update]
+    resources :comments  , only: [:new,:create]
   end
   resources :users, only: [:show]
 end
