@@ -8,6 +8,10 @@ class User < ApplicationRecord
   # has_one :level
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :grade
-  validates :nickname, :grade, presence: true
-  validates :grade_id, numericality: { other_than: 1 }
+  validates :nickname, presence: true, length: {maximum: 20}
+  validates :grade, presence: true
+  validates :grade_id, numericality: { other_than: 1 , message: 'を選択してください'}
+
+
+
 end

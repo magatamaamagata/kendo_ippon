@@ -4,7 +4,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class='nickname_wrap'>
-    <%= f.label "お名前" %><br />
+    <%= f.label "お名前(20文字以内)" %><br />
     <%= f.text_field :nickname, class:"nickname", id:"name", placeholder:"例) 一流剣士" %>
   </div>
 

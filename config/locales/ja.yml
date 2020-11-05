@@ -2,3 +2,11 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M"
+
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: 名前
+       grade_id: 段位
+     skill:
