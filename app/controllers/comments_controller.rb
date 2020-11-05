@@ -8,7 +8,9 @@ class CommentsController < ApplicationController
   end
 
   def create
+
     @comment = Comment.create(comment_params)
+    binding.pry
     render json: { comment: @comment }
   end
 
