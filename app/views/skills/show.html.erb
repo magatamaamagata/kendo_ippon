@@ -30,8 +30,10 @@
   <%end%>
 </div>
 <%= form_with model: [@skill,@comment], id: "form" do |f| %>
+  <%if user_signed_in? %>
   <%= f.text_field :text  , id: "comment"%>
   <%= f.submit '投稿する' , id: "submit" %>
+  <%end%>
 <% end %>
 
 </div>
