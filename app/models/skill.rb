@@ -6,6 +6,7 @@ class Skill < ApplicationRecord
   has_one :compare, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  validates :video, presence: { message: 'を選択してください'}
   validates :youtube, presence: true
-  validates :youtube_id, numericality: { other_than: 1 }
+  validates :youtube_id, numericality: { other_than: 1 , message: 'を選択してください'}
 end
