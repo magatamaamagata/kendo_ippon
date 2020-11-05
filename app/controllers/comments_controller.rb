@@ -8,16 +8,17 @@ class CommentsController < ApplicationController
   end
 
   def create
-
+    @skill = Skill.find(params[:skill_id])
     @comment = Comment.create(comment_params)
-    binding.pry
     render json: { comment: @comment }
+    binding.pry
   end
 
   private
   def move_to_index
-    @comment = Comment.find(params[:id])
-    redirect_to root_path unless user_signed_in? && (current_user.id == @skill.user.id)
+    @comment = Comment.find(params[:skill_id])
+    # @skill = Skill.find(params[:skill_id])
+    redirect_to root_path unless user_signed_in? && (current_user.id == @comment.user.id)
   end
 
   def comment_params
