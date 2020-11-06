@@ -7,18 +7,18 @@
     <h2 class='title'>投稿一覧</h2>
     <ul class='skill-lists'>
       <% @skills.each do |skill| %>
-        <%# <% if skill.compare.public_id == 2 || (user_signed_in? && skill.user.id == current_user.id) %> %>
+        <% if skill.compare.public_id == 2 || (user_signed_in? && skill.user.id == current_user.id) %>
         <li class='list'>
           <%= link_to "詳細",skill_path(skill.id)  %>
           <div class='skill-info'>
-            <div class='skill-price'>
+            <div class='skill-video'>
               <p>動画</p>
                 <%= link_to (video_tag rails_blob_path(skill.video) ,size: "400x300" ), skill_path(skill)%>
               <p><%= "技名：#{skill.youtube.name}" %></p>
-              <p><%= "投稿者：#{skill.user.nickname}氏" %></p>
+              <p><%= "投稿者：#{skill.user.nickname}氏 #{skill.user.grade.name}" %></p>
             </div>
           </div>
-          <%# <%end%> %>
+          <%end %>
         </li>
         <%end%>
     </ul>

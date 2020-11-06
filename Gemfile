@@ -75,3 +75,4 @@ end
 
 gem 'rails-i18n'
 gem 'antivirus'
+gem 'bootstrap'
