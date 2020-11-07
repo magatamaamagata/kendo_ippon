@@ -1,5 +1,5 @@
-  <% require 'json' %>
-  記録日<%=@skill.created_at%>
+<%= require "json"%>
+  <%= @skill.created_at %>
     <% if user_signed_in? && current_user.id == @skill.user.id %>
       <%= link_to '編集', edit_skill_path(params[:id]), method: :get, class: "skill-red-btn" %>
       <%= link_to '削除', skill_path(params[:id]), method: :delete, class:'skill-destroy' %>
@@ -65,15 +65,15 @@ function comment() {
     console.log(post)
     const skillId = post.getAttribute("data-skillId");
     console.log(skillId)
-    //日付オブジェクトを作成する
-    var dd = new Date();
-    //「年」を取得する
-    var YYYY = dd.getFullYear();
-    //「月」を取得する
-    var MM = dd.getMonth()+1;
-    //「日」を取得する
-    var DD = dd.getDate();
-    console.log(dd)
+    // //日付オブジェクトを作成する
+    // const dd = new Date();
+    // //「年」を取得する
+    // const YYYY = dd.getFullYear();
+    // //「月」を取得する
+    // const MM = dd.getMonth()+1;
+    // //「日」を取得する
+    // const DD = dd.getDate();
+    // console.log(dd)
 
     debugger;
     XHR.open("POST", `/skills/${skillId}/comments`, true);
@@ -108,9 +108,5 @@ function comment() {
     e.preventDefault();
   });
 }
-
-/* <div class="name-comment"> */
-// ${item.user.nickname}
-// </div>
 window.addEventListener("load", comment);
 </script>
