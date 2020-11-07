@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
+<%# <!DOCTYPE html> %>
+<%# <html> %>
   <head>
     <title>KendoIppon</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
     
@@ -36,17 +35,13 @@
     <%= yield %>
 
     <%# /下部広告部分 %>
-
-<div class='footer'>
-  <div class='footer-contents'>
-      <h2 class='footer-content-head'>Kendo-Ipponについて</h2>
-      <ul>
-        <li><%= link_to '剣道一本について', "#", class: "ippon-link" %></li>
-        <li><%= link_to '全日本剣道連盟', "https://www.kendo.or.jp/", class: "nippon-link" %></li>
-      </ul>
+<footer>
+  <h2 class='footer-content-head'>剣道一本</h2>
+  <ul class='lists'>
+    <li><%= link_to '剣道一本について', "#", class: "nippon-link" %></li>
+    <li><%= link_to '全日本剣道連盟', "https://www.kendo.or.jp/", class: "nippon-link" %></li>
+  </ul>
   <p>© Kendo-Ippon-Training 2020</p>
-  </div>
-</div>
-
+</footer>
   </body>
-</html>
+<%# </html> %>

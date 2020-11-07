@@ -6,7 +6,7 @@
   /* position: absolute; */
   left: 0;
   top: 0;
-  height:200px;
+  /* height:200px; */
   width: 100vw;
   /* padding: 2vh 15vw; */
   display: flex;
@@ -20,29 +20,26 @@
   /* justify-content: left; */
   /* align-items: left; */
   /* width: 100%; */
+  margin: auto;
+
 }
 
 .ippon-icon {
-  height: 100%;
-  /* margin-right: 100vw; */
+  /* height: 100%; */
+  width: calc(100vw - 300px);
 }
 
 .nav {
   height: 100%;
+
 }
 
 .lists-right {
   min-width: 200px;
   writing-mode: vertical-rl;
-}
-
-.user_link{
-  text-decoration: none;
-  font-size: 20px;
-  margin: auto,auto;
-  color:white;
   
 }
+
 
 .category-list {
   text-decoration: none;
@@ -50,18 +47,19 @@
   color: #333333;
 }
 
-.brand-list {
-  text-decoration: none;
-  color: #333333;
-}
+
 
 .lists-right {
   list-style: none;
   justify-content: space-between;
   align-items: flex-end;
-
 }
-
+.user_link{
+  text-decoration: none;
+  font-size: 20px;
+  margin: auto,auto;
+  color:white;
+}
 
 .logout {
   text-decoration: none;
