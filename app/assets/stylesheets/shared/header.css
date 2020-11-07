@@ -3,62 +3,45 @@
 }
 
 .top-page-header {
+  /* position: absolute; */
+  left: 0;
+  top: 0;
+  height:200px;
   width: 100vw;
-  padding: 2vh 15vw;
+  /* padding: 2vh 15vw; */
   display: flex;
-  flex-direction: column;
+  justify-content:space-between;
   background-color: black;
 }
 
 .search-bar-contents {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  height: 100%;
+  /* display: flex; */
+  /* justify-content: left; */
+  /* align-items: left; */
+  /* width: 100%; */
 }
 
-.furima-icon {
-  width: 10vw;
-  margin-right: 10vw;
-}
-
-.search-form {
-  width: 65vw;
-  height: 5vh;
-  display: flex;
-  margin-bottom: 5px;
-}
-
-.search-form>.input-box {
-  width: 100%;
-  height: 5vh;
-  padding-left: 10px;
-}
-
-.search-button {
-  width: 5vh;
-  border: 0;
-  cursor: pointer;
-  background-color: #3ccace;
-  padding: 8px;
-}
-
-.search-icon {
-  width: 100%;
+.ippon-icon {
+  height: 100%;
+  /* margin-right: 100vw; */
 }
 
 .nav {
-  font-size: 18px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 1vh 0;
+  height: 100%;
 }
 
-.lists-left {
-  display: flex;
+.lists-right {
   min-width: 200px;
+  writing-mode: vertical-rl;
+}
 
+.user_link{
+  text-decoration: none;
+  font-size: 20px;
+  margin: auto,auto;
+  color:white;
+  
 }
 
 .category-list {
@@ -73,33 +56,31 @@
 }
 
 .lists-right {
-  display: flex;
   list-style: none;
+  justify-content: space-between;
   align-items: flex-end;
-}
 
-
-.user-nickname {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-  font-weight: bold;
 }
 
 
 .logout {
   text-decoration: none;
-  color: #333333;
+  font-size: 20px;
+  color:white;
+  padding: 0,30px;
+
 }
 
 .login {
   text-decoration: none;
   line-height: 32px;
   margin-right: 3vw;
-  color: #333333;
+  font-size: 20px;
+  color:white;
 }
 
 .sign-up {
   text-decoration: none;
-  color: #333333;
+  font-size: 20px;
+  color:white;
 }
