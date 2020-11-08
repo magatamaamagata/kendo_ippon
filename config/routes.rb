@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     resources :compares  , only: [:new,:create,:edit,:update]
     resources :comments  , only: [:new,:create]
   end
-  resources :users, only: [:show]
+  resources :users, only: [:edit, :update, :show]
 end
