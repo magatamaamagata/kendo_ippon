@@ -30,6 +30,15 @@
   flex-direction: column;
   width: calc(100vw / 1.8);
   margin: 50px auto;
+  position: relative;
+}
+
+.link-skill::after {
+  position:absolute;
+  top:0;right:0;bottom:0;left:0;
+  z-index:1;
+  pointer-events:auto;
+  content:"";
 }
 a{
   text-decoration: none;
@@ -54,6 +63,7 @@ a{
   position: relative;
   top: 10px;
 }
+
 .skill-lists{
   list-style: none;
 }
