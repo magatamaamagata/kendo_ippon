@@ -3,12 +3,7 @@
 }
 
 .top-page-header {
-  /* position: absolute; */
-  left: 0;
-  top: 0;
-  /* height:200px; */
   width: 100vw;
-  /* padding: 2vh 15vw; */
   display: flex;
   justify-content:space-between;
   background-color: black;
@@ -16,69 +11,65 @@
 
 .search-bar-contents {
   height: 100%;
-  /* display: flex; */
-  /* justify-content: left; */
-  /* align-items: left; */
-  /* width: 100%; */
-  margin: auto;
+  margin: auto 10px;
 
 }
 
 .ippon-icon {
-  /* height: 100%; */
   width: calc(100vw - 300px);
+  max-height: 150px;
+  max-width: 566px;
+  min-height: 50px;
+  min-width: 188px;
+
 }
 
 .nav {
-  height: 100%;
+  height: 150px;
+  margin: 0 3vw;
+  display: flex;
+  align-items: right;
 
 }
 
 .lists-right {
-  min-width: 200px;
   writing-mode: vertical-rl;
-  
-}
-
-
-.category-list {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-}
-
-
-
-.lists-right {
   list-style: none;
-  justify-content: space-between;
-  align-items: flex-end;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column-reverse;
+  margin: auto;
+}
+
+.list-top{
+  display: block;
+  padding: 10px 5px;
+  margin: 3px 30px;
+  border-radius:3px;
+  background-color: #CC9933;
+  color:black;
+
 }
 .user_link{
   text-decoration: none;
   font-size: 20px;
-  margin: auto,auto;
-  color:white;
+  margin: auto;
+  padding: 5px;
+
 }
 
 .logout {
   text-decoration: none;
   font-size: 20px;
-  color:white;
-  padding: 0,30px;
-
+  margin: auto 5px;
 }
 
 .login {
   text-decoration: none;
-  line-height: 32px;
-  margin-right: 3vw;
   font-size: 20px;
-  color:white;
 }
 
 .sign-up {
   text-decoration: none;
   font-size: 20px;
-  color:white;
 }

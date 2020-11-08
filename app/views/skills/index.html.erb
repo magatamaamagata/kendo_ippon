@@ -1,7 +1,6 @@
-<%# <%= render "shared/header" %> %>
 <h2>使い方</h2>
-<div class="how-to-user">
-  <div class=container>
+<div class="how-to-use">
+  <div class=container-right>
     <%= image_tag "1.png", class:"list-title" %>
       <div class="right-right">
         <h3>動画投稿</h3>
@@ -9,7 +8,7 @@
       </div>
   </div>
 
-  <div class=container>
+  <div class=container-left>
     <%= image_tag "2.png", class:"list-title" %>
     <div class="left-right">
       <h3>比較</h3>
@@ -18,7 +17,7 @@
   </div>
 
 
-  <div class=container>
+  <div class=container-right>
     <%= image_tag "3.png", class:"list-title" %>
     <div class="right-right">
       <h3>記録</h3>
@@ -26,15 +25,22 @@
     </div>
   </div>
 
-  <div class=container>
+  <div class=container-left>
     <%= image_tag "4.png", class:"list-title" %>
     <div class="left-right">
       <h3>コメント</h3>
       <p class="comment">他人の動画を見てコメントしよう。アドバイスをもらって上達しよう。</p>
     </div>
   </div>
+</div>
 
-<%= link_to "動画をUPして記録する", new_skill_path,  class: "skill" %>
+  <%# <div class= > %>
+  <div class= "skill">
+    <%= link_to "動画をUPして記録する", new_skill_path%>
+    <%= image_tag "play-button.png", class:"play" %>
+  </div>
+  <%# </div> %>
+
 
   <div class='skill-contents'>
     <ul class='skill-lists'>
@@ -55,5 +61,3 @@
   </div>
 
   <%= link_to "クイズはこちら", posts_path,  class: "post" %>
-
-<%# <%= render "shared/footer" %> %>
