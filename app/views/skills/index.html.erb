@@ -45,7 +45,7 @@
   <div class='skill-contents'>
     <ul class='skill-lists'>
       <% @skills.each do |skill| %>
-        <% if skill.compare.public_id == 2 || (user_signed_in? && skill.user.id == current_user.id) %>
+        <%# <% if skill.compare.public_id == 2 || (user_signed_in? && skill.user.id == current_user.id) %> %>
         <li class='list'>
           <div class='skill-info'>
             <div class='skill-video'>
@@ -54,7 +54,7 @@
               <p><%= "投稿者：#{skill.user.nickname}さん #{skill.user.grade.name}" %></p>
             </div>
           </div>
-          <%end %>
+          <%# <%end %> %>
         </li>
         <%end%>
     </ul>

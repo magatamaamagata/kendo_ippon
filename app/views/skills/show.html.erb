@@ -36,10 +36,12 @@
   <%= f.submit '投稿する' , id: "submit" %>
   <%end%>
 <% end %>
-
 </div>
+
 <div id="list">
+
 <% @comments.each do |comment| %>
+<%if comment.skill_id == @skill.id %>
   <div id="getid" data-skillid=<%= comment.skill.id %> >
     <div class="comment-date">
       投稿日時：<%= l comment.created_at %>
@@ -48,6 +50,7 @@
       <%= comment.text %>
     </div>
   </div>
+  <% end %>
 <% end %>
 
 <%= link_to "トップへ", root_path,  class: "top" %>
