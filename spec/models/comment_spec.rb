@@ -2,12 +2,18 @@ require 'rails_helper'
 RSpec.describe Comment, type: :model do
   describe 'コメント投稿' do
   before do
-    @comment = FactoryBot.build(:comment)
+    # FactoryBot.create(:user)
+    # FactoryBot.create(:skill)
+    # FactoryBot.create(user_id: user_id)
+    # FactoryBot.create(skill_id: skill_id)
+    @comment = FactoryBot.create(:comment)
   end
 
     context 'コメント投稿がうまくいくとき' do
       it 'コメントが存在すれば登録できる' do
+
         expect(@comment).to be_valid
+        
       end
     end
 

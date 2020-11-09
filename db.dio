@@ -1,11 +1,11 @@
-<mxfile host="65bd71144e" modified="2020-11-01T05:49:34.860Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.1 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="F3nMLlCHnE1GJdGQ2rSf" version="13.6.5">
+<mxfile host="65bd71144e" modified="2020-11-09T06:51:33.712Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.1 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="G04mMpm2tFUm-VXGECyv" version="13.6.5">
     <diagram id="AvEGPFQrS9TUnuEc9XVp" name="ページ1">
-        <mxGraphModel dx="1883" dy="416" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1607" dy="1912" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="414" value="技術向上" style="shape=ext;margin=3;double=1;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="-520" width="580" height="730" as="geometry"/>
+                    <mxGeometry x="-500" y="-20" width="580" height="730" as="geometry"/>
                 </mxCell>
                 <mxCell id="5" value="users" style="shape=table;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;" parent="1" vertex="1">
                     <mxGeometry x="80" y="40" width="190" height="270" as="geometry"/>

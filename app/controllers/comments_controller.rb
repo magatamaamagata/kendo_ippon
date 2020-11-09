@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @skill = Skill.find(params[:skill_id])
     @comment = Comment.create(comment_params)
     # render json: { comment: @comment }
