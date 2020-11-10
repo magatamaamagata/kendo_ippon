@@ -1,6 +1,6 @@
-<div class="card">
-  <div class="card__body">
-    <%= link_to skill.youtube.name, skill_path(skill), class: :card__title %>
+<div class="my__video">
+  <div class="video__body">
+    <%= link_to "技名：#{skill.youtube.name}", skill_path(skill), class: :video__title %>
+    <%= link_to (video_tag rails_blob_path(skill.video) , class: "video"), skill_path(skill)%>
   </div>
-  <%= link_to (video_tag rails_blob_path(skill.video) ,size: "640x360" , loop: true, autoplay: true, muted: true), skill_path(skill)%>
 </div>

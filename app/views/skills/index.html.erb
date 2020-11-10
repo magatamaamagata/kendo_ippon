@@ -43,10 +43,10 @@
 
 
   <div class='skill-contents'>
-    <ul class='skill-lists'>
+    <%# <ul class='skill-lists'> %>
       <% @skills.each do |skill| %>
-        <%# <% if skill.compare.public_id == 2 || (user_signed_in? && skill.user.id == current_user.id) %> %>
-        <li class='list'>
+        <%# <% if skill.compare.public_id == 2 || (user_signed_in? && skill.user.id == current_user.id) %> 
+        <%# <li class='list'> %>
           <div class='skill-info'>
             <div class='skill-video'>
                 <%= link_to (video_tag rails_blob_path(skill.video) ,class: "video"), skill_path(skill)%>
@@ -54,10 +54,10 @@
               <p><%= "投稿者：#{skill.user.nickname}さん #{skill.user.grade.name}" %></p>
             </div>
           </div>
-          <%# <%end %> %>
-        </li>
-        <%end%>
-    </ul>
+          <%end %>
+        <%# </li> %>
+        <%# <%end%> 
+    <%# </ul> %>
   </div>
 
   <%= link_to "クイズはこちら", posts_path,  class: "post" %>
