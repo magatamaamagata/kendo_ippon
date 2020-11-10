@@ -9,6 +9,7 @@ require("channels")
 require("../comment");
 require("./preview");
 require("../form");
+// require("../youtube");
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
