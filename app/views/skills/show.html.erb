@@ -4,6 +4,8 @@
       <%= link_to '編集', edit_skill_path(params[:id]), method: :get, class: "skill-red-btn" %>
       <%= link_to '削除', skill_path(params[:id]), method: :delete, class:'skill-destroy' %>
     <% end %>
+    
+   <%= render "technique/model" %>
 
   <% if @skill.video.attached? %>
   <%= video_tag rails_blob_path(@skill.video) ,size: "640x360" , loop: true, autoplay: true, muted: true %>
