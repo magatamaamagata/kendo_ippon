@@ -22,12 +22,16 @@
           height: '360',
           width: '640',
           videoId: `${skillId}`,
+          autoplay: 1,
           startSeconds: 0,
-          endSeconds: 5,
+          // endSeconds: 5,
+          // loop: 1,
+          controls: 0,
+          showinfo: 0,
           events: {
             'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange,
-            'setLoop': setLoop
+            // 'onStateChange': onPlayerStateChange,
+            // 'setLoop': setLoop
 
           }
         });
@@ -38,22 +42,25 @@
       // 4. The API will call this function when the video player is ready.
       function onPlayerReady(event) {
         event.target.playVideo();
+        setInterval(function(){
+          event.target.seekTo(0);
+        },8000);
       }
 
       // 5. The API calls this function when the player's state changes.
       //    The function indicates that when playing a video (state=1),
       //    the player should play for six seconds and then stop.
-      var done = false;
-      function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo, 7000);
-          done = true;
-        }
-        // console.log()
-      }
-      function setLoop() {
-          player.setLoop(true);
-      }
+      // var done = false;
+      // function onPlayerStateChange(event) {
+      //   if (event.data == YT.PlayerState.PLAYING && !done) {
+      //     setTimeout(stopVideo, 7000);
+      //     done = true;
+      //   }
+      //   // console.log()
+      // }
+      // function setLoop() {
+      //     player.setLoop(true);
+      // }
     window.addEventListener("load", hide);    </script>
   </body>
 </html>
