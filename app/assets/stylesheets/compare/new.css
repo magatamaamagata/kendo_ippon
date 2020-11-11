@@ -1,4 +1,20 @@
+.model-videos{
+  margin: 50px 0;
+
+}
 .model-video{
-  width: 40vw;
-  
+  height: calc(45vw*9/16);
+  width: 45vw;
+  /* margin-top: 62px; */
+}
+.videos{
+  display: flex;
+  justify-content: space-around;
+}
+.post-video{
+  width: 45vw;
+}
+
+.block-video{
+  margin: 50px 0;
 }

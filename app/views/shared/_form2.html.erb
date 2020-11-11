@@ -1,8 +1,5 @@
     <%# <%= javascript_pack_tag 'youtube' %> %>
     <%# <script type="text/javascript" src="youtube.js"></script> %>
-
-
-
       <%= form_with model:[@skill,@compare], data: {"turbolinks" => false}, local: true do |f| %>
     <%# <% unless user_signed_in? || current_user.id != @skill.user.id 条件分岐はあとで%> %>
       <h2>上手い人との差</h2>
@@ -89,7 +86,7 @@
           <%= f.collection_select(:public_id, Public.all, :id, :name, {}, {class:"public-select"}) %>
         </div>
 
-      <%= f.submit "投稿する" %>
+      <%= f.submit "投稿する" ,class: "post-button"%>
     <% end %>
     <%# <% end条件分岐はあとで %> %>
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->

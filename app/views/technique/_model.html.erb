@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
+  <div id="get_video_id" skill_id=<%= @skill.youtube.url_id %>></div>
   <div class="videos">
-      <div id="get_video_id" skill_id=<%= @skill.youtube.url_id %>></div>
-      <div id="player" class="model-video"></div>
-    
     <div class="block-video"> 
       <% if @skill.video.attached? %>
-          <%= video_tag rails_blob_path(@skill.video) ,size: "640x360" , loop: true, autoplay: true, muted: true %>
+        <p><%=@skill.user.nickname%>さん</p>
+        <%= video_tag rails_blob_path(@skill.video) ,size: "640x360" , loop: true, autoplay: true, muted: true ,class: "post-video"%>
       <%end %>
+    </div>
+    <div class="model-videos">
+      <p>お手本</p>
+      <div id="player" class="model-video"></div>
     </div>
   </div>
 

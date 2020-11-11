@@ -1,0 +1,51 @@
+.post-button{
+
+}
+.comment-area{
+  margin: 10px 0;
+  width: calc(100vw / 3);
+}
+
+.comment-form{
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #333333;
+  margin: 10px 0 10px 10px;
+}
+.skill-show-bottom{
+  display: flex;
+  justify-content: space-between;
+}
+
+.skill-edit-btn,.skill-destroy-btn{
+  text-decoration: none;
+  font-size: 20px;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius:10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  flex-direction: column;
+  width: calc(100vw / 3);
+  margin: 50px auto;
+  position: relative;
+}
+
+.skill-edit-btn,.skill-destroy-btn:hover{
+  box-shadow: 0 3px 6px 0 #333333;
+  position: relative;
+  top: -2px;
+  cursor: pointer;
+}
+.skill-edit-btn,.skill-destroy-btn:active{
+  box-shadow: none;
+  position: relative;
+  top: 2px;
+}
+
+.edit-delete-btn{
+  
+}

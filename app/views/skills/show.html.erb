@@ -1,61 +1,63 @@
-<%= require "json"%>
-  <%= @skill.created_at %>
-    <% if user_signed_in? && current_user.id == @skill.user.id %>
-      <%= link_to '編集', edit_skill_path(params[:id]), method: :get, class: "skill-red-btn" %>
-      <%= link_to '削除', skill_path(params[:id]), method: :delete, class:'skill-destroy' %>
-    <% end %>
+<body>
+<%# <%= require "json" %>
+<%# 非同期通信で使用 %> 
     
    <%= render "technique/model" %>
 
-
-
-  <%# 選択したidによって再生される技に対応する部分テンプレートが表示される。  %>
-<%if @skill.compare %>
-  <h2>気勢に関して</h2>
-  上級者との差<%=@skill.compare.sprits %>
-  修正点<%=@skill.compare.sprits2 %>
-  <h2>刃筋に関して</h2>
-  上級者との差<%=@skill.compare.sword %>
-  修正点<%=@skill.compare.sword2 %>
-  <h2>竹刀の打突部に関して</h2>
-  上級者との差<%=@skill.compare.bamboo %>
-  修正点<%=@skill.compare.bamboo2 %>
-  <h2>打突部位に関して</h2>
-  上級者との差<%=@skill.compare.position %>
-  修正点<%=@skill.compare.position2 %>
-  <h2>残心に関して</h2>
-  上級者との差<%=@skill.compare.zanshin %>
-  修正点<%=@skill.compare.zanshin2 %>
-  <h2>気付き</h2>
-  <%=@skill.compare.notice %>
-  <%end%>
-</div>
-<%= form_with model: [@skill,@comment], id: "form" ,local: true do |f| %>
-  <%if user_signed_in? %>
-  <%= f.text_field :text  , id: "comment"%>
-  <%= f.submit '投稿する' , id: "submit" %>
-  <%end%>
-<% end %>
-</div>
-
-<div id="list">
-
-<% @comments.each do |comment| %>
-<%if comment.skill_id == @skill.id %>
-  <div id="getid" data-skillid=<%= comment.skill.id %> >
-    <div class="comment-date">
-      投稿日時：<%= l comment.created_at %>
-    </div>
-    <div class="comment-content">
-      <%= comment.text %>
-    </div>
+<div class="skill-show-bottom">
+  <div class="kpt">
+    <%# 選択したidによって再生される技に対応する部分テンプレートが表示される。  %>
+    <%if @skill.compare %>
+      <h2>気勢に関して</h2>
+      上級者との差<%=@skill.compare.sprits %>
+      修正点<%=@skill.compare.sprits2 %>
+      <h2>刃筋に関して</h2>
+      上級者との差<%=@skill.compare.sword %>
+      修正点<%=@skill.compare.sword2 %>
+      <h2>竹刀の打突部に関して</h2>
+      上級者との差<%=@skill.compare.bamboo %>
+      修正点<%=@skill.compare.bamboo2 %>
+      <h2>打突部位に関して</h2>
+      上級者との差<%=@skill.compare.position %>
+      修正点<%=@skill.compare.position2 %>
+      <h2>残心に関して</h2>
+      上級者との差<%=@skill.compare.zanshin %>
+      修正点<%=@skill.compare.zanshin2 %>
+      <h2>気付き</h2>
+      <%=@skill.compare.notice %>
+    <%end%>
   </div>
+  <div class="skill-show-block">
+    <%= form_with model: [@skill,@comment], id: "form" ,local: true do |f| %>
+      <%if user_signed_in? %>
+        <%= f.text_field :text, id: "comment" ,class: "comment-form", placeholder: "公開コメントを入力する.." %>
+        <%= f.submit '投稿する' , id: "submit" %>
+      <%end%>
+    <% end %>
+<%# <div id="list">非同期通信で使用? %>
+    <% @comments.each do |comment| %>
+      <%if comment.skill_id == @skill.id %>
+        <div id="getid" class= "comment-area" data-skillid=<%= comment.skill.id %> >
+          <div class="comment-date">
+            <time datetime="<%= comment.created_at %>">
+              <%= time_ago_in_words(comment.created_at) %>前
+            </time>
+          </div>
+          <div class="comment-content">
+            <%= comment.text %>  by <%= comment.user.nickname%>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+  <% if user_signed_in? && current_user.id == @skill.user.id %>
+    <div class="edit-delete-btn">
+      <%= link_to '編集', edit_skill_path(params[:id]), method: :get, class: "skill-edit-btn" %>
+      <%= link_to '削除', skill_path(params[:id]), method: :delete, class:'skill-destroy-btn' %>
+    </div>
   <% end %>
-<% end %>
-
-<%= link_to "トップへ", root_path,  class: "top" %>
-
-他人のコメントもある。
+</body>
 
 <script>
 
@@ -112,4 +114,4 @@ function comment() {
   });
 }
 window.addEventListener("load", comment);
-</script>
+</script> %>
