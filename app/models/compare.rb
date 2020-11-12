@@ -5,18 +5,10 @@ class Compare < ApplicationRecord
   belongs_to :skill, optional: true
 
   with_options presence: true do
-    validates :sprits,length: { maximum: 140 }
-    validates :posture,length: { maximum: 140 }
-    validates :bamboo,length: { maximum: 140 }
-    validates :position,length: { maximum: 140 }
-    validates :sword,length: { maximum: 140 }
-    validates :zanshin,length: { maximum: 140 }
-    validates :sprits2,length: { maximum: 140 }
-    validates :posture2,length: { maximum: 140 }
-    validates :bamboo2,length: { maximum: 140 }
-    validates :position2,length: { maximum: 140 }
-    validates :sword2,length: { maximum: 140 }
-    validates :zanshin2,length: { maximum: 140 }
+    validates :keep,length: { maximum: 400 }
+    validates :problem,length: { maximum: 400 }
+    validates :try,length: { maximum: 400 }
+
   end
   validates :notice, length: { maximum: 400 }
   validates :public, presence: true

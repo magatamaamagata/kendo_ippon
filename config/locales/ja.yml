@@ -14,17 +14,8 @@ ja:
       youtube_id: 技名
       video: 動画
      compare:
-      sprits: 気勢(上手い人との差)
-      posture: 姿勢(上手い人との差)
-      bamboo: 竹刀の打突部(上手い人との差)
-      position: 打突部位(上手い人との差)
-      sword: 刃筋(上手い人との差)
-      zanshin: 残心(上手い人との差)
-      sprits2: 気勢(改善点)
-      posture2: 姿勢(改善点)
-      bamboo2: 竹刀の打突部(改善点)
-      position2: 打突部位(改善点)
-      sword2: 刃筋(改善点)
-      zanshin2: 残心(改善点)
+      keep: 継続すること
+      problem: 問題点
+      try: 改善すること
       notice: 気がついたこと
       public_id: 公開設定

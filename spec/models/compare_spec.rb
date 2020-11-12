@@ -19,129 +19,38 @@ RSpec.describe Compare,type: :model do
     end
 
     context '感想投稿がうまくいかないとき' do
-      it '気勢（比較）が空だと登録できない' do
-        @compare.sprits = ""
+      it '継続することが空だと登録できない' do
+        @compare.keep = ""
         @compare.valid?
         expect(@compare.errors.full_messages).to include('気勢(上手い人との差)を入力してください')
       end
-      it '気勢（比較）が140字を超えていると登録できない' do
-        @compare.sprits = @long_sentence
+      it '継続することが400字を超えていると登録できない' do
+        @compare.keep = @long_sentence
         @compare.valid?
-        expect(@compare.errors.full_messages).to include('気勢(上手い人との差)は140文字以内で入力してください')
+        expect(@compare.errors.full_messages).to include('気勢(上手い人との差)は400文字以内で入力してください')
       end
-      it '気勢（改善点）が空だと登録できない' do
-        @compare.sprits2 = ""
+      it '問題点が空だと登録できない' do
+        @compare.problem = ""
         @compare.valid?
         expect(@compare.errors.full_messages).to include('気勢(改善点)を入力してください')
       end
-      it '気勢（改善点）が140字を超えていると登録できない' do
-        @compare.sprits2 = @long_sentence
+      it '問題点が400字を超えていると登録できない' do
+        @compare.problem = @long_sentence
         @compare.valid?
-        expect(@compare.errors.full_messages).to include('気勢(改善点)は140文字以内で入力してください')
+        expect(@compare.errors.full_messages).to include('気勢(改善点)は400文字以内で入力してください')
       end
-      it '姿勢（比較）が空だと登録できない' do
-        @compare.posture = ""
+      it '改善することが空だと登録できない' do
+        @compare.try = ""
         @compare.valid?
         expect(@compare.errors.full_messages).to include('姿勢(上手い人との差)を入力してください')
       end
-      it '姿勢（比較）が140字を超えていると登録できない' do
-        @compare.posture = @long_sentence
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('姿勢(上手い人との差)は140文字以内で入力してください')
-      end
-      it '姿勢（改善点）が空だと登録できない' do
-        @compare.posture2 = ""
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('姿勢(改善点)を入力してください')
-      end
-      it '姿勢（改善点）が140字を超えていると登録できない' do
-        @compare.posture2 = @long_sentence
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('姿勢(改善点)は140文字以内で入力してください')
-      end
-      it '竹刀の打突部(上手い人との差)' do
-        @compare.position = ""
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('打突部位(上手い人との差)を入力してください')
-      end
-      it '竹刀の打突部(上手い人との差)が140字を超えていると登録できない' do
-        @compare.position = @long_sentence
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('打突部位(上手い人との差)は140文字以内で入力してください')
-      end
-      it '竹刀の打突部(改善点)' do
-        @compare.position2 = ""
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('打突部位(改善点)を入力してください')
-      end
-      it '竹刀の打突部(改善点)が140字を超えていると登録できない' do
-        @compare.position2 = @long_sentence
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('打突部位(改善点)は140文字以内で入力してください')
-      end
-      it '打突部位(上手い人との差)' do
-        @compare.position = ""
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('打突部位(上手い人との差)を入力してください')
-      end
-      it '打突部位(上手い人との差)が140字を超えていると登録できない' do
-        @compare.position = @long_sentence
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('打突部位(上手い人との差)は140文字以内で入力してください')
-      end
-      it '打突部位(改善点)' do
-        @compare.position2 = ""
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('打突部位(改善点)を入力してください')
-      end
-      it '打突部位(改善点)が140字を超えていると登録できない' do
-        @compare.position2 = @long_sentence
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('打突部位(改善点)は140文字以内で入力してください')
-      end
-      it '刃筋(上手い人との差)が空だと登録できない' do
-        @compare.sword = ""
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('刃筋(上手い人との差)を入力してください')
-      end
-      it '刃筋(上手い人との差)が140字を超えていると登録できない' do
-        @compare.sword = @long_sentence
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('刃筋(上手い人との差)は140文字以内で入力してください')
-      end
-      it '刃筋(改善点)が空だと登録できない' do
-        @compare.sword2 = ""
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('刃筋(改善点)を入力してください')
-      end
-      it '刃筋(改善点)が140字を超えていると登録できない' do
-        @compare.sword2 = @long_sentence
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('刃筋(改善点)は140文字以内で入力してください')
-      end
-      it '残心(上手い人との差)空だと登録できない' do
-        @compare.zanshin = ""
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('残心(上手い人との差)を入力してください')
-      end
 
-      it '残心(上手い人との差)が140字を超えていると登録できない' do
-        @compare.zanshin = @long_sentence
+      it '改善することが400字を超えていると登録できない' do
+        @compare.try = @long_sentence
         @compare.valid?
-        expect(@compare.errors.full_messages).to include('残心(上手い人との差)は140文字以内で入力してください')
+        expect(@compare.errors.full_messages).to include('気がついたことは400文字以内で入力してください')
       end
-
-      it '残心(改善点)空だと登録できない' do
-        @compare.zanshin2 = ""
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('残心(改善点)を入力してください')
-      end
-      it '残心(改善点)が140字を超えていると登録できない' do
-        @compare.zanshin2 = @long_sentence
-        @compare.valid?
-        expect(@compare.errors.full_messages).to include('残心(改善点)は140文字以内で入力してください')
-      end
-      it '気がついたことが400字を超えていると登録できない' do
+      it '気付きが400字を超えていると登録できない' do
         @compare.notice = @long_sentence
         @compare.valid?
         expect(@compare.errors.full_messages).to include('気がついたことは400文字以内で入力してください')

@@ -44,19 +44,10 @@ ActiveRecord::Schema.define(version: 2020_10_30_121703) do
   end
 
   create_table "compares", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "sprits", null: false
-    t.text "posture", null: false
-    t.text "bamboo", null: false
-    t.text "position", null: false
-    t.text "sword", null: false
-    t.text "zanshin", null: false
-    t.text "sprits2", null: false
-    t.text "posture2", null: false
-    t.text "bamboo2", null: false
-    t.text "position2", null: false
-    t.text "sword2", null: false
-    t.text "zanshin2", null: false
-    t.text "notice", null: false
+    t.text "keep", null: false
+    t.text "problem", null: false
+    t.text "try"
+    t.text "notice"
     t.integer "public_id", null: false
     t.bigint "skill_id", null: false
     t.datetime "created_at", precision: 6, null: false
