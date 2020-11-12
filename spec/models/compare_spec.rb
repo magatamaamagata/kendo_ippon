@@ -22,33 +22,33 @@ RSpec.describe Compare,type: :model do
       it '継続することが空だと登録できない' do
         @compare.keep = ""
         @compare.valid?
-        expect(@compare.errors.full_messages).to include('気勢(上手い人との差)を入力してください')
+        expect(@compare.errors.full_messages).to include('継続することを入力してください')
       end
       it '継続することが400字を超えていると登録できない' do
         @compare.keep = @long_sentence
         @compare.valid?
-        expect(@compare.errors.full_messages).to include('気勢(上手い人との差)は400文字以内で入力してください')
+        expect(@compare.errors.full_messages).to include('継続することは400文字以内で入力してください')
       end
       it '問題点が空だと登録できない' do
         @compare.problem = ""
         @compare.valid?
-        expect(@compare.errors.full_messages).to include('気勢(改善点)を入力してください')
+        expect(@compare.errors.full_messages).to include('問題点を入力してください')
       end
       it '問題点が400字を超えていると登録できない' do
         @compare.problem = @long_sentence
         @compare.valid?
-        expect(@compare.errors.full_messages).to include('気勢(改善点)は400文字以内で入力してください')
+        expect(@compare.errors.full_messages).to include('問題点は400文字以内で入力してください')
       end
       it '改善することが空だと登録できない' do
         @compare.try = ""
         @compare.valid?
-        expect(@compare.errors.full_messages).to include('姿勢(上手い人との差)を入力してください')
+        expect(@compare.errors.full_messages).to include('改善することを入力してください')
       end
 
       it '改善することが400字を超えていると登録できない' do
         @compare.try = @long_sentence
         @compare.valid?
-        expect(@compare.errors.full_messages).to include('気がついたことは400文字以内で入力してください')
+        expect(@compare.errors.full_messages).to include('改善することは400文字以内で入力してください')
       end
       it '気付きが400字を超えていると登録できない' do
         @compare.notice = @long_sentence
