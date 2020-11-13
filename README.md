@@ -1,5 +1,5 @@
 ## Top view
-![demo](https://gyazo.com/0de1a072c56af2cf269a1acdf011f396)
+[![Image from Gyazo](https://i.gyazo.com/3911f7f51fe14fced51f21da8eaf8ff9.gif)](https://gyazo.com/3911f7f51fe14fced51f21da8eaf8ff9)
 剣道の上達を目指すサイトです。  
 自分の試合動画や稽古動画を投稿して上級者と動作を比較してKPT(Keep,Problem,Try)を利用することで改善点を記録できるアプリです。  
 技に応じて自動で技が再生されます。  
@@ -8,10 +8,11 @@
 Ruby/Ruby on Rails/Javascript/MariaDB/nginx/Unicorn/Github/AWS/Visual Studio Code
 
 ## インフラ構成図
-![](https://gyazo.com/e9c36e0f9f6eaa9f51bb79add3b9c778)
+[![Image from Gyazo](https://i.gyazo.com/9247e36c11a35669334ce6b2da2f8166.png)](https://gyazo.com/9247e36c11a35669334ce6b2da2f8166)
 
 ## ER図
-![](https://gyazo.com/becf5bf2671e0ec325106fb231342951)
+[![Image from Gyazo](https://i.gyazo.com/df1b4a1984b5781a46c561ceabdbd2a8.png)](https://gyazo.com/df1b4a1984b5781a46c561ceabdbd2a8)
+
 ## 機能
 ユーザー登録機能(devise)  
 ログイン機能(devise)  
