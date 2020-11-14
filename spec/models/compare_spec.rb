@@ -40,13 +40,13 @@ RSpec.describe Compare,type: :model do
         expect(@compare.errors.full_messages).to include('問題点は400文字以内で入力してください')
       end
       it '改善することが空だと登録できない' do
-        @compare.try = ""
+        @compare.make_better = ""
         @compare.valid?
         expect(@compare.errors.full_messages).to include('改善することを入力してください')
       end
 
       it '改善することが400字を超えていると登録できない' do
-        @compare.try = @long_sentence
+        @compare.make_better = @long_sentence
         @compare.valid?
         expect(@compare.errors.full_messages).to include('改善することは400文字以内で入力してください')
       end

@@ -7,7 +7,7 @@ class Compare < ApplicationRecord
   with_options presence: true do
     validates :keep,length: { maximum: 400 }
     validates :problem,length: { maximum: 400 }
-    validates :try,length: { maximum: 400 }
+    validates :make_better,length: { maximum: 400 }
 
   end
   validates :notice, length: { maximum: 400 }
