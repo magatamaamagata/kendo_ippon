@@ -2,8 +2,18 @@
     <%# <script type="text/javascript" src="youtube.js"></script> %>
       <%= form_with model:[@skill,@compare], data: {"turbolinks" => false}, local: true do |f| %>
     <%# <% unless user_signed_in? || current_user.id != @skill.user.id 条件分岐はあとで%> %>
-      <h2>上手い人との差</h2>
-
+      <h2>一本になる要素</h2>
+      充実した気勢（気合は入っているか、声は出ているか）
+      適正な姿勢（前傾姿勢でないか、左足の引きつけ、体が右に流れていないか）
+      正しい竹刀の打突部、刃筋（物打を中心とした刃部か）
+      正しい打突部位（面、小手、胴、突き垂れ）
+      残心（打ちっぱなしではないか）
+      機会（相手が出ようとしたところ、相手が打ち終わったところ、いついたところ）
+      冴え（打つスピード、足捌きの速さ）
+      打突の強さ（掠るのではなく捉えているか）
+      中心を取っているか（横から打っていないか、真ん中を割っているか）
+      着装は正しいか（面タオルがはみ出ていないか、紐が解けていないか、袴が短すぎないか）
+      
         <div class="field">
           <%= f.label value="良いところ" %><br />
             <%= f.text_area :keep, class:"keep", id:"keep" %>
