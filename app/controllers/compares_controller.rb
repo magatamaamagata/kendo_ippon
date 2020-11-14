@@ -10,7 +10,6 @@ class ComparesController < ApplicationController
   end
 
   def create
-    binding.pry
     @compare = Compare.new(compare_params)
 
     if @compare.valid?
