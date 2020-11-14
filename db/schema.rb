@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_10_30_121703) do
   create_table "compares", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "keep", null: false
     t.text "problem", null: false
-    t.text "try"
+    t.text "make_better", null: false
     t.text "notice"
     t.integer "public_id", null: false
     t.bigint "skill_id", null: false
