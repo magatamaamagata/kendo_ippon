@@ -1,7 +1,7 @@
 class CreateCompares < ActiveRecord::Migration[6.0]
   def change
     create_table :compares do |t|
-      t.text :keep, null: false
+      t.text :continuation, null: false
       t.text :problem, null: false
       t.text :make_better, null: false
       t.text :notice

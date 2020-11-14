@@ -9,7 +9,7 @@
     <%# 選択したidによって再生される技に対応する部分テンプレートが表示される。  %>
     <%if @skill.compare %>
       <h2>良いところ、継続すること</h2>
-      <%=@skill.compare.keep %>
+      <%=@skill.compare.continuation %>
       <h2>上手い人との差、足りないところ</h2>
       <%=@skill.compare.problem %>
       <h2>改善点、次回の稽古で意識すること</h2>
