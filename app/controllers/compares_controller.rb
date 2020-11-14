@@ -10,6 +10,7 @@ class ComparesController < ApplicationController
   end
 
   def create
+    binding.pry
     @compare = Compare.new(compare_params)
 
     if @compare.valid?
@@ -50,6 +51,6 @@ class ComparesController < ApplicationController
   end
 
   def compare_params
-    params.require(:compare).permit( :continuation, :problem, :make_better, :notice, :public_id).merge(skill_id: params[:skill_id])
+    params.require(:compare).permit( :amagata, :problem, :make_better, :notice, :public_id).merge(skill_id: params[:skill_id])
   end
 end

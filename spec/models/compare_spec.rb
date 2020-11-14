@@ -20,12 +20,12 @@ RSpec.describe Compare,type: :model do
 
     context '感想投稿がうまくいかないとき' do
       it '継続することが空だと登録できない' do
-        @compare.continuation = ""
+        @compare.amagata = ""
         @compare.valid?
         expect(@compare.errors.full_messages).to include('継続することを入力してください')
       end
       it '継続することが400字を超えていると登録できない' do
-        @compare.continuation = @long_sentence
+        @compare.amagata = @long_sentence
         @compare.valid?
         expect(@compare.errors.full_messages).to include('継続することは400文字以内で入力してください')
       end
