@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 2020_10_30_121703) do
 
   create_table "judges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "judge_correct_id", null: false
-    t.text "comment"
     t.bigint "user_id", null: false
     t.bigint "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -67,10 +66,10 @@ ActiveRecord::Schema.define(version: 2020_10_30_121703) do
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "url"
+    t.string "gif_url"
     t.integer "judge_correct_id", null: false
     t.integer "difficulity_id", null: false
-    t.integer "exp"
+    t.integer "exp_id", default: 1
     t.bigint "user_id", null: false
     t.text "description", null: false
     t.datetime "created_at", precision: 6, null: false
