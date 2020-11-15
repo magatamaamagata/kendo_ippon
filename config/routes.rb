@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   post '/users/guest_sign_in', to: 'users#new_guest'
   resources :posts do
-    resources :judges, only: [:create,:index]
+    resources :judges, only: [:create,:show]
   end
 
   resources :skills  do

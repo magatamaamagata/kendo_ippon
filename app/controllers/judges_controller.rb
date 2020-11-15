@@ -1,18 +1,13 @@
 class JudgesController < ApplicationController
-  def index
-    # @post=Post.find(params[:post_id])
-    # @judge = Judge.find(@post.judge.id)
-    @judges = Judge.includes(:post).order('created_at DESC')
-  end
 
   def create
     @judge = Judge.new(judge_params)
-    if @judge.save && (@judge.post.judge_correct_id == @judge.judge_correct_id)
-      redirect_to post_judges_path
-    else
-      # flash[:ng] = "外れです"
-      redirect_to posts_path
-    end
+      @judge.save
+      redirect_to post_judge_path(params[:post_id],@judge.id)
+  end
+
+  def show
+   @judge = Judge.find(params[:id])
   end
 
   private

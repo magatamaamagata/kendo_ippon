@@ -1,0 +1,8 @@
+<%# <% if Post.find_by(id: params[:post_id]).judge_correct_id == Judge.find_by(id: params[:id]).judge_correct_id %> %>
+    <% if @judge.post.judge_correct_id == @judge.judge_correct_id %>
+
+    <%# <% if 2==3 %> %>
+      正解
+    <% else %>
+      ぶぶー
+    <% end %>
