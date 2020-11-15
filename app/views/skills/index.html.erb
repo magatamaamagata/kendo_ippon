@@ -43,12 +43,16 @@
   </div>
 </div>
 
-  <%# <div class="skills" > %>
+  <div class="skills" >
     <div class= "skill">
       <%= link_to "動画をUPして記録する", new_skill_path ,class:"link-skill"%>
       <%= image_tag "play-button.png", class:"play" %>
     </div>
-  <%# </div> %>
+    <div class= "skill">
+      <%= link_to "クイズはこちら", posts_path,  class: "link-skill" %>
+      <%= image_tag "quiz.png", class:"play" %>
+    </div>
+  </div>
 
 
   <div class='skill-contents'>
@@ -68,5 +72,3 @@
         <%# <%end%> 
     <%# </ul> %>
   </div>
-
-  <%= link_to "クイズはこちら", posts_path,  class: "post" %>

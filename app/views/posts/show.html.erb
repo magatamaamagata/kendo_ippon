@@ -2,7 +2,6 @@
 <html>
   <body>
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-    <div id="player"></div>
 
     <script>
       // 2. This code loads the IFrame Player API code asynchronously.
@@ -55,7 +54,10 @@
 <% if @post.video.attached? %>
   <%= video_tag rails_blob_path(@post.video) ,size: "640x360" , loop: true, autoplay: true, muted: true%>
     <%# <video width="480" height="270" src="<%= rails_blob_path(@post.video)" type="video/mp4" controls></video> %> %>
-
+<%elsif @post.gif_url%>
+  <%= image_tag "#{@post.gif_url}/raw" ,class: "gif" %>
+<%else%>
+  <div id="player"></div>
 <% end %>
 <%# <iframe width="480" height="270" src="https://www.youtube.com/embed/zPfkzbiukqw?start=20&end=30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> %>
     <%# <% if user_signed_in? && current_user.id == @post.user.id 条件分岐はあとで%> %>
@@ -63,6 +65,7 @@
       <p class='or-text'>or</p>
       <%= link_to '削除', post_path(params[:id]), method: :delete, class:'post-destroy' %>
     <%# <% end 条件分岐はあとで%> %>
+    <% if @post.judges.where(post_id: params[:id]) %>
 
     <%# <% unless user_signed_in? || current_user.id != @post.user.id 条件分岐はあとで%> %>
       <%= form_with(model: [@post, @judge] , local: true) do |f| %>
@@ -74,13 +77,11 @@
           <%= f.collection_select(:judge_correct_id, JudgeCorrect.all, :id, :name, {}, {class:"judge-correct-select"}) %>
         </div>
         
-        <div class="field">
-      <%= f.label :comment %><br />
-      <%= f.text_area :comment, class:"comment", id:"name", placeholder:"例) 四段" %>
-  </div>
           <%= f.submit "正解を見る" %>
         </div>
       <% end %>
+      <% end %>
+
     <%# <% end条件分岐はあとで %> %>
 </div>
   </body>
