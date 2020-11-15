@@ -17,20 +17,21 @@
         </tbody>
       </table>
     </div>
+  <%if @user.email != "guest@example.com" %>
     <%= link_to 'プロフィールを編集する', edit_user_path(current_user), method: :get, class: "user-edit-btn" %>
-
+    <%= link_to "プロフィールを削除する", user_path(current_user), data: { confirm: "本当に削除しますか?" }, method: :delete, class: "user-delete-btn" %></p>
+  <%end%>
     <div class="my__video_info">
       <h2 class="page-heading">
         <%= "#{@user.nickname}さんの剣道" %>
       </h2>
       <div class="user__video">
         <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
-        <% if @skills.present?%>
-          <%= render partial: "shared/user_videos" ,locals: { skill: @skill},collection: @skills %>
+        <% if @skills.present? %>
+            <%= render partial: "shared/skill" ,collection: @skills%>
         <%else%>
           <h2>まだありません</h2>
         <%end%>
       </div>
     </div>
-    <%= link_to "プロフィールを削除する", user_path(current_user), data: { confirm: "本当に削除しますか?" }, method: :delete, class: "user-delete-btn" %></p>
 </div>

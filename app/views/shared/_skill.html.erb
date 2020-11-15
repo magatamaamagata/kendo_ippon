@@ -1,0 +1,6 @@
+<div class="my__video">
+  <div class="video__body">
+    <%= link_to "技名：#{skill.youtube.name}", skill_path(skill.id), class: :video__title %>
+    <%= link_to (video_tag rails_blob_path(skill.video) , class: "user-video"), skill_path(skill.id)%>
+  </div>
+</div>

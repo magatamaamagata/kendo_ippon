@@ -29,8 +29,11 @@
           <li class="list-top"><%= link_to "#{current_user.nickname}", user_path(current_user.id),class: "user_link" %></li>
           <li class="list-top"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
         <%else%>
+          <li class="list-top"><%= link_to 'ゲストログイン', "/users/guest_sign_in", method: :post %></li>
           <li class="list-top"><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
           <li class="list-top"><%= link_to '新規登録', new_user_registration_path , class: "sign-up" %></li>
+          
+
         <%end%>
       </ul>
     </div>

@@ -12,10 +12,4 @@ class User < ApplicationRecord
   validates :grade, presence: true
   validates :grade_id, numericality: { other_than: 1 , message: 'を選択してください'}
 
-  def self.guest
-    # 以下の情報を持ったユーザーを探す、または作成する
-    find_or_create_by!(email: 'test@example.com', nickname: '浪人') do |user|
-      user.password = SecureRandom.urlsafe_base64
-    end
-  end
 end
