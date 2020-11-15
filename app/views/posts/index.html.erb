@@ -1,24 +1,24 @@
 <h1>剣道</h1>
-<li><%= link_to "クイズを投稿", new_post_path,  class: "post" %></li>
 
-  <div class='post-contents'>
-    <h2 class='title'>投稿一覧</h2>
-    <ul class='post-lists'>
+<div class= "skill">
+  <%= link_to "クイズを投稿", new_post_path,  class: "link-skill" %>
+</div>
+
+  <div class='skill-contents'>
       <% @posts.each do |post| %>
-        <li class='list'>
     <%# <%unless post.judges.find(params[:post_id]).user_id == current_user.id %> %>
-          <div class='post-info'>
-          <% if post.video.attached? %>
-            <%= video_tag rails_blob_path(post.video) ,size: "640x360", loop: true, autoplay: true, muted: true%>
-          <%elsif%>
-            <%= link_to (image_tag "#{post.gif_url}/raw" ,class: "video"), post_path(post.id) %>
-          <%end%>
+          <div class='skill-info'>
+            <div class='skill-video'>
+              <% if post.video.attached? %>
+                <%= video_tag rails_blob_path(post.video) ,size: "640x360", loop: true, autoplay: true, muted: true, class: "video"%>
+              <%elsif%>
+                <%= link_to (image_tag "#{post.gif_url}/raw" ,class: "video"), post_path(post.id) %>
+              <%end%>
     <%# <%end %> %>
-            <div class='post-price'>
-              <%= post.difficulity.name %>
+              <div class='post-price'>
+                <%= post.difficulity.name %>
+              </div>
             </div>
           </div>
-        </li>
       <%end%>
-    </ul>
   </div>

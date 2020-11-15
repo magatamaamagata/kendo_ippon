@@ -1,14 +1,17 @@
 .how-to-use{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   margin: 20px;
 }
 
-.container-right,.container-left{
+.container{
   display: flex;
-  width: calc((100vw - 40px) / 2);
+  flex-direction: row;
+  /* width: 50vw; */
+  padding: 10px;
 }
-.container-right{
-  margin: 20px 10px 20px auto;
-}
+
 .list-title{
   height: 100px;
 }
@@ -81,9 +84,18 @@ a{
   flex-wrap: wrap;
 }
 
-.block1{
+.block1>.use-image{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+}
+.block1{
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+  width: 40vw;
+  border: 3px solid black;
+
 }
 .image1{
   height: 25vw;
@@ -92,4 +104,10 @@ a{
 .skills{
   display: flex;
   justify-content: space-around;
+}
+
+.block-block{
+  display: flex;
+  justify-content: center;
+  /* width: 40vw; */
 }
