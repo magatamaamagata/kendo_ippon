@@ -45,29 +45,24 @@
         player.stopVideo();
       }
     </script>
-    <%# <script type="text/javascript", src="/app/javascript/youtube.js" ></script> %>
 
-<div class="post-show">
-    <h2 class="name">
-      <%# <%= image_tag "#{@post.gif_url}/raw", alt: "一本判定動画#{@post.id}" %> %>
-    </h2>
-<% if @post.video.attached? %>
-  <%= video_tag rails_blob_path(@post.video) ,size: "640x360" , loop: true, autoplay: true, muted: true%>
-    <%# <video width="480" height="270" src="<%= rails_blob_path(@post.video)" type="video/mp4" controls></video> %> %>
-<%elsif @post.gif_url%>
-  <%= image_tag "#{@post.gif_url}/raw" ,class: "gif" %>
-<%else%>
-  <div id="player"></div>
-<% end %>
-<%# <iframe width="480" height="270" src="https://www.youtube.com/embed/zPfkzbiukqw?start=20&end=30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> %>
-    <%# <% if user_signed_in? && current_user.id == @post.user.id 条件分岐はあとで%> %>
-      <%= link_to '編集', edit_post_path(params[:id]), method: :get, class: "post-red-btn" %>
-      <p class='or-text'>or</p>
-      <%= link_to '削除', post_path(params[:id]), method: :delete, class:'post-destroy' %>
-    <%# <% end 条件分岐はあとで%> %>
-    <% if @post.judges.where(post_id: params[:id]) %>
+<div class="videos">
+    <% if @post.video.attached? %>
+      <%= video_tag rails_blob_path(@post.video) ,size: "640x360" , loop: true, autoplay: true, muted: true ,class: "post-video"%>
+        <%# <video width="480" height="270" src="<%= rails_blob_path(@post.video)" type="video/mp4" controls></video> %> %>
+    <%elsif @post.gif_url%>
+      <%= image_tag "#{@post.gif_url}/raw" ,class: "post-video" %>
+    <%else%>
+      <div id="player"></div>
+    <% end %>
+</div>
 
-    <%# <% unless user_signed_in? || current_user.id != @post.user.id 条件分岐はあとで%> %>
+    <% if user_signed_in? && current_user.id == @post.user.id  %>
+      <%= link_to '編集', edit_post_path(params[:id]), method: :get, class: "skill-edit-btn" %>
+      <%= link_to '削除', post_path(params[:id]), method: :delete, class:'skill-destroy-btn' %>
+    <% end %>
+
+    <% if user_signed_in? && current_user.id != @post.user.id && Judge.find_by(post_id: params[:id]).present? && current_user.id != Judge.find_by(post_id: params[:id]).user_id%>
       <%= form_with(model: [@post, @judge] , local: true) do |f| %>
         <div class="post-explain-box">
           <span><%= @post.description %></span>
@@ -76,13 +71,14 @@
           <%= f.label :judge_correct_id %><br />
           <%= f.collection_select(:judge_correct_id, JudgeCorrect.all, :id, :name, {}, {class:"judge-correct-select"}) %>
         </div>
-        
+        <div>
           <%= f.submit "正解を見る" %>
         </div>
       <% end %>
-      <% end %>
-
-    <%# <% end条件分岐はあとで %> %>
-</div>
+    <%# <%elsif @post.blank? && @judge.blank? && @judge.judge_correct_id != 1%> %>
+    <%# <%else%> %>
+      <%# <%"答えは#{@post.judge_correct.name}"%> %>
+      <%# <% "#{@judge.judge_correct.name}と回答済み"あとで条件分岐を作成%> %>
+    <% end %>
   </body>
   </html>
