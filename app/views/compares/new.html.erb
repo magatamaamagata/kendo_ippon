@@ -1,3 +1,23 @@
+   <%# <%if Compare.where(id: params[:id]).present?%> %>
    <%= render 'shared/error_messages', model: @compare %>
+   <%# <%end%> %>
    <%= render "technique/model" %>
    <%= render "shared/form2" %>
+
+<script>
+window.onbeforeunload = function(e) {
+  console.log('beforeunload');
+  return 'window onbeforeunload';
+};
+//ログアウトと剣道連盟のサイトへ移動を許してしまっているので警告で対処する。
+
+var elements = document.getElementsByName("link");
+//フッターのname: "link"が読み込まれない
+elements.forEach(element => {
+   element.addEventListener("click", function(e){
+    // リンクがクリックされたときの処理
+    e.preventDefault();  // 画面遷移を無効化
+}, false);
+});
+//ログアウトはページがないからかされてしまう
+</script>

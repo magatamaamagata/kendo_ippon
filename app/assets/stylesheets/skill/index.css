@@ -76,6 +76,8 @@ a{
 .skill-video{
   padding: 50px 10px;
   border-radius:10px;
+  box-shadow: 0 2px 4px 0 #333333;
+  margin: 20px 0;
 }
 
 .skill-lists{

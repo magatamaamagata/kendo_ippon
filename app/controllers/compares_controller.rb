@@ -2,11 +2,20 @@ class ComparesController < ApplicationController
   before_action :set_skill, only: [:new, :edit,:move_to_index]
   before_action :set_compare, only: [:edit, :update]
   before_action :move_to_index
+  # after_action :render_new,only: [:new]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def new
     # @skill = Skill.find(params[:skill_id])
     @compare = Compare.new
+    # path = Rails.application.routes.recognize_path(request.referer)
+    # bindning.pry
+    # if path == root_path
+    #   redirect_to skill_path(params[:skill_id])
+    # end
+    # unless request.full_path == root_path
+      
+    # end
   end
 
   def create
@@ -21,8 +30,10 @@ class ComparesController < ApplicationController
   end
 
   def edit
-    # @skill = Skill.find(params[:skill_id])
     # @compare = Compare.find(params[:id])
+    # unless Compare.where(id: params[:id]).present?
+    #   render :new
+    # end
   end
 
   def update
@@ -41,12 +52,19 @@ class ComparesController < ApplicationController
   end
 
   def set_compare
+    # if Compare.where(id: params[:id]).present?
     @compare = Compare.find(params[:id])
+    # end
   end
 
   def move_to_index
     @skill = Skill.find(params[:skill_id])
     redirect_to root_path unless user_signed_in? && (current_user.id == @skill.user.id)
+  end
+
+  def render_new
+    @skill = Skill.find(params[:skill_id])
+    redirect_to new_skill_compare_path(@skill.id) unless @compare.present?
   end
 
   def compare_params
