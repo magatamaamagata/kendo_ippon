@@ -1,20 +1,16 @@
-<h1>剣道</h1>
-
 <div class= "skill">
   <%= link_to "クイズを投稿", new_post_path,  class: "link-skill" %>
 </div>
 
   <div class='skill-contents'>
       <% @posts.each do |post| %>
-    <%# <%unless post.judges.find(params[:post_id]).user_id == current_user.id %> %>
           <div class='skill-info'>
             <div class='skill-video'>
               <% if post.video.attached? %>
-                <%= video_tag rails_blob_path(post.video) ,size: "640x360", loop: true, autoplay: true, muted: true, class: "video"%>
+                <%= link_to (video_tag rails_blob_path(post.video) ,class: "video"), post_path(post.id) %>
               <%elsif%>
                 <%= link_to (image_tag "#{post.gif_url}/raw" ,class: "video"), post_path(post.id) %>
               <%end%>
-    <%# <%end %> %>
               <div class='post-price'>
                 <%= post.difficulity.name %>
               </div>
