@@ -19,3 +19,11 @@ ja:
       make_better: 改善すること
       notice: 気がついたこと
       public_id: 公開設定
+     post:
+      gif_url: GyazoGIFのURL
+      judge_correct_id: 正誤解答
+      difficulity_id: 大会のレベル
+      description: 詳細
+     judge:
+      judge_correct_id: 正誤回答
+
