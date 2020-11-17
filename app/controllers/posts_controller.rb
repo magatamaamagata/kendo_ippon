@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to root_path
+      redirect_to posts_path
     else
       render :new
     end
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to root_path
+      redirect_to posts_path
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to root_path
+    redirect_to posts_path
   end
 
   private
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to root_path unless user_signed_in? && (current_user.id == @post.user_id)
+    redirect_to posts_path unless user_signed_in? && (current_user.id == @post.user_id)
   end
 
   def post_params

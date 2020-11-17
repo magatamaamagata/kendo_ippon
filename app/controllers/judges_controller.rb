@@ -2,8 +2,8 @@ class JudgesController < ApplicationController
 
   def create
     @judge = Judge.new(judge_params)
-      @judge.save
-      redirect_to post_judge_path(params[:post_id],@judge.id)
+    @judge.save
+    redirect_to post_judge_path(params[:post_id],@judge.id)
   end
 
   def show
