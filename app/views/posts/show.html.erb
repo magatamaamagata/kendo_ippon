@@ -57,11 +57,12 @@
     <% end %>
 </div>
 
-
-
     <% if user_signed_in? && current_user.id == @post.user.id  %>
       <%= link_to '編集', edit_post_path(params[:id]), method: :get, class: "skill-edit-btn" %>
       <%= link_to '削除', post_path(params[:id]), method: :delete, class:'skill-destroy-btn' %>
+    <%else%>
+      <%# <%="あなたの回答は#{@post.judge_correct.name}で#{@post.judge_correct.}でした。"%> %>
+      <%= link_to '再チャレンジする', new_post_judge_path(params[:id]), method: :get, class: "skill-edit-btn" %>
     <% end %>
 
     <%# <% if user_signed_in? && current_user.id != @post.user.id && Judge.find_by(post_id: params[:id]).present? && current_user.id != Judge.find_by(post_id: params[:id]).user_id%> %>
