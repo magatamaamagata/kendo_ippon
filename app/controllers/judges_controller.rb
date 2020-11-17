@@ -1,4 +1,8 @@
 class JudgesController < ApplicationController
+  def new
+    @post = Post.find(params[:post_id])
+    @judge = Judge.new
+  end
 
   def create
     @judge = Judge.new(judge_params)

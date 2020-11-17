@@ -57,13 +57,28 @@
     <% end %>
 </div>
 
-
-
     <% if user_signed_in? && current_user.id == @post.user.id  %>
-      <%= link_to '編集', edit_post_path(params[:id]), method: :get, class: "skill-edit-btn" %>
-      <%= link_to '削除', post_path(params[:id]), method: :delete, class:'skill-destroy-btn' %>
+      <%= link_to '編集', edit_post_path(params[:post_id]), method: :get, class: "skill-edit-btn" %>
+      <%= link_to '削除', post_path(params[:post_id]), method: :delete, class:'skill-destroy-btn' %>
     <% end %>
 
     <%# <% if user_signed_in? && current_user.id != @post.user.id && Judge.find_by(post_id: params[:id]).present? && current_user.id != Judge.find_by(post_id: params[:id]).user_id%> %>
+      <%= form_with(model: [@post, @judge] , local: true) do |f| %>
+        <div class="post-explain-box">
+          <span><%= @post.description %></span>
+        </div>
+        <div class="field">
+          <%= f.label :judge_correct_id %><br />
+          <%= f.collection_select(:judge_correct_id, JudgeCorrect.all, :id, :name, {}, {class:"judge-correct-select"}) %>
+        </div>
+        <div>
+          <%= f.submit "正解を見る" %>
+        </div>
+      <%# <% end %> %>
+    <%# <%elsif @post.blank? && @judge.blank? && @judge.judge_correct_id != 1%> %>
+    <%# <%else%> %>
+      <%# <%"答えは#{@post.judge_correct.name}"%> %>
+      <%# <% "#{@judge.judge_correct.name}と回答済み"あとで条件分岐を作成%> %>
+    <% end %>
   </body>
   </html>
