@@ -49,3 +49,7 @@
 .skill-show-block{
   margin: 0 30px;
 }
+
+p{
+  border-bottom: 1px solid #333333;
+}

@@ -34,6 +34,8 @@
       <%if user_signed_in? %>
         <%= f.text_field :text, id: "comment" ,class: "comment-form", placeholder: "公開コメントを入力する.." %>
         <%= f.submit '投稿する' , id: "submit" %>
+      <%else%>
+        <p　class="comment-warning">コメントの投稿には新規登録/ログインが必要です</p>
       <%end%>
     <% end %>
 <%# <div id="list">非同期通信で使用? %>
