@@ -10,6 +10,10 @@ ja:
      user:
       nickname: 名前
       grade_id: 段位
+      email: Email
+      password: パスワード
+      password_confirmation: 確認用パスワード
+      
      skill:
       youtube_id: 技名
       video: 動画
