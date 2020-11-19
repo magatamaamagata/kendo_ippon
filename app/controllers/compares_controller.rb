@@ -1,9 +1,9 @@
 class ComparesController < ApplicationController
   before_action :set_skill, only: [:new, :edit,:move_to_index]
   before_action :set_compare, only: [:edit, :update]
-  before_action :move_to_index
-  # after_action :render_new,only: [:new]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :move_to_index, only: [:new, :create, :edit, :update]
+  # after_action :render_new,only: [:new]
 
   def new
     # @skill = Skill.find(params[:skill_id])
