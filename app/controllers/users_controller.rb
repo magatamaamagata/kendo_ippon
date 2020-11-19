@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :check_guest, only: [:edit, :update, :destroy]
-  
+  before_action :authenticate_user!, only: [:show]
+
   def edit
   end
   
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
 
   def check_guest
     # 以下のメールアドレスのユーザーが変更や削除を行おうとした時はマイページに飛ばす
-    if current_user.email == 'guest@example.com'
+    if user_signed_in? && current_user.email == 'guest@example.com'
       flash[:ng] = 'ゲストユーザーの変更・削除はできません。'
       redirect_to user_path(current_user)
     end
