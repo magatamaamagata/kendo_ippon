@@ -134,7 +134,8 @@ h3{
 
 .user-name:hover{
   font-weight: bold;
-  background-color: yellow;
+  background-color: black;
+  color: white;
   cursor: pointer;
 }
 

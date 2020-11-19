@@ -2,12 +2,12 @@
 
   <div class="field">
     <%= f.label :video %><br />
-      <%= f.file_field :video, class:"video", id:"name" %>
+      <%= f.file_field :video, class:"video", id:"video-name" %>
   </div>
 
   <div class="field">
     <%= f.label :"技名" %><br />
-    <%= f.collection_select(:youtube_id, Youtube.all, :id, :name, {}, {class:"youtube-select"}) %>
+    <%= f.collection_select(:youtube_id, Youtube.all, :id, :name, {}, {id:"youtube-name"}) %>
   </div>
 
   <div class="actions">

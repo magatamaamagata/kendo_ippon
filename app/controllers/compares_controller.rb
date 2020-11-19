@@ -52,9 +52,7 @@ class ComparesController < ApplicationController
   end
 
   def set_compare
-    # if Compare.where(id: params[:id]).present?
-    @compare = Compare.find(params[:id])
-    # end
+    @compare = Compare.find_by(skill_id: params[:skill_id])
   end
 
   def move_to_index

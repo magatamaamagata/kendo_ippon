@@ -299,7 +299,6 @@ end
         click_link 'ゲストログイン'
         # ユーザー情報2に「削除」ボタンがないことを確認する
         expect(page).to have_no_link 'プロフィールを削除する', href: user_path(@skill1.user)
-
       end
     end
   end

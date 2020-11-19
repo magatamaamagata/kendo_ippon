@@ -5,11 +5,11 @@
    <%= render "shared/form2" %>
 
 <script>
-window.onbeforeunload = function(e) {
-  console.log('beforeunload');
-  return 'window onbeforeunload';
-};
-//ログアウトと剣道連盟のサイトへ移動を許してしまっているので警告で対処する。
+// window.onbeforeunload = function(e) {
+//   console.log('beforeunload');
+//   return 'window onbeforeunload';
+// };
+//ログアウトと剣道連盟のサイトへ移動を許してしまっているので警告で対処する。結合テストでうまく行かないため削除しておく
 
 var elements = document.getElementsByName("link");
 //フッターのname: "link"が読み込まれない
