@@ -4,22 +4,22 @@
         <tbody>
           <tr>
             <th class="table__col1">名前</th>
-            <td class="table__col2"><%= @user.nickname %></td>
+            <td class="table__col2", id ="table_nickname"><%= @user.nickname %></td>
           </tr>
           <tr>
             <th class="table__col1">Email</th>
-            <td class="table__col2"><%= @user.email %></td>
+            <td class="table__col2", id ="table_email"><%= @user.email %></td>
           </tr>
           <tr>
             <th class="table__col1">段位</th>
-            <td class="table__col2"><%= @user.grade.name%></td>
+            <td class="table__col2", id ="table_grage"><%= @user.grade.name%></td>
           </tr>
         </tbody>
       </table>
     </div>
   <%if @user.email != "guest@example.com" %>
     <%= link_to 'プロフィールを編集する', edit_user_path(current_user), method: :get, class: "user-edit-btn" %>
-    <%= link_to "プロフィールを削除する", user_path(current_user), data: { confirm: "本当に削除しますか?" }, method: :delete, class: "user-delete-btn" %></p>
+    <%= link_to "プロフィールを削除する", user_path(current_user), method: :delete, class: "user-delete-btn" %></p>
   <%end%>
     <div class="my__video_info">
       <h2 class="page-heading">

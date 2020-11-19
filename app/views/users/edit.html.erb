@@ -10,12 +10,24 @@
         </div>
         <div class="field">
           <%= f.label "メールアドレス" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" ,id:"email"%>
+        </div>
+          <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            (<%= @minimum_password_length %> 文字以上)
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password" , placeholder:"6文字以上", id:"password"%>
+          </div>
+          
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" , id:"password_confirmation"%>
         </div>
 
         <div class="field">
           <%= f.label "段位"%><br /> 
-          <%= f.collection_select(:grade_id, Grade.all, :id, :name, {}, {class:"crade-select"}) %>
+          <%= f.collection_select(:grade_id, Grade.all, :id, :name, {}, {id:"grade"}) %>
         </div>
 
         <div class='actions'>
