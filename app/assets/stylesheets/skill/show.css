@@ -53,3 +53,34 @@
 /* .skill-show-block > p {
   border-bottom: 1px solid #333333;
 } */
+
+.element__table__col1 {
+  width: 10vw;
+  padding: 20px;
+  border: 1px solid #192f60;
+  font-size: 14px;
+  background-color: #274a78  ;
+  color: white;
+}
+.element__table__col2 {
+  width: 40vw;
+  padding: 20px;
+  border: 1px solid #192f60;
+  font-size: 14px;
+}
+
+.element_table{
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.element__table__top{
+  width: 10vw;
+  padding: 10px;
+  border: 1px solid #000000;
+  font-size: 20px;
+  background-color: #0f2943  ;
+  color: white;
+  text-align:center
+}
