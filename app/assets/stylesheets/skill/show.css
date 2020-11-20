@@ -1,6 +1,10 @@
-.post-button{
 
+.skill-top{
+  text-align:center;
+  margin-top: 20px;
+  font-size: 40px;
 }
+
 .comment-area{
   margin: 10px 0;
   width: calc(100vw / 3);
@@ -14,7 +18,8 @@
 }
 .skill-show-bottom{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin-bottom: 30px;
 }
 
 .skill-edit-btn,.skill-destroy-btn{
@@ -47,40 +52,66 @@
 }
 
 .skill-show-block{
-  margin: 0 30px;
+  margin: 20px 0;
 }
 
-/* .skill-show-block > p {
-  border-bottom: 1px solid #333333;
-} */
 
 .element__table__col1 {
   width: 10vw;
-  padding: 20px;
+  padding: 5px;
   border: 1px solid #192f60;
   font-size: 14px;
   background-color: #274a78  ;
   color: white;
+  text-align:center;
+
 }
 .element__table__col2 {
   width: 40vw;
-  padding: 20px;
+  padding: 5px;
   border: 1px solid #192f60;
   font-size: 14px;
 }
 
-.element_table{
-  margin-top: 100px;
+.element__table{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  width: 45vw;
+  
 }
 
 .element__table__top{
   width: 10vw;
-  padding: 10px;
+  padding: 5px;
   border: 1px solid #000000;
   font-size: 20px;
   background-color: #0f2943  ;
   color: white;
-  text-align:center
+  text-align:center;
+}
+
+.kpt_table {
+  width: 45vw;
+  
+}
+
+p.kpt1{
+  border: 1px solid #000000;
+  padding: 5px;
+  font-size: 20px;
+  background-color: #0f2943  ;
+  color: white;
+}
+
+.kpt2{
+  border: 1px solid #000000;
+  font-size: 15px;
+  padding: 5px;
+  background-color: #274a78  ;
+  color: white;
+}
+
+.kpt3{
+  border: 1px solid #000000;
+  padding: 5px;
 }

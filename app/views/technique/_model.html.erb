@@ -5,7 +5,7 @@
     <div class="block-video"> 
       <% if @skill.video.attached? %>
         <p><%=@skill.user.nickname%>さん</p>
-        <%= video_tag rails_blob_path(@skill.video) ,size: "640x360" , loop: true, autoplay: true, muted: true ,class: "post-video"%>
+        <%= video_tag rails_blob_path(@skill.video) , loop: true, autoplay: true, muted: true ,class: "post-video"%>
       <%end %>
     </div>
     <div class="model-videos">

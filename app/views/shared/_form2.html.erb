@@ -1,47 +1,37 @@
-    <%# <%= javascript_pack_tag 'youtube' %> %>
-    <%# <script type="text/javascript" src="youtube.js"></script> %>
-      <%= form_with model:[@skill,@compare], data: {"turbolinks" => false}, local: true do |f| %>
-    <%# <% unless user_signed_in? || current_user.id != @skill.user.id 条件分岐はあとで%> %>
-      <h2>一本になる要素</h2>
-      充実した気勢（気合は入っているか、声は出ているか）
-      適正な姿勢（前傾姿勢でないか、左足の引きつけ、体が右に流れていないか）
-      正しい竹刀の打突部、刃筋（物打を中心とした刃部か）
-      正しい打突部位（面、小手、胴、突き垂れ）
-      残心（打ちっぱなしではないか）
-      機会（相手が出ようとしたところ、相手が打ち終わったところ、いついたところ）
-      冴え（打つスピード、足捌きの速さ）
-      打突の強さ（掠るのではなく捉えているか）
-      中心を取っているか（横から打っていないか、真ん中を割っているか）
-      着装は正しいか（面タオルがはみ出ていないか、紐が解けていないか、袴が短すぎないか）
-      
-        <div class="field">
-          <%= f.label value="良いところ" %><br />
-            <%= f.text_area :amagata, class:"amagata", id:"amagata" %>
-        </div>
+<%# <%= javascript_pack_tag 'youtube' %> 
+<%# <script type="text/javascript" src="youtube.js"></script> %>
+<div class="kpt_table">
+  <%= form_with model:[@skill,@compare], data: {"turbolinks" => false}, local: true do |f| %>
+<%# <% unless user_signed_in? || current_user.id != @skill.user.id 条件分岐はあとで%> 
+    <div class="field">
+      <%= f.label value="良いところ" %><br />
+        <%= f.text_area :amagata, class:"amagata", id:"amagata" %>
+    </div>
 
-        <div class="field">
-          <%= f.label "比較した結果差があると感じたこと" %><br />
-            <%= f.text_area :problem, class:"problem", id:"problem" %>
-        </div>
+    <div class="field">
+      <%= f.label "比較した結果差があると感じたこと" %><br />
+        <%= f.text_area :problem, class:"problem", id:"problem" %>
+    </div>
 
-        <div class="field">
-          <%= f.label "改善すること、次回の稽古で試してみること" %><br />
-            <%= f.text_area :make_better, class:"make_better", id:"make_better" %>
-        </div>
-        
-        <div class="field">
-          <%= f.label "その他気づいたこと" %><br />
-            <%= f.text_area :notice, class:"notice", id:"notice" %>
-        </div>
+    <div class="field">
+      <%= f.label "改善すること、次回の稽古で試してみること" %><br />
+        <%= f.text_area :make_better, class:"make_better", id:"make_better" %>
+    </div>
+    
+    <div class="field">
+      <%= f.label "その他気づいたこと" %><br />
+        <%= f.text_area :notice, class:"notice", id:"notice" %>
+    </div>
 
-        <div class="field">
-          <%= f.label "公開設定"%><br /> 
-          <%= f.collection_select(:public_id, Public.all, :id, :name, {}, {class:"public-select"}) %>
-        </div>
+    <div class="field">
+      <%= f.label "公開設定"%><br /> 
+      <%= f.collection_select(:public_id, Public.all, :id, :name, {}, {class:"public-select"}) %>
+    </div>
 
-      <%= f.submit "投稿する" ,class: "post-button"%>
-    <% end %>
-    <%# <% end条件分岐はあとで %> %>
+    <%= f.submit "投稿する" ,class: "post-button"%>
+  <% end %>
+</div>
+    <%# <% end条件分岐はあとで %> 
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     
 

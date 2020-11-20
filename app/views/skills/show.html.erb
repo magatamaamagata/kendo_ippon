@@ -1,73 +1,26 @@
 <body>
 <%# <%= require "json" %>
 <%# 非同期通信で使用 %> 
-    <h1><%=@skill.youtube.name%></h1>
-   <%= render "technique/model" %>
-
-<div class="skill-show-bottom">
-  <div class="kpt">
-        
-    <div class="element__wrapper">
-      <table class="element__table">
-        <tbody>
-          <tr>
-            <td colspan="2" class="element__table__top">一本になる要素</td>
-          </tr>
-          <tr>
-            <td class="element__table__col1">気勢</td>
-            <td class="element__table__col2">気合は入っているか、声は出ているか</td>
-          </tr>
-          <tr>
-            <td class="element__table__col1">姿勢</td>
-            <td class="element__table__col2">前傾姿勢でないか、左足の引きつけ、体が右に流れていないか</td>
-          </tr>
-          <tr>
-            <td class="element__table__col1">竹刀の打突部・刃筋 </td>
-            <td class="element__table__col2">物打を中心とした刃部か、弦の反対側で打突しているか</td>
-          </tr>
-          <tr>
-            <td class="element__table__col1">打突部位</td>
-            <td class="element__table__col2">面、小手、胴、突き垂れ</td>
-          </tr>
-          <tr>
-            <td class="element__table__col1">残心</td>
-            <td class="element__table__col2">打ちっぱなしではないか</td>
-          </tr>
-          <tr>
-            <td class="element__table__col1">機会</td>
-            <td class="element__table__col2">相手が出ようとしたところ、相手が打ち終わったところ、居付いたところ</td>
-          </tr>
-          <tr>
-            <td class="element__table__col1">冴え</td>
-            <td class="element__table__col2">打突、足捌きの速さ</td>
-          </tr>
-          <tr>
-            <td class="element__table__col1">打突力</td>
-            <td class="element__table__col2">掠るのではなく捉えているか</td>
-          </tr>
-          <tr>
-            <td class="element__table__col1">中心</td>
-            <td class="element__table__col2">横から打っていないか、真ん中を割っているか</td>
-          </tr>
-          <tr>
-            <td class="element__table__col1">着装</th>
-            <td class="element__table__col2">面タオルがはみ出ていないか、紐が解けていないか、袴が短すぎないか</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <%# 選択したidによって再生される技に対応する部分テンプレートが表示される。  %>
-    <%if @skill.compare %>
-      <h2>良いところ、継続すること</h2>
-      <%=@skill.compare.amagata %>
-      <h2>上手い人との差、足りないところ</h2>
-      <%=@skill.compare.problem %>
-      <h2>改善点、次回の稽古で意識すること</h2>
-      <%=@skill.compare.make_better %>
-      <h2>その他気付き</h2>
-      <%=@skill.compare.notice %>
-    <%end%>
+  <div class="skill-top">
+    <p><%=@skill.youtube.name%></p>
+    <%= render "technique/model" %>
   </div>
+<div class="skill-show-bottom">
+  <%= render "technique/element" %>
+  <div class="kpt_record">
+    <div class="kpt_table">
+    <%if @skill.compare %>
+      <p class="kpt1"><%="#{@skill.user.nickname}さんの記録"%></p>
+      <p class="kpt2">Keep(良いところ、継続すること)</p>
+      <p class="kpt3"><%=@skill.compare.amagata %></p>
+      <p class="kpt2">Problem(上手い人との差、足りないところ)</p>
+      <p class="kpt3"><%=@skill.compare.problem %></p>
+      <p class="kpt2">Try(改善点、次回の稽古で意識すること)</p>
+      <p class="kpt3"><%=@skill.compare.make_better %></p>
+      <p class="kpt2">その他気付き</p>
+      <p class="kpt3"><%=@skill.compare.notice %></p>
+    <%end%>
+    </div>
   <div class="skill-show-block">
     <%= form_with model: [@skill,@comment], id: "form" ,local: true do |f| %>
       <%if user_signed_in? %>
@@ -93,6 +46,7 @@
       <% end %>
     <% end %>
   </div>
+</div>
 </div>
   <% if user_signed_in? && current_user.id == @skill.user.id %>
     <div class="edit-delete-btn">
