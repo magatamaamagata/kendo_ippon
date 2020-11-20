@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  before_action :move_to_index
   before_action :authenticate_user!
 
   def new
