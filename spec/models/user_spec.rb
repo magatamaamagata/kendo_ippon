@@ -1,9 +1,9 @@
 require 'rails_helper'
-RSpec.describe User,type: :model do
+RSpec.describe User, type: :model do
   describe 'ユーザー新規登録' do
-  before do
-    @user = FactoryBot.build(:user)
-  end
+    before do
+      @user = FactoryBot.build(:user)
+    end
 
     context '新規登録がうまくいくとき' do
       it '名前とemail、パスワードと確認用パスワード,段位が存在すれば登録できる' do
@@ -27,12 +27,12 @@ RSpec.describe User,type: :model do
 
     context '新規登録がうまくいかないとき' do
       it '名前が空だと登録できない' do
-        @user.nickname = ""
+        @user.nickname = ''
         @user.valid?
         expect(@user.errors.full_messages).to include('名前を入力してください')
       end
       it 'emailが空では登録できない' do
-        @user.email = ""
+        @user.email = ''
         @user.valid?
         expect(@user.errors.full_messages).to include('Eメールを入力してください')
       end
@@ -69,8 +69,6 @@ RSpec.describe User,type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('段位を選択してください')
       end
-
-      
     end
   end
 end

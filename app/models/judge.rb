@@ -4,5 +4,5 @@ class Judge < ApplicationRecord
 
   belongs_to :user
   belongs_to :post
-  validates :judge_correct_id, numericality: { other_than: 1 , message: 'を選択してください'}
+  validates :judge_correct_id, numericality: { other_than: 1, message: 'を選択してください' }
 end

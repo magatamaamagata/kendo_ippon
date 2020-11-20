@@ -1,5 +1,5 @@
 class ComparesController < ApplicationController
-  before_action :set_skill, only: [:new, :edit,:move_to_index]
+  before_action :set_skill, only: [:new, :edit, :move_to_index]
   before_action :set_compare, only: [:edit, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :move_to_index, only: [:new, :create, :edit, :update]
@@ -14,7 +14,7 @@ class ComparesController < ApplicationController
     #   redirect_to skill_path(params[:skill_id])
     # end
     # unless request.full_path == root_path
-      
+
     # end
   end
 
@@ -66,6 +66,6 @@ class ComparesController < ApplicationController
   end
 
   def compare_params
-    params.require(:compare).permit( :amagata, :problem, :make_better, :notice, :public_id).merge(skill_id: params[:skill_id])
+    params.require(:compare).permit(:amagata, :problem, :make_better, :notice, :public_id).merge(skill_id: params[:skill_id])
   end
 end

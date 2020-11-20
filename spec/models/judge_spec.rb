@@ -1,9 +1,9 @@
 require 'rails_helper'
-RSpec.describe Judge,type: :model do
+RSpec.describe Judge, type: :model do
   describe 'クイズ回答' do
-  before do
-    @judge = FactoryBot.build(:judge)
-  end
+    before do
+      @judge = FactoryBot.build(:judge)
+    end
 
     context 'クイズ回答がうまくいくとき' do
       it '全て入力されていれば登録できる' do

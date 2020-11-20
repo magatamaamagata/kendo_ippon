@@ -7,11 +7,11 @@ class JudgesController < ApplicationController
   def create
     @judge = Judge.new(judge_params)
     @judge.save
-    redirect_to post_judge_path(params[:post_id],@judge.id)
+    redirect_to post_judge_path(params[:post_id], @judge.id)
   end
 
   def show
-   @judge = Judge.find(params[:id])
+    @judge = Judge.find(params[:id])
   end
 
   private

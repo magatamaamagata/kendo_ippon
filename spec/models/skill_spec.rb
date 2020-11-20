@@ -1,9 +1,9 @@
 require 'rails_helper'
-RSpec.describe Skill,type: :model do
+RSpec.describe Skill, type: :model do
   describe '動画投稿' do
-  before do
-    @skill = FactoryBot.build(:skill)
-  end
+    before do
+      @skill = FactoryBot.build(:skill)
+    end
 
     context '動画投稿がうまくいくとき' do
       it '動画と技名が存在すれば登録できる' do
@@ -15,9 +15,9 @@ RSpec.describe Skill,type: :model do
       it '動画が空だと登録できない' do
         @skill.video = nil
         @skill.valid?
-        expect(@skill.errors.full_messages).to include("動画を選択してください")
+        expect(@skill.errors.full_messages).to include('動画を選択してください')
       end
-      
+
       it '技名が空では登録できない' do
         @skill.youtube_id = 1
         @skill.valid?

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def edit
   end
-  
+
   def update
     if current_user.update(user_params)
       redirect_to root_path
@@ -12,18 +12,18 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def show
     @user = User.find(params[:id])
     @skills = @user.skills
   end
-  
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy
     redirect_to root_path
   end
-  
+
   def new_guest
     user = User.find_or_create_by!(email: 'guest@example.com', nickname: '浪人', grade_id: 2) do |user|
       user.password = SecureRandom.urlsafe_base64
@@ -31,9 +31,11 @@ class UsersController < ApplicationController
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
+
   private
+
   def user_params
-    params.require(:user).permit(:nickname,:email,:grade_id)
+    params.require(:user).permit(:nickname, :email, :grade_id)
   end
 
   def check_guest
@@ -43,5 +45,4 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
-
 end

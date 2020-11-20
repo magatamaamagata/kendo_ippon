@@ -1,11 +1,10 @@
 require 'rails_helper'
-RSpec.describe Compare,type: :model do
+RSpec.describe Compare, type: :model do
   describe 'ユーザー感想投稿' do
-  before do
-    @compare = FactoryBot.build(:compare)
-    @long_sentence = Faker::Lorem.characters(number: 500)
-
-  end
+    before do
+      @compare = FactoryBot.build(:compare)
+      @long_sentence = Faker::Lorem.characters(number: 500)
+    end
 
     context '感想投稿がうまくいくとき' do
       it '全て入力されていれば登録できる' do
@@ -20,7 +19,7 @@ RSpec.describe Compare,type: :model do
 
     context '感想投稿がうまくいかないとき' do
       it '継続することが空だと登録できない' do
-        @compare.amagata = ""
+        @compare.amagata = ''
         @compare.valid?
         expect(@compare.errors.full_messages).to include('継続することを入力してください')
       end
@@ -30,7 +29,7 @@ RSpec.describe Compare,type: :model do
         expect(@compare.errors.full_messages).to include('継続することは400文字以内で入力してください')
       end
       it '問題点が空だと登録できない' do
-        @compare.problem = ""
+        @compare.problem = ''
         @compare.valid?
         expect(@compare.errors.full_messages).to include('問題点を入力してください')
       end
@@ -40,7 +39,7 @@ RSpec.describe Compare,type: :model do
         expect(@compare.errors.full_messages).to include('問題点は400文字以内で入力してください')
       end
       it '改善することが空だと登録できない' do
-        @compare.make_better = ""
+        @compare.make_better = ''
         @compare.valid?
         expect(@compare.errors.full_messages).to include('改善することを入力してください')
       end

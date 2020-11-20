@@ -70,8 +70,7 @@
 
   <div class='skill-contents'>
       <% @skills.each do |skill| %>
-        <% if skill.compare.public_id == 2 || (user_signed_in? && skill.user.id == current_user.id) %>
-        <%# <li class='list'> %>
+        <% if !(skill.compare.nil?) && skill.compare.public_id == 2 || (user_signed_in? && skill.user.id == current_user.id) %>
           <div class='skill-info'>
             <div class='skill-video'>
               <%= link_to (video_tag rails_blob_path(skill.video) ,class: "video-index"), skill_path(skill)%>
@@ -79,5 +78,6 @@
               <p><%= link_to "投稿者：#{skill.user.nickname}さん #{skill.user.grade.name}",user_path(skill.user.id), class: "user-name" %></p>
             </div>
           </div>
+        <%end%>
       <%end %>
   </div>

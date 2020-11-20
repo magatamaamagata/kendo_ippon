@@ -1,9 +1,9 @@
 require 'rails_helper'
 RSpec.describe Comment, type: :model do
   describe 'コメント投稿' do
-  before do
-    @comment = FactoryBot.create(:comment)
-  end
+    before do
+      @comment = FactoryBot.create(:comment)
+    end
 
     context 'コメント投稿がうまくいくとき' do
       it 'コメントが存在すれば登録できる' do
@@ -13,11 +13,11 @@ RSpec.describe Comment, type: :model do
 
     context 'コメント投稿がうまくいかないとき' do
       it 'コメントが空だと投稿できない' do
-        @comment.text = ""
+        @comment.text = ''
         @comment.valid?
         expect(@comment.errors.full_messages).to include('Textを入力してください')
       end
-      
+
       it 'コメントが140文字以上だと投稿できない' do
         @comment.text = Faker::Lorem.characters(number: 141)
         @comment.valid?

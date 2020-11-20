@@ -6,7 +6,7 @@ RSpec.describe 'コメント投稿', type: :system do
     @compare = FactoryBot.create(:compare)
     @comment = FactoryBot.build(:comment)
   end
-  context "コメントできる時" do
+  context 'コメントできる時' do
     it 'ログインしたユーザーはツイート詳細ページでコメント投稿できる' do
       # ログインする
       sign_in(@skill.user)
@@ -17,16 +17,16 @@ RSpec.describe 'コメント投稿', type: :system do
       # フォームに情報を入力する
       fill_in 'comment', with: @comment
       # コメントを送信すると、Commentモデルのカウントが1上がることを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Comment.count }.by(1)
+      end.to change { Comment.count }.by(1)
       # 詳細ページにリダイレクトされることを確認する
       expect(current_path).to eq skill_path(@skill)
       # 詳細ページ上に先ほどのコメント内容が含まれていることを確認する
       expect(page).to have_content @comment
     end
   end
-  context "コメントできない時" do
+  context 'コメントできない時' do
     it 'ログインしていないユーザーはコメント投稿できない' do
       # 投稿詳細ページに遷移する
       visit skill_path(@skill)
