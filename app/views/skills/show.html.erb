@@ -10,7 +10,7 @@
   <div class="kpt_record">
     <div class="kpt_table">
     <%if @skill.compare %>
-      <p class="kpt1"><%="#{@skill.user.nickname}さんの記録"%></p>
+      <p class="kpt1"><%="#{@skill.user.nickname}さんの記録 #{l @skill.created_at}"%></p>
       <p class="kpt2">Keep(良いところ、継続すること)</p>
       <p class="kpt3"><%=@skill.compare.amagata %></p>
       <p class="kpt2">Problem(上手い人との差、足りないところ)</p>
