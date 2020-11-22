@@ -2,7 +2,7 @@
 
   <div class="field">
     <%= f.label :video %><br />
-      <%= f.file_field :video, class:"video", id:"video-name" %>
+      <%= f.file_field :video, class:"video_field", id:"video-name" %>
   </div>
 
   <div class="field">
@@ -13,6 +13,6 @@
   <div class="actions">
     <%= f.submit "比較する" %>
   </div>
-    <div id="image-list"></div>
+    <%# <div id="image-list"></div>プレビュー機能 %>
 
 <% end %>

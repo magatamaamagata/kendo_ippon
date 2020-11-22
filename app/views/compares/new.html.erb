@@ -11,11 +11,24 @@
 // };
 //ログアウトと剣道連盟のサイトへ移動を許してしまっているので警告で対処する。結合テストでうまく行かないため削除しておく
 
-var elements = document.getElementsByName("link");
+let elements = document.getElementsByName("link");
 //フッターのname: "link"が読み込まれない
+console.log(elements);
 elements.forEach(element => {
    element.addEventListener("click", function(e){
     // リンクがクリックされたときの処理
+    console.log(element);
+    e.preventDefault();  // 画面遷移を無効化
+}, false);
+});
+
+let elements2 = document.getElementsByName("link2");
+//フッターのname: "link"が読み込まれない
+console.log(elements2);
+elements2.forEach(element2 => {
+   element2.addEventListener("click", function(e){
+    // リンクがクリックされたときの処理
+    console.log(element2);
     e.preventDefault();  // 画面遷移を無効化
 }, false);
 });

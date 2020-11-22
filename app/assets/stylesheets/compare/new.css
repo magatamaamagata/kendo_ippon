@@ -18,3 +18,13 @@
 .block-video{
   margin: 50px 0;
 }
+
+.form_text_area{
+  width: 100%;
+  height: 150px;
+}
+
+.field{
+  font-size: 20px;
+  padding-bottom: 5px;
+}

@@ -14,12 +14,12 @@ footer{
   font-size: 20px;
   color:white;
 }
-.nippon-link{
+.nippon_link{
   text-decoration: none;
   color:white;
 }
 
-.nippon-link:hover {
+.nippon_link:hover {
   text-decoration: underline;;
 }
 .kendo-ippon{
