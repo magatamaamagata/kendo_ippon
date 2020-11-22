@@ -82,7 +82,7 @@ RSpec.describe '記録投稿', type: :system do
       # 動画を投稿し記録ページへ遷移する
       click_button '比較する'
       # SkillモデルとCompareモデルのカウントが１上がることを確認する
-      fill_in 'amagata', with: @compare.amagata
+      fill_in 'continuation', with: @compare.continuation
       fill_in 'problem', with: @compare.problem
       fill_in 'make_better', with: @compare.make_better
       find("option[value='#{@compare.public_id}']").select_option
@@ -141,7 +141,7 @@ RSpec.describe '記録投稿', type: :system do
       # 動画を投稿し記録ページへ遷移する
       click_button '比較する'
       # SkillモデルとCompareモデルのカウントが１上がることを確認する
-      fill_in 'amagata', with: ''
+      fill_in 'continuation', with: ''
       fill_in 'problem', with: ''
       fill_in 'make_better', with: ''
       find("option[value='#{@compare.public_id}']").select_option
@@ -207,7 +207,7 @@ RSpec.describe '編集機能', type: :system do
       find('input[name="commit"]').click
       # 編集してもskillモデルのカウントは変わらないことを確認する
       visit edit_skill_compare_path(@compare.skill, @compare)
-      fill_in 'amagata', with: @compare.amagata
+      fill_in 'continuation', with: @compare.continuation
       fill_in 'problem', with: @compare.problem
       fill_in 'make_better', with: @compare.make_better
       find("option[value='#{@compare.public_id}']").select_option
@@ -254,7 +254,7 @@ RSpec.describe '編集機能', type: :system do
       expect(current_path).to eq skill_path(@compare.skill)
       # 空の情報に変更(compare)
       visit edit_skill_compare_path(@compare.skill, @compare)
-      fill_in 'amagata', with: ''
+      fill_in 'continuation', with: ''
       fill_in 'problem', with: ''
       fill_in 'make_better', with: ''
       fill_in 'notice', with: ''

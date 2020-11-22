@@ -5,7 +5,7 @@ class Compare < ApplicationRecord
   belongs_to :skill, optional: true
 
   with_options presence: true do
-    validates :amagata, length: { maximum: 400 }
+    validates :continuation, length: { maximum: 400 }
     validates :problem, length: { maximum: 400 }
     validates :make_better, length: { maximum: 400 }
   end

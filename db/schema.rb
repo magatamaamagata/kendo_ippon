@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_10_30_121703) do
   end
 
   create_table "compares", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "amagata", null: false
+    t.text "continuation", null: false
     t.text "problem", null: false
     t.text "make_better", null: false
     t.text "notice"

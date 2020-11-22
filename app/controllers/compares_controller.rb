@@ -29,7 +29,7 @@ class ComparesController < ApplicationController
   def update
     @compare = Compare.find_by(skill_id: params[:skill_id])
     if @compare.update(compare_params)
-      redirect_to root_path
+      redirect_to skill_path(params[:skill_id])
     else
       render :edit
     end
@@ -53,6 +53,6 @@ class ComparesController < ApplicationController
   end
 
   def compare_params
-    params.require(:compare).permit(:amagata, :problem, :make_better, :notice, :public_id).merge(skill_id: params[:skill_id])
+    params.require(:compare).permit(:continuation, :problem, :make_better, :notice, :public_id).merge(skill_id: params[:skill_id])
   end
 end

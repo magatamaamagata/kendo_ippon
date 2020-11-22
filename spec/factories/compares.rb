@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :compare do
-    amagata { Faker::Lorem.characters(number: 400) }
+    continuation { Faker::Lorem.characters(number: 400) }
     problem { Faker::Lorem.characters(number: 400) }
     make_better { Faker::Lorem.characters(number: 400) }
     notice { Faker::Lorem.characters(number: 400) }

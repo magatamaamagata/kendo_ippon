@@ -42,12 +42,12 @@
     <%= yield %>
 
     <footer>
-      <h2 class='footer-content-head'>剣道一本</h2>
+      <h2 class='footer-content-head'>〜比較・記録・改善で上達しよう〜</h2>
       <ul class='lists'>
         <li><%= link_to '剣道一本について', "#", class: "nippon-link" ,name: "link"%></li>
-        <li><%= link_to '全日本剣道連盟', "https://www.kendo.or.jp/", class: "nippon-link" ,name: "link"%></li>
+        <li><%= link_to '全日本剣道連盟', "https://www.kendo.or.jp/", target: "_blank", rel: "noopener noreferrer",class: "nippon-link" ,name: "link"%></li>
       </ul>
-      <p>© Kendo-Ippon-Training 2020</p>
+      <p class="kendo-ippon">© Kendo-Ippon 2020</p>
     </footer>
   </body>
 </html>
