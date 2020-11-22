@@ -19,26 +19,23 @@ class SkillsController < ApplicationController
       render :new
     end
   end
-
+  
   def show
-    @skill = Skill.find(params[:id])
     @comment = Comment.new
     @comments = Comment.includes(:user).includes(:skill).order('created_at DESC')
   end
-
+  
   def edit
-    # @skill = Skill.find(params[:id])
   end
-
+  
   def update
-    # @skill = Skill.find(params[:id])
     if @skill.update(skill_params)
       redirect_to edit_skill_compare_path(@skill.id, params[:id])
     else
       render :edit
     end
   end
-
+  
   def destroy
     @skill.destroy
     redirect_to root_path
