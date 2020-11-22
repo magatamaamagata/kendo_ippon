@@ -1,6 +1,5 @@
 class ComparesController < ApplicationController
   before_action :set_skill, only: [:new, :edit, :move_to_index]
-  before_action :set_compare, only: [:edit, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :move_to_index, only: [:new, :create, :edit, :update]
   # after_action :render_new,only: [:new]
@@ -20,9 +19,15 @@ class ComparesController < ApplicationController
   end
 
   def edit
+    if !(@skill.compare.nil?) 
+      @compare = Compare.find_by(skill_id: params[:skill_id])
+    else
+      @compare = Compare.new
+    end
   end
 
   def update
+    @compare = Compare.find_by(skill_id: params[:skill_id])
     if @compare.update(compare_params)
       redirect_to root_path
     else
@@ -36,14 +41,6 @@ class ComparesController < ApplicationController
     @skill = Skill.find(params[:skill_id])
   end
 
-  def set_compare
-    # 記録が空だった場合にエラーになるのを防ぐ
-    if !(@skill.compare.nil?) 
-      @compare = Compare.find(params[:id])
-    else
-      @compare = Compare.new
-    end
-  end
 
   def move_to_index
     @skill = Skill.find(params[:skill_id])

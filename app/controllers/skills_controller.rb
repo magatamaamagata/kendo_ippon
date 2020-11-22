@@ -9,6 +9,7 @@ class SkillsController < ApplicationController
 
   def new
     @skill = Skill.new
+    # @compare = Compare.new
   end
 
   def create
