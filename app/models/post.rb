@@ -21,7 +21,7 @@ class Post < ApplicationRecord
   end
 
   def video_checker
-    extension=["video/quicktime","video/mp4","video/mov"]
+    extension=["video/mp4","video/mov","video/avi","video/wmv","video/flv","video/mpg","video/mkv"]
     unless video.content_type.in?(extension)
       errors.add(:video, "を添付してください")
     end
