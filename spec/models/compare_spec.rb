@@ -1,12 +1,12 @@
 require 'rails_helper'
 RSpec.describe Compare, type: :model do
-  describe 'ユーザー感想投稿' do
+  describe 'ユーザー記録投稿' do
     before do
       @compare = FactoryBot.build(:compare)
       @long_sentence = Faker::Lorem.characters(number: 500)
     end
 
-    context '感想投稿がうまくいくとき' do
+    context '記録投稿がうまくいくとき' do
       it '全て入力されていれば登録できる' do
         expect(@compare).to be_valid
       end
@@ -17,7 +17,7 @@ RSpec.describe Compare, type: :model do
       end
     end
 
-    context '感想投稿がうまくいかないとき' do
+    context '記録投稿がうまくいかないとき' do
       it '継続することが空だと登録できない' do
         @compare.continuation = ''
         @compare.valid?
