@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>KendoIppon</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+  <header class='top-page-header'> 
+    <div class='search-bar-contents'>
+      <%= image_tag("kendo.png", class:"ippon-icon")%>
+    </div> 
+
+  <%if user_signed_in? %>
+    <div class="user"> 
+    </div>
+  <%end%> 
+</header>
+
+    <%= yield %>
+
+    <footer>
+      <h2 class='footer-content-head'>〜比較・記録・改善で上達しよう〜</h2>
+      <ul class='lists'>
+        <li><%= link_to '全日本剣道連盟', "https://www.kendo.or.jp/", target: "_blank", rel: "noopener noreferrer",class: "nippon_link" %></li>
+      </ul>
+      <p class="kendo-ippon">© Kendo-Ippon 2020</p>
+    </footer>
+  </body>
+</html>
