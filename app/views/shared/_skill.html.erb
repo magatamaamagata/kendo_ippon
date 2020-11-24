@@ -1,6 +1,7 @@
 <div class="skill-info">
   <div class="skill-video">
-    <%= link_to "技名：#{skill.youtube.name}", skill_path(skill.id), class: "user-name" %>
-    <%= link_to (video_tag rails_blob_path(skill.video) , class: "video-index"), skill_path(skill.id)%>
+    <%= link_to (video_tag rails_blob_path(skill.video) , class: "video-index"), skill_path(skill.id),class: "skill_date"%>
+    <%= link_to ("技名: #{skill.youtube.name}"), skill_path(skill.id) ,class: "skill_date"%>
+    <%= link_to ("記録日: #{l skill.created_at}"), skill_path(skill.id) ,class: "skill_date"%>
   </div>
 </div>

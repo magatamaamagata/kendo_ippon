@@ -16,45 +16,38 @@
   </div>
 
 <script>
-      // 2. This code loads the IFrame Player API code asynchronously.
-      var tag = document.createElement('script');
-
+      //IFrame Player APIを非同期的にロードする
+      const tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
+      const firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      // 3. This function creates an <iframe> (and YouTube player)
-      //    after the API code downloads.
-      var player;
+      // 3. APIコードを読み込んだ後にyoutubeの枠を作りビデオを再生する準備をする
+      let player;
       function onYouTubeIframeAPIReady() {
         const video = document.getElementById("get_video_id");
         const skillId = video.getAttribute("skill_id");
-        // const startTime = document.getElementById("get_video_start");
-        // const start = startTime.getAttribute("start_time");
-        // console.log(startTime);
-        // console.log(start);
+        const startTime = document.getElementById("get_video_start");
+        const start = startTime.getAttribute("start_time");
         player = new YT.Player('player', {
-          // startSeconds: start/1000,
-          // endSeconds:100,
+          startSeconds: start,
           videoId:  skillId,
           events: {
-            'onReady': onPlayerReady,
             //ビデオ再生する準備ができたら起動する関数
+            'onReady': onPlayerReady,
           }
         });
       }
 
-      // 4. The API will call this function when the video player is ready.
+      // 再生する。7秒ごとにループする
       function onPlayerReady(event) {
         event.target.playVideo();
         setInterval(function(){
-        //5000 msごとにseekToでstartのいちに戻る
+        //7000 msごとにseekToでstartの位置に戻る
         const startTime = document.getElementById("get_video_start");
         const start = startTime.getAttribute("start_time");
-        console.log(event.target.seekTo(start));
-        console.log(start);
         event.target.seekTo(start);
-        },6000);
+        },7000);
       }
 
 </script>

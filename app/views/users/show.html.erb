@@ -26,7 +26,6 @@
         <%= "#{@user.nickname}さんの剣道" %>
       </h2>
       <div class="skill-contents">
-        <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
         <% if @skills.present? %>
             <%= render partial: "shared/skill" ,collection: @skills%>
         <%else%>

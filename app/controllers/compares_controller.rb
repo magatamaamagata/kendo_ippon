@@ -47,10 +47,12 @@ class ComparesController < ApplicationController
 
 
   def move_to_index
+    @skill = Skill.find(params[:skill_id])
     redirect_to root_path unless user_signed_in? && (current_user.id == @skill.user.id)
   end
 
   def render_new
+    @skill = Skill.find(params[:skill_id])
     redirect_to new_skill_compare_path(@skill.id) unless @compare.present?
   end
 

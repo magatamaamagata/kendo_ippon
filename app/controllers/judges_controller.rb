@@ -10,6 +10,16 @@ class JudgesController < ApplicationController
     redirect_to post_judge_path(params[:post_id], @judge.id)
   end
 
+  def edit
+    @post = Post.find(params[:post_id])
+    @judge = Judge.find_by(post_id: params[:post_id])
+  end
+
+  def update
+    @judge = Judge.update(judge_params)
+    redirect_to post_judge_path(params[:post_id], @judge)
+  end
+
   def show
     @judge = Judge.find(params[:id])
   end

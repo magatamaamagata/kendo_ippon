@@ -20,7 +20,13 @@ class PostsController < ApplicationController
   end
 
   def show
-    @judge = Judge.new
+    @judge = Judge.find_by(post_id: params[:id])
+    # binding.pry
+    if !(@judge.nil?) && @post.judge_correct.id == @judge.judge_correct.id
+      @ok_or_ng = "正解"
+    else
+      @ok_or_ng = "間違い"
+    end
   end
 
   def edit

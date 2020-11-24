@@ -49,6 +49,7 @@ class SkillsController < ApplicationController
   end
 
   def move_to_index
+    @skill = Skill.find(params[:id])
     redirect_to root_path unless user_signed_in? && (current_user.id == @skill.user_id)
   end
 
