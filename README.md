@@ -68,11 +68,11 @@ http://18.178.123.245/
 
 ## アプリの様子
 
-- 動画比較
+### 動画比較
 [![Image from Gyazo](https://i.gyazo.com/675fc381e3c52ebb25dac8c3f28ce0c9.gif)](https://gyazo.com/675fc381e3c52ebb25dac8c3f28ce0c9)
 
-- 記録詳細ページ
+### 記録詳細
 [![Image from Gyazo](https://i.gyazo.com/246398a70aa5fe5ac36e704b495dc2a7.gif)](https://gyazo.com/246398a70aa5fe5ac36e704b495dc2a7)
 
-- クイズ機能
+### クイズ機能
 [![Image from Gyazo](https://i.gyazo.com/af9eb2cac1e3924c2b55f50f65611f89.gif)](https://gyazo.com/af9eb2cac1e3924c2b55f50f65611f89)
