@@ -2,7 +2,7 @@ class ComparesController < ApplicationController
   before_action :set_skill, only: [:new, :edit, :move_to_index]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :move_to_index, only: [:new, :create, :edit, :update]
-  before_action :link_disable
+
 
   def new
     @compare = Compare.new
@@ -41,22 +41,16 @@ class ComparesController < ApplicationController
 
   private
 
-  def link_disable
-    @link_disable = true
-  end
-
   def set_skill
     @skill = Skill.find(params[:skill_id])
   end
 
 
   def move_to_index
-    @skill = Skill.find(params[:skill_id])
     redirect_to root_path unless user_signed_in? && (current_user.id == @skill.user.id)
   end
 
   def render_new
-    @skill = Skill.find(params[:skill_id])
     redirect_to new_skill_compare_path(@skill.id) unless @compare.present?
   end
 

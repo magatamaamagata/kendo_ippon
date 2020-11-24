@@ -150,6 +150,18 @@ RSpec.describe '記録投稿', type: :system do
       @compare.skill.save
       expect(current_path).to eq "/skills/#{@compare.skill.id - 1}/compares"
     end
+    it '投稿を取りやめるボタンを押すと投稿が削除される' do
+      # ログインする
+      sign_in(@user)
+      # トップページに遷移する
+      visit root_path
+      # 新規投稿ページへのリンクがあることを確認する
+      expect(page).to have_content('動画をUPして記録する')
+      # 投稿ページに移動する
+      visit new_skill_path
+      # ログインページへリダイレクトされる
+      expect(current_path).to eq new_user_session_path
+    end
   end
 end
 
