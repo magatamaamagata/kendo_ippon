@@ -1,11 +1,12 @@
 ## Top view
 剣道の上達を目指すためのアプリです。
 
-なぜ有効打突にならないのかわからないという課題を解決します。３人の審判のうち2人以上が旗をあげると有効打突と認められます。
+なぜ有効打突にならないのかわからないという課題を解決します。(３人の審判のうち2人以上が旗をあげると有効打突と認められます。)
 
 自分の試合動画や稽古動画を投稿し、自分の技を上級者と比較して改善点を記録します。公開非公開を選べ、公開するとコメント機能があるのでアドバイスが得られる仕様になっております。
   
-[![Image from Gyazo](https://i.gyazo.com/3911f7f51fe14fced51f21da8eaf8ff9.gif)](https://gyazo.com/3911f7f51fe14fced51f21da8eaf8ff9)
+[![Image from Gyazo](https://i.gyazo.com/7fb8e728c2ff720056b4b4d11d201424.gif)](https://gyazo.com/7fb8e728c2ff720056b4b4d11d201424)
+
 ## 本番環境 URL
 http://18.178.123.245/
 ログインしなくても比較記録やクイズをみることは可能です。
@@ -17,7 +18,16 @@ http://18.178.123.245/
 ・CSS
 ・JavaScript
 - バックエンド
-Ruby/Ruby on Rails/Javascript/MariaDB/nginx/Unicorn/Github/AWS/Visual Studio Code
+・Ruby
+・Ruby on Rails
+・Javascript
+- インフラ
+・MariaDB
+・Nginx
+・Unicorn
+・Github
+・AWS(S3,EC2)
+・Visual Studio Code
 
 ## インフラ構成図
 [![Image from Gyazo](https://i.gyazo.com/9247e36c11a35669334ce6b2da2f8166.png)](https://gyazo.com/9247e36c11a35669334ce6b2da2f8166)
@@ -46,6 +56,6 @@ Ruby/Ruby on Rails/Javascript/MariaDB/nginx/Unicorn/Github/AWS/Visual Studio Cod
 
 
 ## テスト
-RSpec  
+RSpec
 単体テスト(6model)  
 結合テスト(3system)
