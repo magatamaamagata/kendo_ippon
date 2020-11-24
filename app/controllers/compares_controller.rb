@@ -3,10 +3,9 @@ class ComparesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :move_to_index, only: [:new, :create, :edit, :update]
 
-
   def new
     @compare = Compare.new
-    render layout: "no_link"
+    render layout: 'no_link'
   end
 
   def create
@@ -20,14 +19,12 @@ class ComparesController < ApplicationController
   end
 
   def edit
-    
-    if !(@skill.compare.nil?) 
-      @compare = Compare.find_by(skill_id: params[:skill_id])
-    else
-      @compare = Compare.new
-    end
-    render layout: "no_link"
-
+    @compare = if !@skill.compare.nil?
+                 Compare.find_by(skill_id: params[:skill_id])
+               else
+                 Compare.new
+               end
+    render layout: 'no_link'
   end
 
   def update
@@ -44,7 +41,6 @@ class ComparesController < ApplicationController
   def set_skill
     @skill = Skill.find(params[:skill_id])
   end
-
 
   def move_to_index
     @skill = Skill.find(params[:skill_id])

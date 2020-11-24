@@ -3,7 +3,7 @@ class JudgesController < ApplicationController
   def new
     @post = Post.find(params[:post_id])
     @judge = Judge.new
-    render layout: "quiz_top"
+    render layout: 'quiz_top'
   end
 
   def create
@@ -15,7 +15,7 @@ class JudgesController < ApplicationController
   def edit
     @post = Post.find(params[:post_id])
     @judge = Judge.find_by(post_id: params[:post_id])
-    render layout: "quiz_top"
+    render layout: 'quiz_top'
   end
 
   def update
@@ -25,7 +25,7 @@ class JudgesController < ApplicationController
 
   def show
     @judge = Judge.find(params[:id])
-    render layout: "quiz_top"
+    render layout: 'quiz_top'
   end
 
   private
@@ -34,5 +34,4 @@ class JudgesController < ApplicationController
     @post = Post.find(params[:post_id])
     params.require(:judge).permit(:judge_correct_id).merge(user_id: current_user.id, post_id: @post.id)
   end
-
 end

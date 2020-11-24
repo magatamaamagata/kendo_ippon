@@ -13,7 +13,6 @@ RSpec.describe Comment, type: :model do
 
     context 'コメント投稿がうまくいかないとき' do
       it 'コメントが空だと投稿できない' do
-        
         @comment.text = ''
         @comment.valid?
         expect(@comment.errors.full_messages).to include('Textを入力してください')

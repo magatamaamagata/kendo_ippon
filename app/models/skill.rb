@@ -13,13 +13,12 @@ class Skill < ApplicationRecord
 end
 
 private
+
 def video_checker
-  extension=["video/mp4","video/mov","video/avi","video/wmv","video/flv","video/mpg","video/mkv"]
-  unless video.content_type.in?(extension)
-    errors.add(:video, "を添付してください")
-  end
+  extension = ['video/mp4', 'video/mov', 'video/avi', 'video/wmv', 'video/flv', 'video/mpg', 'video/mkv']
+  errors.add(:video, 'を添付してください') unless video.content_type.in?(extension)
 end
 
 def video_was_attached?
-  self.video.attached? 
+  video.attached?
 end

@@ -19,15 +19,15 @@ class SkillsController < ApplicationController
       render :new
     end
   end
-  
+
   def show
     @comment = Comment.new
     @comments = Comment.includes(:user).includes(:skill).order('created_at DESC')
   end
-  
+
   def edit
   end
-  
+
   def update
     if @skill.update(skill_params)
       redirect_to edit_skill_compare_path(@skill.id, params[:id])
@@ -35,7 +35,7 @@ class SkillsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @skill.destroy
     redirect_to root_path

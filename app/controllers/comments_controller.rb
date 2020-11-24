@@ -15,7 +15,6 @@ class CommentsController < ApplicationController
 
   private
 
-
   def move_to_index
     # @comment = Comment.find(params[:skill_id])
     @skill = Skill.find(params[:skill_id])

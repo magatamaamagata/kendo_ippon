@@ -13,7 +13,6 @@ class Post < ApplicationRecord
   validates :video_or_gif_url, presence: true
   validate :video_checker, if: :video_was_attached?
 
-
   private
 
   def video_or_gif_url
@@ -21,13 +20,11 @@ class Post < ApplicationRecord
   end
 
   def video_checker
-    extension=["video/mp4","video/mov","video/avi","video/wmv","video/flv","video/mpg","video/mkv"]
-    unless video.content_type.in?(extension)
-      errors.add(:video, "を添付してください")
-    end
+    extension = ['video/mp4', 'video/mov', 'video/avi', 'video/wmv', 'video/flv', 'video/mpg', 'video/mkv']
+    errors.add(:video, 'を添付してください') unless video.content_type.in?(extension)
   end
-  
+
   def video_was_attached?
-    self.video.attached? 
+    video.attached?
   end
 end
