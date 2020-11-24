@@ -60,8 +60,5 @@ http://18.178.123.245/
 ### 4.1 動画比較
 [![Image from Gyazo](https://i.gyazo.com/675fc381e3c52ebb25dac8c3f28ce0c9.gif)](https://gyazo.com/675fc381e3c52ebb25dac8c3f28ce0c9)
 
-### 4.2 記録詳細
-[![Image from Gyazo](https://i.gyazo.com/0390c7756e9cd5569a5d160fe580ca61.gif)](https://gyazo.com/0390c7756e9cd5569a5d160fe580ca61)
-
-### 4.3 クイズ機能
+### 4.2 クイズ機能
 [![Image from Gyazo](https://i.gyazo.com/af9eb2cac1e3924c2b55f50f65611f89.gif)](https://gyazo.com/af9eb2cac1e3924c2b55f50f65611f89)
