@@ -67,12 +67,12 @@ http://18.178.123.245/
   * 結合テスト(3system)
 
 ## アプリの様子
-- 記録詳細ページ
-[![Image from Gyazo](https://i.gyazo.com/4ad2780a9e9b08a328567eb3a6a317d9.gif)](https://gyazo.com/4ad2780a9e9b08a328567eb3a6a317d9)
 
 - 動画比較
 [![Image from Gyazo](https://i.gyazo.com/675fc381e3c52ebb25dac8c3f28ce0c9.gif)](https://gyazo.com/675fc381e3c52ebb25dac8c3f28ce0c9)
 
+- 記録詳細ページ
+<a href="https://gyazo.com/4ad2780a9e9b08a328567eb3a6a317d9"><img src="https://i.gyazo.com/4ad2780a9e9b08a328567eb3a6a317d9.gif" alt="Image from Gyazo" width="1000"/></a>
 
 - クイズ機能
 [![Image from Gyazo](https://i.gyazo.com/af9eb2cac1e3924c2b55f50f65611f89.gif)](https://gyazo.com/af9eb2cac1e3924c2b55f50f65611f89)
