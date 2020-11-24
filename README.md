@@ -2,10 +2,10 @@
 剣道の上達を目指すためのアプリです。
 http://18.178.123.245/
 
-以下の３つの機能により「自分の改善点がわからない」という課題を解決します。
-**1. 比較**<br>自分の試合動画や稽古動画を投稿し、自分の技を上級者と比較する。
-**2. 改善点記録**<br>できている部分、足りない部分、次回の稽古で直すことを記録します。
-**3. アドバイス**<br>コメント機能により他者からアドバイスが得る。
+以下の３つの機能により「自分の改善点がわからない」という課題を解決します。<br>
+**1. 比較**<br>自分の試合動画や稽古動画を投稿し、自分の技を上級者と比較する。<br>
+**2. 改善点記録**<br>できている部分、足りない部分、次回の稽古で直すことを記録します。<br>
+**3. アドバイス**<br>コメント機能により他者からアドバイスが得る。<br>
 [![Image from Gyazo](https://i.gyazo.com/7fb8e728c2ff720056b4b4d11d201424.gif)](https://gyazo.com/7fb8e728c2ff720056b4b4d11d201424)
 
 ## 2. 機能
@@ -61,7 +61,7 @@ http://18.178.123.245/
 [![Image from Gyazo](https://i.gyazo.com/675fc381e3c52ebb25dac8c3f28ce0c9.gif)](https://gyazo.com/675fc381e3c52ebb25dac8c3f28ce0c9)
 
 ### 4.2 記録詳細
-[![Image from Gyazo](https://i.gyazo.com/af9eb2cac1e3924c2b55f50f65611f89.gif)](https://gyazo.com/af9eb2cac1e3924c2b55f50f65611f89)
+[![Image from Gyazo](https://i.gyazo.com/0390c7756e9cd5569a5d160fe580ca61.gif)](https://gyazo.com/0390c7756e9cd5569a5d160fe580ca61)
 
 ### 4.3 クイズ機能
 [![Image from Gyazo](https://i.gyazo.com/af9eb2cac1e3924c2b55f50f65611f89.gif)](https://gyazo.com/af9eb2cac1e3924c2b55f50f65611f89)
