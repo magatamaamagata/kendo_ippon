@@ -16,7 +16,7 @@
   <body>
   <header class='top-page-header'> 
     <div class='search-bar-contents'>
-      <%= link_to image_tag("kendo.png", class:"ippon-icon"), "/",name: "link" %>
+      <%= link_to image_tag("kendo.png", class:"ippon-icon"), posts_path ,name: "link" %>
     </div> 
 
   <%if user_signed_in? %>
@@ -26,12 +26,19 @@
     <div class='nav'>
       <ul class='lists-right'>
         <%if user_signed_in?%>
+          <%if @link_disable %>
+            <li class="list-top"><%= link_to "#{current_user.nickname}","#",class: "user_link",name: "link" %></li>
+            <li class="list-top"><%= link_to 'ログアウト', "#", class: "logout" ,name: "link" %></li>
+          <% else %>
             <li class="list-top"><%= link_to "#{current_user.nickname}", user_path(current_user.id),class: "user_link",name: "link" %></li>
             <li class="list-top"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" ,name: "link" %></li>
+          <%end%>
         <%else%>
           <li class="list-top"><%= link_to 'ゲストログイン', "/users/guest_sign_in", method: :post %></li>
           <li class="list-top"><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
           <li class="list-top"><%= link_to '新規登録', new_user_registration_path , class: "sign-up" %></li>
+          
+
         <%end%>
       </ul>
     </div>

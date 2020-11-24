@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<%# activehashから持ってきたyouutbeのid情報と開始時間 %>
   <div id="get_video_id" skill_id=<%= @skill.youtube.url_id %>></div>
   <div id="get_video_start" start_time=<%= @skill.youtube.start %>></div>
   <div class="videos">
@@ -22,7 +23,7 @@
       const firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      // 3. APIコードを読み込んだ後にyoutubeの枠を作りビデオを再生する準備をする
+      // APIコードを読み込んだ後にyoutubeの枠を作りビデオを再生する準備をする
       let player;
       function onYouTubeIframeAPIReady() {
         const video = document.getElementById("get_video_id");
@@ -30,11 +31,13 @@
         const startTime = document.getElementById("get_video_start");
         const start = startTime.getAttribute("start_time");
         player = new YT.Player('player', {
-          startSeconds: start,
           videoId:  skillId,
           events: {
             //ビデオ再生する準備ができたら起動する関数
             'onReady': onPlayerReady,
+          },
+          playerVars: {
+              start: start, // 動画再生の開始位置
           }
         });
       }

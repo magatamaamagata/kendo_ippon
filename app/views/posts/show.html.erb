@@ -10,16 +10,16 @@
       <div id="player"></div>
     <% end %>
 </div>
-
+<div class="post-bottom">
     <% if user_signed_in? && current_user.id == @post.user.id  %>
       <%= link_to '編集', edit_post_path(params[:id]), method: :get, class: "skill-edit-btn" %>
       <%= link_to '削除', post_path(params[:id]), method: :delete, class:'skill-destroy-btn' %>
-    <%elsif Judge.find_by(user_id: current_user.id, post_id: @post.id).present?%>
-      <%="前回のあなたの回答は#{@ok_or_ng}でした。" %>
-      <%= link_to '再チャレンジする', edit_post_judge_path(params[:id]), class: "skill-edit-btn" %>
+    <%elsif Judge.find_by(user_id: current_user, post_id: @post).present?%>
+      <%="前回のあなたの回答は、#{@ok_or_ng}でした。" %>
+      <%= link_to '再チャレンジする', edit_post_judge_path(@post,@judge), class: "skill-edit-btn" %>
     <%else%>
       <%= link_to '回答する', new_post_judge_path(params[:id]), class: "skill-edit-btn" %>
     <% end %>
-
+</div>
   </body>
 </html>

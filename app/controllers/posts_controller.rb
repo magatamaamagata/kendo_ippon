@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    render layout: "quiz_top"
   end
 
   def create
@@ -25,11 +26,13 @@ class PostsController < ApplicationController
     if !(@judge.nil?) && @post.judge_correct.id == @judge.judge_correct.id
       @ok_or_ng = "正解"
     else
-      @ok_or_ng = "間違い"
+      @ok_or_ng = "不正解"
     end
+    render layout: "quiz_top"
   end
 
   def edit
+    render layout: "quiz_top"
   end
 
   def update
@@ -43,6 +46,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_path
+    
   end
 
   private
