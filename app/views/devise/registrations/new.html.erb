@@ -5,12 +5,12 @@
 
   <div class='nickname_wrap'>
     <%= f.label :nickname %><br />
-    <%= f.text_field :nickname, class:"nickname", id:"name", placeholder:"例) 一流剣士" %>
+    <%= f.text_field :nickname, class:"nickname", id:"name", placeholder:"例) 一流剣士" , required: true%>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" , required: true%>
   </div>
 
   <div class="field">
@@ -18,12 +18,12 @@
     <% if @minimum_password_length %>
     (<%= @minimum_password_length %> 文字以上)
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" , placeholder:"6文字以上", id:"password"%>
+    <%= f.password_field :password, autocomplete: "new-password" , placeholder:"6文字以上", id:"password", required: true%>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" , id:"password_confirmation"%>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" , id:"password_confirmation", required: true%>
   </div>
 
   <div class="field">

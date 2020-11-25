@@ -2,17 +2,17 @@
   <%= form_with model:[@skill,@compare], data: {"turbolinks" => false}, local: true do |f| %>
     <div class="field">
       <%= f.label value="良いところ" %><br />
-        <%= f.text_area :continuation, class:"form_text_area", id:"continuation" %>
+        <%= f.text_area :continuation, class:"form_text_area", id:"continuation" , required: true%>
     </div>
 
     <div class="field">
       <%= f.label "比較した結果差があると感じたこと" %><br />
-        <%= f.text_area :problem, class:"form_text_area", id:"problem" %>
+        <%= f.text_area :problem, class:"form_text_area", id:"problem" , required: true%>
     </div>
 
     <div class="field">
       <%= f.label "改善すること、次回の稽古で試してみること" %><br />
-        <%= f.text_area :make_better, class:"form_text_area", id:"make_better" %>
+        <%= f.text_area :make_better, class:"form_text_area", id:"make_better" , required: true%>
     </div>
     
     <div class="field">
@@ -22,7 +22,7 @@
 
     <div class="field">
       <%= f.label "公開設定"%><br /> 
-      <%= f.collection_select(:public_id, Public.all, :id, :name, {}, {class:"public-select"}) %>
+      <%= f.collection_select(:public_id, Public.all, :id, :name, {}, {class:"public-select"})%>
     </div>
 
     <%= f.submit "投稿する" ,class: "post-button"%>
