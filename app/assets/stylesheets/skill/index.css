@@ -133,3 +133,6 @@ h3{
   cursor: pointer;
 }
 
+.form_text_area:invalid {
+  border: 1px solid rgb(201, 198, 198);
+}
