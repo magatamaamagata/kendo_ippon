@@ -15,6 +15,13 @@ class CommentsController < ApplicationController
     # binding.pry
   end
 
+  def destroy
+    @skill = Skill.find(params[:skill_id])
+    @comment = Comment.find_by(skill_id: params[:skill_id])
+    @comment.destroy
+    redirect_to skill_path(@skill)
+  end
+
   private
 
   def move_to_index

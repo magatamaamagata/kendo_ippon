@@ -146,3 +146,18 @@ p.kpt1{
   color: white;
   cursor: pointer;
 }
+
+.comment_del_btn{
+  font-size: 15px;
+  background-color: white;
+  color: rgb(139, 139, 139);
+  padding: 3px;
+  border-radius:3px;
+  text-align: center;
+  border: 2px solid rgb(139, 139, 139);
+}
+
+.comment_del_btn:hover{
+  color: black;
+  border: 2px solid black;
+}

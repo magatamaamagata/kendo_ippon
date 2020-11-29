@@ -23,6 +23,7 @@ class SkillsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = Comment.includes(:user).includes(:skill).order('created_at DESC')
+    @comment_del = Comment.find_by(skill_id: params[:id])
   end
 
   def edit
