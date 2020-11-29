@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :skills  do
     resources :compares, only: [:new,:create,:edit,:update]
-    resources :comments, only: [:new,:create]
+    resources :comments, only: [:new,:create,:destroy]
   end
   resources :users, only: [:edit, :update, :show, :destroy]
 end
