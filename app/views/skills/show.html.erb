@@ -1,28 +1,28 @@
 <body>
-<%# <%= require "json" %>
-<%# 非同期通信で使用 %> 
-  <div class="skill-top">
+
+<div class="skill-top">
     <p><%=@skill.youtube.name%></p>
     <%= render "technique/model" %>
-  </div>
+</div>
 <div class="skill-show-bottom">
   <%= render "technique/element" %>
   <div class="kpt_record">
     <div class="kpt_table">
-    <%if @skill.compare %>
-      <p class="kpt1"><%="#{@skill.user.nickname}さんの記録 #{l @skill.created_at}"%></p>
-      <p class="kpt2">Keep(良いところ、継続すること)</p>
-      <p class="kpt3"><%=@skill.compare.continuation %></p>
-      <p class="kpt2">Problem(上手い人との差、足りないところ)</p>
-      <p class="kpt3"><%=@skill.compare.problem %></p>
-      <p class="kpt2">Try(改善点、次回の稽古で意識すること)</p>
-      <p class="kpt3"><%=@skill.compare.make_better %></p>
-      <p class="kpt2">その他気付き</p>
-      <p class="kpt3"><%=@skill.compare.notice %></p>
-    <%end%>
+      <%if @skill.compare %>
+        <p class="kpt1"><%="#{@skill.user.nickname}さんの記録 #{l @skill.created_at}"%></p>
+        <p class="kpt2">Keep(良いところ、継続すること)</p>
+        <p class="kpt3"><%=@skill.compare.continuation %></p>
+        <p class="kpt2">Problem(上手い人との差、足りないところ)</p>
+        <p class="kpt3"><%=@skill.compare.problem %></p>
+        <p class="kpt2">Try(改善点、次回の稽古で意識すること)</p>
+        <p class="kpt3"><%=@skill.compare.make_better %></p>
+        <p class="kpt2">その他気付き</p>
+        <p class="kpt3"><%=@skill.compare.notice %></p>
+      <%end%>
     </div>
+
   <div class="skill-show-block">
-    <%= form_with model: [@skill,@comment], id: "form" ,local: true do |f| %>
+    <%= form_with model: [@skill,@comment], data: {"turbolinks" => false}, id: "form" ,local: true do |f| %>
       <%if user_signed_in? %>
         <%= f.text_field :text, id: "comment" ,class: "comment-form", placeholder: "公開コメントを入力する.." %>
         <%= f.submit '投稿する' , id: "submit" %>
@@ -30,12 +30,13 @@
         <p　class="comment-warning">コメントの投稿には新規登録/ログインが必要です</p>
       <%end%>
     <% end %>
-<%# <div id="list">非同期通信で使用? %>
-    <% @comments.each do |comment| %>
-      <%if comment.skill_id == @skill.id %>
-        <div id="getid" class= "comment-area" data-skillid=<%= comment.skill.id %> >
+    <div class="scroll">
+      <% @comments.each do |comment| %>
+        <%if comment.skill_id == @skill.id %>
+        <div id="getid" class= "comment-area" data-skillid=<%= comment.skill.id %> data-name=<%= comment.user.nickname%> data-time=<%=time_ago_in_words(comment.created_at)%> >
+            <div id="list"></div>
           <div class="comment-date">
-            <time datetime="<%= comment.created_at %>">
+            <time>
               <%= time_ago_in_words(comment.created_at) %>前
             </time>
           </div>
@@ -43,10 +44,11 @@
             <%= comment.text %>  by <%= comment.user.nickname%>
           </div>
         </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+  </div>
 </div>
   <% if user_signed_in? && current_user.id == @skill.user.id %>
     <div class="edit-delete-btn">
@@ -57,54 +59,40 @@
 </body>
 
 <%# 非同期通信をする時に使用 %>
-<%# <script>
+<script>
 
 function comment() {
   const submit = document.getElementById("submit");
   submit.addEventListener("click", (e) => {
-    const formData = new FormData(document.getElementById("comment"));
-    const XHR = new XMLHttpRequest();
+    const formData = new FormData(document.getElementById("form"));
     const post = document.getElementById("getid");
-    console.log(post)
-    const skillId = post.getAttribute("data-skillId");
-    console.log(skillId)
-    // //日付オブジェクトを作成する
-    // const dd = new Date();
-    // //「年」を取得する
-    // const YYYY = dd.getFullYear();
-    // //「月」を取得する
-    // const MM = dd.getMonth()+1;
-    // //「日」を取得する
-    // const DD = dd.getDate();
-    // console.log(dd)
-
-    debugger;
+    const skillId = post.getAttribute("data-skillid");
+    const nickname = post.getAttribute("data-name");
+    const time = post.getAttribute("data-time");
+    const XHR = new XMLHttpRequest();
     XHR.open("POST", `/skills/${skillId}/comments`, true);
     XHR.responseType = "json";
-    debugger;
     XHR.send(formData);
-    console.log(formData);
-    // debugger
     XHR.onload = () => {
       if (XHR.status != 200) {
         alert(`Error ${XHR.status}: ${XHR.statusText}`);
         return null;
       }
       const item = XHR.response.comment;
-      console.log(item)
       const list = document.getElementById("list");
       const formText = document.getElementById("comment");
-
+      const post = document.getElementById("getid");
+      const nickname = post.getAttribute("data-name");
+      const time = post.getAttribute("data-time");
       const HTML = `
-        <div class="comment" data-id=${item.id}>
+      <div class= "comment-area">
           <div class="comment-date">
-            投稿日時：${YYYY}/${MM}/${DD};
+            ${time}前
           </div>
-          <div class="post-comment">
-          ${item.text}
+          <div class="comment-content">
+            ${item.text}  by ${nickname}
           </div>
-
-        </div>`;
+      <div>`;
       list.insertAdjacentHTML("afterend", HTML);
       formText.value = "";
     };
@@ -112,4 +100,4 @@ function comment() {
   });
 }
 window.addEventListener("load", comment);
-</script> %>
+</script>

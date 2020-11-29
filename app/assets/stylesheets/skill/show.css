@@ -5,9 +5,15 @@
   font-size: 40px;
 }
 
+.scroll{
+  width: 100%;
+  overflow-y: scroll;
+  border: 1px solid black;
+  height: 500px;
+}
 .comment-area{
   margin: 10px 0;
-  width: calc(100vw / 3);
+
 }
 
 .comment-form{
@@ -35,6 +41,7 @@
   border: 3px solid black;
   flex-direction: column;
   width: calc(100vw / 3);
+  height: 50px;
   margin: 50px auto;
   position: relative;
 }
@@ -53,7 +60,7 @@
 
 .skill-show-block{
   margin: 20px 0;
-  overflow-y: scroll;
+
 }
 
 

@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  # include ActionView::Helpers::UrlHelper
+
 
   def new
     @comment = Comment.new
@@ -8,9 +10,9 @@ class CommentsController < ApplicationController
 
   def create
     @skill = Skill.find(params[:skill_id])
-    @comment = Comment.create(comment_params)
-    # render json: { comment: @comment }
-    redirect_to skill_path(params[:skill_id])
+    comment = Comment.create(comment_params)
+    render json: { comment: comment }
+    # binding.pry
   end
 
   private
