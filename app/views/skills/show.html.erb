@@ -43,7 +43,7 @@
           <div class="comment-content">
             <%= comment.text %>  by <%= comment.user.nickname%>
             <%if user_signed_in? && comment.user_id == current_user.id %>
-              <%= link_to 'コメント削除', skill_comment_path(@skill,@comment_del), method: :delete, class:'comment_del_btn' %>
+              <%= link_to '削除', skill_comment_path(@skill,@comment_del), method: :delete, class:'comment_del_btn' %>
             <%end %>
           </div>
         </div>
