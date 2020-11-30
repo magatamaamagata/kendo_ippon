@@ -84,6 +84,7 @@
               <%= link_to (video_tag rails_blob_path(skill.video) ,class: "video-index"), skill_path(skill)%>
               <p><%= "技名：#{skill.youtube.name}" %></p>
               <p><%= link_to "投稿者：#{skill.user.nickname}さん #{skill.user.grade.name}",user_path(skill.user.id), class: "user-name" %></p>
+              <p><%= "投稿日：#{l skill.created_at}" %></p>
             </div>
           </div>
         <%else%>
