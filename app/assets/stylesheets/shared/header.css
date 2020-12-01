@@ -16,7 +16,7 @@
 }
 
 .ippon-icon {
-  width: calc(100vw - 300px);
+  width: calc(100vw - 400px);
   max-height: 150px;
   max-width: 566px;
   min-height: 50px;
@@ -28,8 +28,8 @@
   height: 150px;
   margin: 0 3vw;
   display: flex;
-  align-items: right;
-
+  justify-content: center;
+  align-items: center;
 }
 
 .lists-right,.lesson-container {
@@ -38,13 +38,15 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column-reverse;
-  margin: auto;
+  /* margin: auto; */
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .list-top,.lesson-card{
   display: block;
   padding: 10px 5px;
-  margin: 3px 30px;
+  margin: 3px 10px;
   border-radius:3px;
   background-color: #CC9933;
   color:black;

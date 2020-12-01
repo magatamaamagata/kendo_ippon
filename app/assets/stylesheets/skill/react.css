@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
   font-family: "Avenir Next";
@@ -27,39 +27,36 @@ h3 {
   border-bottom: 1px solid #e1e6ec;
   line-height: 64px;
   margin-bottom: 40px;
-}
-.main-wrapper {
-  background-color: #f4fafa;
-}
+} */
+
 .main {
   max-width: 1040px;
   margin: 0 auto;
-  padding: 96px 0;
 }
-/* .lesson-container {
-  margin-top: 96px;
-} */
-/* .lesson-card {
+.lesson-container {
+  /* flex-direction: column; */
+}
+.lesson-card {
   display: inline-block;
   width: 5.5%;
-  margin-right: 24px;
+  margin: 10px 5px;
   text-align: center;
-  box-shadow: 0 0 6px #e8e8e8;
-  background-color: #fff;
+  /* box-shadow: 0 0 6px #e8e8e8; */
+  /* background-color: #fff; */
   cursor: pointer;
-} */
+}
 .lesson-item {
   height: 140px;
   border-radius: 4px;
-  padding: 0px;
-  writing-mode: vertical-rl;
+  padding: 5px 0;
+  /* writing-mode: vertical-rl; */
   text-align: left;
 }
 .lesson-item img {
   width: 126px;
 }
 .lesson-item p {
-  color: #2b546a;
+  color: black;
 }
 .modal {
   position: fixed;
@@ -111,4 +108,10 @@ h3 {
   color: #8491a5;
   background-color: #ccd9ea;
   transition: .3s ease-in-out;
+}
+
+.how-to-use p{
+  text-align: center;
+  margin: 5px 0;
+  /* writing-mode: vertical-rl; */
 }

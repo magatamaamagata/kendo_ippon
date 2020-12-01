@@ -18,10 +18,10 @@
   <body>
   <header class='top-page-header'> 
     <div class='search-bar-contents'>
-      <%= link_to image_tag("kendo.png", class:"ippon-icon"), "/",name: "link" %>
+      <%= link_to image_tag("kendo.png", class: "ippon-icon"), "/",name: "link" %>
     </div> 
-
-    <h1>React</h1>
+    <div class="how-to-use">
+      <p class="list-top">使い方</p>
     <div id="root">wait...</div>
     <script type="text/babel">
     let dom = document.querySelector('#root');
@@ -30,7 +30,7 @@ class Main extends React.Component {
     const lessonList = [
       {
         name: '一、動画投稿',
-        image: "http://www.kendo-ippon.com/assets/image1-0a874194fcfe748d952b01cb4bca292a9c9b8e725e9b4854341d9f1a86abc0ba.png",
+        image: "1.png",
         introduction: '自分の動画を投稿しよう。',
       },
       {
@@ -118,6 +118,7 @@ let el = (
 ReactDOM.render(el, dom);
 </script>
 
+    </div>
 
 
 
