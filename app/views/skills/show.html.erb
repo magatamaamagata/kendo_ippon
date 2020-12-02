@@ -22,7 +22,7 @@
     </div>
 
   <div class="skill-show-block">
-    <%= form_with model: [@skill,@comment], data: {"turbolinks" => false}, id: "form" ,local: true do |f| %>
+    <%= form_with model: [@skill,@comment], data: {"turbolinks" => false}, id: "form" ,local: true, remote: true do |f| %>
       <%if user_signed_in? %>
         <%= f.text_field :text, id: "comment" ,class: "comment-form", placeholder: "公開コメントを入力する.." %>
         <%= f.submit '投稿する' , id: "submit" %>

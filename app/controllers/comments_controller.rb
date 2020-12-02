@@ -10,8 +10,10 @@ class CommentsController < ApplicationController
 
   def create
     @skill = Skill.find(params[:skill_id])
-    comment = Comment.create(comment_params)
-    render json: { comment: comment }
+    @comment = Comment.create(comment_params)
+    # render json: { comment: @comment }
+    render json: {comment: @comment, status: :created, location: @comment }
+
     # binding.pry
   end
 
