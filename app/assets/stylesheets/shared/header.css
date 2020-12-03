@@ -32,15 +32,17 @@
   align-items: center;
 }
 
-.lists-right,.lesson-container {
+.lists-right{
   writing-mode: vertical-rl;
   list-style: none;
   display: flex;
   justify-content: space-around;
   flex-direction: column-reverse;
-  /* margin: auto; */
-  /* justify-content: center; */
-  /* align-items: center; */
+}
+
+.lesson-container{
+  list-style: none;
+  flex-direction: column-reverse;
 }
 
 .list-top,.lesson-card{

@@ -25,22 +25,24 @@
     <div id="root">wait...</div>
     <script type="text/babel">
     let dom = document.querySelector('#root');
+
 class Main extends React.Component {
   render() {
+    // const image = require('./image1.png');
     const lessonList = [
       {
         name: '一、動画投稿',
-        image: "1.png",
+        image: 'https://gyazo.com/f3fb65a8623198dcad1a78c84794b1e1',
         introduction: '自分の動画を投稿しよう。',
       },
       {
         name: '二、比較・記録',
-        image: 'http://www.kendo-ippon.com/assets/image2-a5dcd73aa2630637abc975ea1b909f5daca9c37c6b7a8343337f74d21cd55a07.png',
+        image: 'https://d2aj9sy12tbpym.cloudfront.net/progate/shared/images/slide/react/study/1/1548411826972.png',
         introduction: '技に応じた動画が表示されるので比較しよう。上級者との差、自分の改善点を記録しよう。\n自身で比較したい動画を選択することもできます。\n公開非公開を選べます。',
       },
       {
         name: '三、コメント',
-        image: 'http://www.kendo-ippon.com/assets/image3-c2f99d68ea81ecdbfc32cf67fd9cf980317017e82dda148ab0b749b556525be6.png',
+        image: 'http://www.komeda.co.jp/images_r/main_ph.png?id=20180601',
         introduction: '他人の動画を見てコメントしよう。\n言語化すること、アドバイスをもらうことで上達しよう。',
       },
       {
