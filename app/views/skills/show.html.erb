@@ -34,7 +34,7 @@
       <% @comments.each do |comment| %>
         <%if comment.skill_id == @skill.id %>
         <div id="getid" class= "comment-area" data-skillid=<%= comment.skill.id %> data-name=<%= comment.user.nickname%> data-time=<%=time_ago_in_words(comment.created_at)%> >
-            <div id="list"></div>
+          <div id="list"></div>
           <div class="comment-date">
             <time>
               <%= time_ago_in_words(comment.created_at) %>前
@@ -70,12 +70,13 @@ function comment() {
     const formData = new FormData(document.getElementById("form"));
     const post = document.getElementById("getid");
     const skillId = post.getAttribute("data-skillid");
-    const nickname = post.getAttribute("data-name");
-    const time = post.getAttribute("data-time");
+    // const nickname = post.getAttribute("data-name");
+    // const time = post.getAttribute("data-time");
     const XHR = new XMLHttpRequest();
     XHR.open("POST", `/skills/${skillId}/comments`, true);
     XHR.responseType = "json";
     XHR.send(formData);
+    debugger;
     XHR.onload = () => {
       if (XHR.status != 200) {
         alert(`Error ${XHR.status}: ${XHR.statusText}`);
@@ -84,7 +85,7 @@ function comment() {
       const item = XHR.response.comment;
       const list = document.getElementById("list");
       const formText = document.getElementById("comment");
-      const post = document.getElementById("getid");
+      // const post = document.getElementById("getid");
       const nickname = post.getAttribute("data-name");
       const time = post.getAttribute("data-time");
       const HTML = `

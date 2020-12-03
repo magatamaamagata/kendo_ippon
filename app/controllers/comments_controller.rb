@@ -10,9 +10,13 @@ class CommentsController < ApplicationController
 
   def create
     @skill = Skill.find(params[:skill_id])
-    @comment = Comment.create(comment_params)
-    # render json: { comment: @comment }
-    render json: {comment: @comment, status: :created, location: @comment }
+    if Comment.find_by(skill_id: @skill.id) 
+      @comment = Comment.create(comment_params)
+      render json: {comment: @comment, status: :created, location: @comment }
+    else
+      @comment = Comment.create(comment_params)
+      redirect_to skill_path(@skill.id)
+    end 
 
     # binding.pry
   end
