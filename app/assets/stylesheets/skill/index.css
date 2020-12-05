@@ -31,7 +31,9 @@
   margin: 50px auto;
   position: relative;
 }
-
+.link-skill{
+  z-index:1;
+}
 .link-skill::after {
   position:absolute;
   top:0;right:0;bottom:0;left:0;

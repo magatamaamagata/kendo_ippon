@@ -53,7 +53,9 @@
   color: #5876a3;
   width: 384px;
   line-height: 32px;
-  text-align: left;
+  text-align: center;
+  display: flex;
+  align-items: center;
   margin: 36px auto 40px;
 }
 .modal-introduction p:first-letter {
@@ -77,5 +79,9 @@
 
 .how-to-use p{
   text-align: center;
-  margin: 5px 0;
+  /* margin: 5px 0; */
+}
+.modal{
+  z-index:5;
+
 }
