@@ -9,15 +9,18 @@
   text-align: center;
   cursor: pointer;
 }
+
 .lesson-item {
   height: 140px;
   border-radius: 4px;
   padding: 5px 0;
   text-align: left;
 }
+
 .lesson-item img {
   width: 126px;
 }
+
 .lesson-item p {
   color: black;
   writing-mode: vertical-rl;
@@ -31,6 +34,7 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
 }
+
 .modal-inner {
   position: absolute;
   top: 8%;
@@ -41,6 +45,7 @@
   margin: auto;
   background-color: rgb(255, 255, 255);
   border-radius: 8px;
+  height: 80vh;
 }
 .modal-header {
   height: 8px;
@@ -58,9 +63,9 @@
   align-items: center;
   margin: 36px auto 40px;
 }
-.modal-introduction p:first-letter {
-  font-size: 1.2em;
-  font-weight: bolder;
+.modal-introduction{
+height: 50vw;
+/* border-radius: 10px; */
 }
 .modal-close-btn {
   font-size: 13px;
@@ -79,9 +84,18 @@
 
 .how-to-use p{
   text-align: center;
-  /* margin: 5px 0; */
 }
+
 .modal{
   z-index:5;
+}
 
+.modal-introduction img{
+ width: 100%;
+ border-radius: 8px;
+}
+
+.modal-introduction h2{
+  margin-top: 10px;
+  font-weight: bold;
 }
