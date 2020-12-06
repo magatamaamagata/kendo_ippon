@@ -5,6 +5,7 @@ class SkillsController < ApplicationController
 
   def index
     @skills = Skill.includes(:user).order('created_at DESC')
+    render layout: 'react'
   end
 
   def new

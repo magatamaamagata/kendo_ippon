@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   before_action :move_to_index, only: [:edit, :update, :delete]
   def index
     @posts = Post.includes(:user).order('created_at DESC')
+    render layout: 'react'
   end
 
   def new

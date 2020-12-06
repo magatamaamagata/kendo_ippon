@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>KendoIppon</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+  </head>
+
+  <body>
+  <header class='top-page-header'> 
+    <div class='search-bar-contents'>
+      <%= link_to image_tag("kendo.png", class: "ippon-icon"), "/",name: "link" %>
+    </div> 
+    
+    <div class="how-to-use">
+      <p class="list-top">&lt;使い方&gt;</p>
+    <div id="root">wait...</div>
+    <script type="text/babel">
+    let dom = document.querySelector('#root');
+
+class Main extends React.Component {
+  render() {
+    const lessonList = [
+      {
+        name: '一、動画投稿',
+        image: 'https://i.gyazo.com/c0d8c0f7770fb01df835cd6d8c50ad61.png',
+        introduction: '自分の動画を投稿しよう。',
+      },
+      {
+        name: '二、比較・記録',
+        image: 'https://i.gyazo.com/428a644ab78f854bf17ff41a835e664e.png',
+        introduction: '技に応じた動画が表示されるので比較しよう。上級者との差、自分の改善点を記録しよう。\n自身で比較したい動画を選択することもできます。\n公開非公開を選べます。',
+      },
+      {
+        name: '三、コメント',
+        image: 'https://i.gyazo.com/ec4b24c26ae5e0ff7b1d27a065e0ae4b.png',
+        introduction: '他人の動画を見てコメントしよう。\n言語化すること、アドバイスをもらうことで上達しよう。',
+      },
+      {
+        name: '四、クイズ',
+        image: 'https://i.gyazo.com/744c21502c4363c4f0e4b52cc3f64a23.png',
+        introduction: '動画を見て一本かどうか答えよう。\n正解するとレベルがアップしていきます。',
+      },
+    ];
+    return (
+      <div className='main-wrapper'>
+        <div className='main'>
+          <div className='lesson-container'>
+            {lessonList.map((lessonItem) => {
+              return (
+                <Lesson
+                  name={lessonItem.name}
+                  image={lessonItem.image}
+                  introduction={lessonItem.introduction}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+class Lesson extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isModalOpen: false};
+  }
+  handleClickStep() {
+    this.setState({isModalOpen: true});
+  }
+  handleClickClose() {
+    this.setState({isModalOpen: false});
+  }
+  render() {
+    let modal;
+    if (this.state.isModalOpen) {
+      modal = (
+        <div className='modal' onClick={() => {this.handleClickClose()}}>
+          <div className='modal-inner'>
+            <div className='modal-sub'>
+              <div className='modal-introduction'>
+                <h2>{this.props.name}</h2>
+                <p style={{ whiteSpace: "pre-line" }}>{this.props.introduction}</p>
+                <img src={this.props.image} />
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return (
+      <div className='lesson-card'>
+        <div
+          className='lesson-item'
+          onClick={() => {this.handleClickStep()}}
+        >
+          <p>{this.props.name}</p>
+        </div>
+        {modal}
+      </div>
+    );
+  }
+}
+let el = (
+  <div>
+    <Main />
+  </div>
+);
+ReactDOM.render(el, dom);
+
+</script>
+
+    </div>
+
+
+
+
+
+
+
+  <%if user_signed_in? %>
+    <div class="user"> 
+    </div>
+  <%end%> 
+    <div class='nav'>
+      <ul class='lists-right'>
+        <%if user_signed_in?%>
+            <li class="list-top"><%= link_to "#{current_user.nickname}", user_path(current_user.id),class: "user_link",name: "link" %></li>
+            <li class="list-top"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" ,name: "link" %></li>
+        <%else%>
+          <li class="list-top"><%= link_to 'ゲストログイン', "/users/guest_sign_in", method: :post %></li>
+          <li class="list-top"><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+          <li class="list-top"><%= link_to '新規登録', new_user_registration_path , class: "sign-up" %></li>
+        <%end%>
+      </ul>
+    </div>
+</header>
+
+    <%= yield %>
+
+    <footer>
+      <h2 class='footer-content-head'>〜比較・記録・改善で上達しよう〜</h2>
+      <ul class='lists'>
+        <li><%= link_to '剣道一本について', "#", class: "nippon_link" ,name: "link"%></li>
+        <li><%= link_to '全日本剣道連盟', "https://www.kendo.or.jp/", target: "_blank", rel: "noopener noreferrer",class: "nippon_link" ,name: "link"%></li>
+      </ul>
+      <p class="kendo-ippon">© Kendo-Ippon 2020</p>
+    </footer>
+  </body>
+</html>

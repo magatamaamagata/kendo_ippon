@@ -1,7 +1,5 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  # include ActionView::Helpers::UrlHelper
-
 
   def new
     @comment = Comment.new
@@ -17,8 +15,6 @@ class CommentsController < ApplicationController
       @comment = Comment.create(comment_params)
       redirect_to skill_path(@skill.id)
     end 
-
-    # binding.pry
   end
 
   def destroy
@@ -31,7 +27,6 @@ class CommentsController < ApplicationController
   private
 
   def move_to_index
-    # @comment = Comment.find(params[:skill_id])
     @skill = Skill.find(params[:skill_id])
     redirect_to root_path unless user_signed_in? && (current_user.id == @skill.user.id)
   end
